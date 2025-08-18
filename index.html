@@ -11,15 +11,20 @@
     <meta http-equiv="x-dns-prefetch-control" content="off" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-    
+
     <!-- Security Headers for Best Practices -->
-    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <!-- Note: X-Frame-Options must be set via HTTP header, not meta tag -->
     <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
     <meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp" />
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
-    
+    <meta
+      http-equiv="Strict-Transport-Security"
+      content="max-age=31536000; includeSubDomains; preload"
+    />
+
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
       default-src 'self';
       script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:;
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
@@ -33,7 +38,8 @@
       form-action 'self';
       upgrade-insecure-requests;
       block-all-mixed-content;
-    " />
+    "
+    />
 
     <!-- Material Symbols from Google Fonts -->
     <link
@@ -5116,10 +5122,11 @@
 
         async registerServiceWorker() {
           // 檢查是否在安全環境 (HTTPS 或 localhost)
-          const isSecureContext = location.protocol === 'https:' || 
-                                 location.hostname === 'localhost' ||
-                                 location.hostname === '127.0.0.1';
-          
+          const isSecureContext =
+            location.protocol === 'https:' ||
+            location.hostname === 'localhost' ||
+            location.hostname === '127.0.0.1';
+
           try {
             // 只在安全環境下使用 virtual:pwa-register
             if (isSecureContext && 'import' in window) {

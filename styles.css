@@ -403,9 +403,10 @@
         box-shadow: 0 16px 36px rgba(246, 111, 185, 0.35);
       }
       .menu-btn-secondary {
-        background: var(--bg-primary);
-        color: var(--gray-700);
+        background: #ffffff;
+        color: #000000;
         border: 2px solid var(--sky-200);
+        font-weight: 600;
       }
       .menu-btn-secondary:hover {
         background: var(--sky-50);

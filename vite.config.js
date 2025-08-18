@@ -32,17 +32,17 @@ export default defineConfig({
         orientation: 'portrait',
         icons: [
           {
-            src: '/icons/icon-192x192.png',
+            src: 'icons/icon-192x192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: '/icons/icon-512x512.png',
+            src: 'icons/icon-512x512.png',
             sizes: '512x512',
             type: 'image/png',
           },
           {
-            src: '/icons/icon-512x512.png',
+            src: 'icons/icon-512x512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable',
@@ -52,11 +52,15 @@ export default defineConfig({
 
       // Workbox 配置 - 基於 Context7 最佳實踐
       workbox: {
-        // 預快取檔案模式
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest}'],
+        // 預快取檔案模式 - 包含所有必要資源
+        globPatterns: [
+          '**/*.{js,css,html,ico,png,svg,webmanifest,woff2}',
+          'icons/**/*.{png,svg,ico}',
+          'fonts/**/*.{woff2,woff,ttf}'
+        ],
 
         // 排除特定檔案
-        globIgnores: ['**/sw*', '**/workbox-*'],
+        globIgnores: ['**/sw*', '**/workbox-*', '**/lighthouse-*'],
 
         // 最大檔案大小限制 (3MB)
         maximumFileSizeToCacheInBytes: 3000000,
@@ -164,21 +168,42 @@ export default defineConfig({
     // 最佳化選項
     rollupOptions: {
       output: {
-        // 檔案命名策略
+        // 檔案命名策略 - 優化快取
         chunkFileNames: 'js/[name]-[hash].js',
         entryFileNames: 'js/[name]-[hash].js',
         assetFileNames: ({ name }) => {
-          if (/\.(gif|jpe?g|png|svg)$/.test(name ?? '')) {
+          if (/\.(gif|jpe?g|png|svg|ico)$/.test(name ?? '')) {
             return 'assets/images/[name]-[hash][extname]';
           }
           if (/\.css$/.test(name ?? '')) {
             return 'assets/css/[name]-[hash][extname]';
           }
+          if (/\.(woff2|woff|ttf)$/.test(name ?? '')) {
+            return 'assets/fonts/[name]-[hash][extname]';
+          }
           return 'assets/[name]-[hash][extname]';
         },
       },
     },
+
+    // 壓縮選項
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+
+    // 資源內聯閾值
+    assetsInlineLimit: 4096,
   },
+
+  // 公共目錄資源複製
+  publicDir: 'public',
+
+  // 靜態資源處理
+  assetsInclude: ['**/*.woff2', '**/*.woff', '**/*.png', '**/*.svg', '**/*.ico'],
 
   // 預覽伺服器配置
   preview: {
