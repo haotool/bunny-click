@@ -11,6 +11,29 @@
     <meta http-equiv="x-dns-prefetch-control" content="off" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    
+    <!-- Security Headers for Best Practices -->
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
+    <meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp" />
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: blob:;
+      connect-src 'self' blob:;
+      worker-src 'self' blob:;
+      frame-src 'none';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      upgrade-insecure-requests;
+      block-all-mixed-content;
+    " />
 
     <!-- Material Symbols from Google Fonts -->
     <link
@@ -5092,39 +5115,53 @@
         }
 
         async registerServiceWorker() {
+          // 檢查是否在安全環境 (HTTPS 或 localhost)
+          const isSecureContext = location.protocol === 'https:' || 
+                                 location.hostname === 'localhost' ||
+                                 location.hostname === '127.0.0.1';
+          
           try {
-            // 動態導入 PWA 註冊模組 (vite-plugin-pwa 提供)
-            const { registerSW } = await import('virtual:pwa-register');
+            // 只在安全環境下使用 virtual:pwa-register
+            if (isSecureContext && 'import' in window) {
+              // 動態導入 PWA 註冊模組 (vite-plugin-pwa 提供)
+              const { registerSW } = await import('virtual:pwa-register');
 
-            this.updateSW = registerSW({
-              immediate: true,
-              onNeedRefresh: () => {
-                console.log('🔄 PWA: 新內容可用，顯示更新提示');
-                this.showUpdatePrompt();
-              },
-              onOfflineReady: () => {
-                console.log('📱 PWA: 應用程式已準備離線使用');
-                this.showOfflinePrompt();
-              },
-              onRegistered: registration => {
-                console.log('✅ PWA: Service Worker 註冊成功', registration);
-                // 每小時檢查更新
-                if (registration) {
-                  setInterval(
-                    () => {
-                      registration.update();
-                    },
-                    60 * 60 * 1000
-                  );
-                }
-              },
-              onRegisterError: error => {
-                console.error('❌ PWA: Service Worker 註冊失敗', error);
-              },
-            });
+              this.updateSW = registerSW({
+                immediate: true,
+                onNeedRefresh: () => {
+                  console.log('🔄 PWA: 新內容可用，顯示更新提示');
+                  this.showUpdatePrompt();
+                },
+                onOfflineReady: () => {
+                  console.log('📱 PWA: 應用程式已準備離線使用');
+                  this.showOfflinePrompt();
+                },
+                onRegistered: registration => {
+                  console.log('✅ PWA: Service Worker 註冊成功', registration);
+                  // 每小時檢查更新
+                  if (registration) {
+                    setInterval(
+                      () => {
+                        registration.update();
+                      },
+                      60 * 60 * 1000
+                    );
+                  }
+                },
+                onRegisterError: error => {
+                  console.error('❌ PWA: Service Worker 註冊失敗', error);
+                  // 發生錯誤時回退到傳統註冊
+                  this.fallbackServiceWorkerRegistration();
+                },
+              });
+            } else {
+              console.log('⚠️ PWA: 非安全環境，使用回退方案');
+              // 非安全環境直接使用回退方案
+              this.fallbackServiceWorkerRegistration();
+            }
           } catch (error) {
-            console.warn('⚠️ PWA: virtual:pwa-register 模組未找到，可能在開發模式');
-            // 開發模式回退到傳統 Service Worker 註冊
+            console.warn('⚠️ PWA: virtual:pwa-register 模組載入失敗，使用回退方案', error);
+            // 載入失敗時回退到傳統 Service Worker 註冊
             this.fallbackServiceWorkerRegistration();
           }
         }
