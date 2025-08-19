@@ -1,85 +1,54 @@
-name: 🚀 自動發布
-
+name: Release
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
-# 基於 Context7 最佳實踐的權限配置
 permissions:
-  contents: write
-  issues: write
-  pull-requests: write
-  id-token: write # npm provenance 需要
+  contents: read # for checkout
 
 jobs:
-  # 測試和品質檢查作業
-  quality:
-    name: 🔍 品質檢查
+  test:
+    name: Test
     runs-on: ubuntu-latest
-
     steps:
-      - name: 📥 檢出程式碼
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: 🟢 設定 Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
-          cache: 'npm'
-
-      - name: 📦 安裝依賴
-        run: npm ci
-
-      - name: 🏷️ 檢查標籤同步狀態
-        run: npm run tag-sync
-
-      - name: 🧪 執行測試
+          node-version: "lts/*"
+      - name: Install dependencies
+        run: npm clean-install
+      - name: Run tests
         run: npm test
+      - name: Verify the integrity of provenance attestations and registry signatures
+        run: npm audit signatures
 
-      - name: 🔍 程式碼品質檢查
-        run: npm run lint
-
-      - name: 🔨 建置專案
-        run: npm run build
-
-  # 發布作業 - 只有在品質檢查通過後執行
   release:
-    name: 🎯 發布新版本
+    name: Release
+    needs: test
     runs-on: ubuntu-latest
-    needs: quality
-
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
     steps:
-      - name: 📥 檢出程式碼
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
-
-      - name: 🟢 設定 Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
-          cache: 'npm'
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: 📦 安裝依賴
+          node-version: "lts/*"
+      - name: Install dependencies
         run: npm clean-install
-
-      - name: 🏷️ 發布前標籤檢查
-        run: npm run tag-sync
-
-      - name: 🔍 驗證依賴完整性
-        run: npm audit signatures
-
-      - name: 🚀 發布新版本
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
-
-      # 注意：版本號檔案更新和 Git 提交由 semantic-release 自動處理
