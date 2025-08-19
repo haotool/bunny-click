@@ -13,14 +13,19 @@ global.cancelAnimationFrame = (id) => {
   clearTimeout(id);
 };
 
-// Performance API polyfill
+// Performance API polyfill with Jest mocks
 if (!global.performance) {
   global.performance = {
-    now: () => Date.now(),
+    now: jest.fn(() => Date.now()),
     mark: jest.fn(),
     measure: jest.fn(), 
     getEntriesByName: jest.fn(() => []),
     getEntriesByType: jest.fn(() => []),
+    memory: {
+      usedJSHeapSize: 10 * 1024 * 1024, // 10MB mock value
+      totalJSHeapSize: 20 * 1024 * 1024,
+      jsHeapSizeLimit: 100 * 1024 * 1024,
+    },
   };
 }
 
