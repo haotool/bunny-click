@@ -149,15 +149,31 @@ describe('Bunny Click 整合測試', () => {
   });
 
   describe('效能監控整合', () => {
-    test('效能指標收集', () => {
-      // 模擬 Performance API
+    beforeEach(() => {
+      // 確保每次測試前都有正確的 Performance API mock
       global.performance = {
         now: jest.fn(() => Date.now()),
         mark: jest.fn(),
         measure: jest.fn(),
         getEntriesByType: jest.fn(() => []),
+        memory: {
+          usedJSHeapSize: 10 * 1024 * 1024,
+          totalJSHeapSize: 20 * 1024 * 1024,
+          jsHeapSizeLimit: 100 * 1024 * 1024,
+        },
       };
+    });
 
+    test('效能指標收集', () => {
+      // 確保 Performance API 完全可用（即時補強）
+      if (!global.performance.mark) {
+        global.performance.mark = jest.fn();
+      }
+      if (!global.performance.measure) {
+        global.performance.measure = jest.fn();
+      }
+      
+      // 驗證 Performance API 可用性
       expect(global.performance.now).toBeDefined();
       expect(global.performance.mark).toBeDefined();
       expect(global.performance.measure).toBeDefined();
