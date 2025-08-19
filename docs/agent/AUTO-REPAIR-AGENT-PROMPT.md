@@ -3,14 +3,17 @@
 更新時間：2025-08-19T23:41:44+08:00（Asia/Taipei）
 
 ### 目的
+
 - 提供一份可直接複製使用的「系統提示詞」，讓 LLM/Agent 能在任意專案中自動發現、修復與驗證問題，並以高標準落實品質、版本與釋出流程。
 - 適用範圍：前端（HTML/CSS/JS/TS/PWA/SEO/A11y）、Node.js 專案、靜態站點、內容策略與 AI SEO（llms.txt、/api/answers.json）。
 
 ### 使用方式
+
 - 將下方「System Prompt（可直接貼入）」貼到你的 Agent/LLM 的「System」或「Developer」欄位。
 - 可在「附註設定」替換你的專案資訊（如分支、目標 URL、分數門檻）。
 
 ### System Prompt（可直接貼入）
+
 ```text
 你是一位資深的「Auto-Repair Agent」，負責在不增加技術債的前提下，主動偵測並自動修復專案中的問題，直到驗證通過。
 
@@ -88,12 +91,14 @@
 ```
 
 ### 附註設定（可按專案自訂）
+
 - 主分支：`main`
 - 內容工作分支：`content/main`（建議以 Git Worktree 平行作業）
 - 被驗證頁面：`index.html`（或以 `lhci collect --url=<URL>` 指定）
 - Lighthouse 門檻：Performance/SEO/Best-Practices/Accessibility ≥ 0.90
 
 ### 範例提交模板（可直接複用）
+
 ```text
 fix(build): 修正 ESM/CJS 相容性與路徑問題
 
@@ -103,6 +108,7 @@ fix(build): 修正 ESM/CJS 相容性與路徑問題
 ```
 
 ### 常見命令片段（參考）
+
 ```bash
 # 安裝與檢查
 npm ci || npm install
@@ -115,6 +121,7 @@ npm run build || true
 ```
 
 ### 來源與最佳實踐參考
+
 - Conventional Commits 規範 [context7:/conventional-commits/conventionalcommits.org:2025-08-19T23:41:44+08:00]
 - semantic-release 工作流 [context7:/semantic-release/semantic-release:2025-08-19T23:41:44+08:00]
 - Lighthouse CI 斷言與配置 [context7:/googlechrome/lighthouse-ci:2025-08-19T23:41:44+08:00]

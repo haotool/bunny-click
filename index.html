@@ -123,7 +123,13 @@
     <link rel="alternate" hreflang="en" href="https://haotool.github.io/clickfun/en/" />
     <link rel="alternate" hreflang="x-default" href="https://haotool.github.io/clickfun/" />
 
-    <!-- Favicon：用內嵌 SVG，避免 favicon.ico 404 -->
+    <!-- Favicon 與 App Icons -->
+    <!-- 讓瀏覽器分頁優先使用 PNG（避免僅顯示 inline SVG） -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/icon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./icons/icon-16x16.png" />
+    <!-- iOS 主畫面圖示（亦可用 180x180 PNG） -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/icon-180x180.png" />
+    <!-- 仍保留 SVG 作為現代瀏覽器的備援顯示 -->
     <link
       rel="icon"
       type="image/svg+xml"
