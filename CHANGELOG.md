@@ -2,6 +2,94 @@
 
 所有重要變更都會記錄在此文件中。
 
+## 1.0.0 (2025-08-19)
+
+### ⚠ BREAKING CHANGES
+
+* **ci:** Automated release system is now active. All future releases will be managed by semantic-release based on conventional commit messages.
+* **tag-management:** 新增了 Git hooks 系統，會在推送時檢查標籤衝突，
+可能會阻止包含衝突標籤的推送，需要先運行 npm run tag-sync 修復
+* **infrastructure:** 建置流程從靜態檔案改為 Vite，需要使用 npm run build 替代之前的手動複製
+* **infrastructure:** Jest 配置結構重新設計，需要更新 team-worktrees 配置
+
+### Bug Fixes
+
+* 修正 CI 問題並改善測試配置 ([7b8cadf](https://github.com/haotool/bunny-click/commit/7b8cadf0c97395b5123665574008657329295f75))
+* 修正 package.json 中的倉庫 URL 錯誤 ([d7cba4c](https://github.com/haotool/bunny-click/commit/d7cba4ce0501ee55a77bc2d14f16f9f2059fa1d7))
+* 完全轉換 update-version.js 為 ES 模組語法 ([0403559](https://github.com/haotool/bunny-click/commit/0403559c85570410e8b85558eaff38bfd057192d))
+* 將 update-version.js 從 CommonJS 轉換為 ES 模組語法 ([9f027fe](https://github.com/haotool/bunny-click/commit/9f027fe45c9bc0f6ff4e07609932b9fe9e72afd2))
+* 改善 semantic-release git 插件配置 ([3da9df8](https://github.com/haotool/bunny-click/commit/3da9df804704e70c2bb6eb8854cfe44d44e0343b))
+* 移除重複的 Git 操作步驟，讓 semantic-release 完全處理版本管理 ([50c9fb0](https://github.com/haotool/bunny-click/commit/50c9fb0dbc766131b7eb648b7cf169ccab038fd4))
+* **cache:** 改善快取管理和版本檢測機制 ([263e8ed](https://github.com/haotool/bunny-click/commit/263e8eda1ba4144e2ac0d6f5799ccb190af7bc65))
+* **ci:** resolve Jest configuration issues and ES6 module conflicts ([49d4cef](https://github.com/haotool/bunny-click/commit/49d4cef7fa14a0b901a7afb60c29bfbd06633d1f))
+* **ci:** 修復 Jest 配置問題，移除無效的 isolateModules 選項 ([afa62b0](https://github.com/haotool/bunny-click/commit/afa62b0876b94af9c39e919bda3c2ed3e1ef693d))
+* **ci:** 修復 semantic-release 重複標籤衝突問題 ([23ac091](https://github.com/haotool/bunny-click/commit/23ac091b1b71d4d38636a5697c6869ca9ff5a04d))
+* **config:** 修復 semantic-release ES 模組載入問題 ([9613c0f](https://github.com/haotool/bunny-click/commit/9613c0fe2755c2af1552e05ae292b4cf4c1f589e))
+* **csp:** 修正Google Fonts CSP載入問題並統一品牌名稱為Click Fun ([3f8cb33](https://github.com/haotool/bunny-click/commit/3f8cb33ce430a8b8e50728950cce0437f761ae6a))
+* **deps:** 修復 ESLint 依賴問題並自動修復格式錯誤 ([2b489a4](https://github.com/haotool/bunny-click/commit/2b489a41d02cae07fbc86ba05d476989b61c2ff4))
+* **deps:** 安裝 semantic-release 缺失的 conventional-changelog 依賴 ([168f052](https://github.com/haotool/bunny-click/commit/168f0520b497acaa1571f1684642f9bd59d52b32))
+* **effects:** 修復特效設定變更後未立即生效的問題 ([4287eb8](https://github.com/haotool/bunny-click/commit/4287eb878816e7bfaf06c56f443e8e2897ea5bb7))
+* **eslint:** 修復 JSON-LD 結構化數據語法錯誤問題 ([92d1a18](https://github.com/haotool/bunny-click/commit/92d1a18d789f5686fec6e3a1f747e2b0e7b547d2))
+* **fonts-ui:** 修正Material Icons載入問題並優化手機界面間距 v7.1.2 ([d76016c](https://github.com/haotool/bunny-click/commit/d76016c380842950fa102a719548df2283badd03))
+* **fonts:** 修復 Material Symbols 自託管 ligature 顯示問題 ([2a4cd91](https://github.com/haotool/bunny-click/commit/2a4cd912454b1a3dd2325223d5c416878dbbc5f6))
+* **format:** 移除 JSON-LD 結構化資料中的多餘空格 ([fd9a843](https://github.com/haotool/bunny-click/commit/fd9a8439f0d2e62590b1fd91c941508ceb210308))
+* **game:** 修復點擊累加分數功能並優化按鈕佈局 ([bd66dab](https://github.com/haotool/bunny-click/commit/bd66dabbf59fce2d535c3be3121bf88e41ea6a59))
+* **git:** 完全移除 team-worktrees 子模組引用並重新初始化 ([62a065d](https://github.com/haotool/bunny-click/commit/62a065d4ace746ddbc1fda1033bf70e9a88c3466))
+* **git:** 移除 team-worktrees 子模組引用並轉為常規目錄 ([7199122](https://github.com/haotool/bunny-click/commit/71991226a4b2dc9fa691921bad99c439a7699265))
+* **icons:** 修復Material Symbols系統，恢復正確的中空樣式顯示 ([02fad77](https://github.com/haotool/bunny-click/commit/02fad7742dc76d88bfd30168afb344711c3cdcf4))
+* **jest:** 根據 Context7 最佳實踐修復 Jest 配置問題 ([cf70f0b](https://github.com/haotool/bunny-click/commit/cf70f0b23900e2c673018db86a9e08d83d2e156a))
+* **lint:** 解決 ESLint 程式碼品質問題並排除 team-worktrees ([5db71d7](https://github.com/haotool/bunny-click/commit/5db71d7c99ff7a29945cccaf17b8745ecfb19bdb))
+* **scripts:** correct version update logic in update-version.js ([d13367d](https://github.com/haotool/bunny-click/commit/d13367d60a8626c9644998b7fee8f1e85ba4ff77))
+* **tests:** achieve 98% test success rate with comprehensive fixes ([caefca8](https://github.com/haotool/bunny-click/commit/caefca89f340c70477b646d630b03ec41f450aab))
+* **tests:** resolve major test issues and improve test stability ([70fe89d](https://github.com/haotool/bunny-click/commit/70fe89d3942410a997a55d48bb47f1d57a48672f))
+* **tests:** resolve test failures and improve test reliability ([e7fbe9f](https://github.com/haotool/bunny-click/commit/e7fbe9fdfa435c885e258f0da5de062eec35699a))
+* **UI:** 修復按鈕佈局和分數顯示問題 ([4110571](https://github.com/haotool/bunny-click/commit/41105714c300d58a6b5e06b5efb957d25b0655ca))
+* **ui:** 修正遊戲說明模態窗口手機響應式設計和按鈕佈局 ([bc38eb2](https://github.com/haotool/bunny-click/commit/bc38eb2ba1dfce965bccdd59110720cce31e250e))
+* **ui:** 完美解決底部空隙與圖標顯示問題，優化按鈕體驗 v7.1.4 ([0bace4b](https://github.com/haotool/bunny-click/commit/0bace4b5ea7cfa65b5dc378c6bda1e8e06e40310))
+* **ui:** 恢復icon中空格式並完美修正手機界面對稱性 v7.1.2 ([b4137fa](https://github.com/haotool/bunny-click/commit/b4137fa09ed42cc38a485dfefad1542bb1066d92))
+* **ui:** 清理多餘空白與優化字體載入，提升界面整體美觀 ([1c0cf74](https://github.com/haotool/bunny-click/commit/1c0cf749e3e8f812f2819599b7b59c28568de209))
+* **version:** 修復版本顯示問題並完善版本管理系統 ([99e7ef4](https://github.com/haotool/bunny-click/commit/99e7ef46f55d64cc8898ebb87ba54980eabb3d3a))
+* **version:** 更新版本號顯示及測試快取 ([3ffbf6a](https://github.com/haotool/bunny-click/commit/3ffbf6acee308dd8f47b9d086191f1d05f588108))
+
+### Features
+
+* achieve Lighthouse 98 average score with Performance and SEO at 100 ([9a82b56](https://github.com/haotool/bunny-click/commit/9a82b56d2bde87c65e541ed431d1c48985355eba))
+* implement comprehensive automated versioning system and code quality tools ([67fc578](https://github.com/haotool/bunny-click/commit/67fc578c44d7b11805d0597506fe20fd2504b356))
+* optimize ESLint configuration and fix code quality issues ([4f432f0](https://github.com/haotool/bunny-click/commit/4f432f069d66628c3d85d1904b72efec31e7836d))
+* 完成 v7.1.2 AI SEO 全面實施與團隊架構 ([49b3f32](https://github.com/haotool/bunny-click/commit/49b3f3225234bca18970f4960301ea52ccb7fd7b))
+* 建立完整的自動化最佳實踐落地系統 ([fd69438](https://github.com/haotool/bunny-click/commit/fd694386edc1fa6077c2f44782562e42991c6585))
+* 新增排行榜時間分類功能和完整PWA圖標系統 ([787aa4a](https://github.com/haotool/bunny-click/commit/787aa4a845c13fd73e07509da6bcc7eba16a96be))
+* **ai-seo:** 實施完整 AI SEO 優化策略 ([8da14b9](https://github.com/haotool/bunny-click/commit/8da14b9c46ccc3b75df66e9bbb8fb46e12506021))
+* **author:** update author info to haotool ([9a2bcb5](https://github.com/haotool/bunny-click/commit/9a2bcb55f4a12e9c259e96922b73f3b6b29b34df))
+* **ci:** achieve 99.35% test success rate - comprehensive CI/CD repair ([a215da4](https://github.com/haotool/bunny-click/commit/a215da424011bb55819b82a3d76162c1ff25a399))
+* **ci:** setup semantic-release automated publishing ([cd7708a](https://github.com/haotool/bunny-click/commit/cd7708a4f8e53c6e8542bec6048bf755ad7193fb))
+* **docs:** emphasize multi-finger clicking as core feature; update README with 10-finger competitive gaming highlights [2025-08-20T01:24:03+08:00] ([77ed501](https://github.com/haotool/bunny-click/commit/77ed5011b2f4639445033df27e67c60ff719d4e4))
+* **game:** 增加雙人模式計時邏輯優化 ([57cec98](https://github.com/haotool/bunny-click/commit/57cec9831c72bb535a024cf36d4a2a077714a166))
+* **game:** 實現點擊開始計時和30級幽默鼓勵系統 ([9cc0bde](https://github.com/haotool/bunny-click/commit/9cc0bde48d6211354677f75dea87acc9992236fb))
+* **icons:** generate complete PWA icon set for Bunny Click; update package.json with icon build scripts [2025-08-20T01:24:03+08:00] ([473f80f](https://github.com/haotool/bunny-click/commit/473f80f1ad72c09375c02a7432ac85909ef30fcb))
+* **infrastructure:** 實作 2025 年最佳實踐全面升級 ([98d8289](https://github.com/haotool/bunny-click/commit/98d8289ab52099427f7341b04472e53b784c0a27))
+* **infrastructure:** 實作基於 Context7 最佳實踐的現代化 PWA 和測試框架升級 ([82062fb](https://github.com/haotool/bunny-click/commit/82062fb168da1f72873dc3b1a09e4da2aa89461f))
+* **lighthouse:** 達成Lighthouse全100分完美優化 v7.2.0 ([7377f88](https://github.com/haotool/bunny-click/commit/7377f88779f7de8e24b1cad7dd74ac037ae4afdc))
+* **pwa:** add PWA update prompt component based on Context7 best practices ([2dbc687](https://github.com/haotool/bunny-click/commit/2dbc6877fba7d30578a1155a5f19ca1d1819d5d5))
+* **pwa:** optimize cache strategies based on Context7 best practices ([226e324](https://github.com/haotool/bunny-click/commit/226e324da92b82a4517222e68918d61d065015dc))
+* **SEO:** 完成完整的SEO最佳實踐落地 ([efbadbe](https://github.com/haotool/bunny-click/commit/efbadbecf6b1fd10ec1b2fb3979e028c5140677c))
+* **storage:** implement unified storage adapter with LocalStorage and IndexedDB ([ccf3e18](https://github.com/haotool/bunny-click/commit/ccf3e18b1b801527226343121e6754099b9c5aaf))
+* **tag-management:** 實作完整的 Git 標籤同步與衝突防護系統 ([fb8d7f3](https://github.com/haotool/bunny-click/commit/fb8d7f3f20338deb44e38e049518535ecb38cc3c))
+* **tech-seo:** 完成技術SEO實施總結報告 - 達成100分滿分 ([9fb9748](https://github.com/haotool/bunny-click/commit/9fb9748d2f67f7fa16f92e480ad8357e8c6b2577))
+* **tech-seo:** 完成技術SEO架構師專屬工作區建立與品質審計 ([1c8b54d](https://github.com/haotool/bunny-click/commit/1c8b54dc7e5514c71a08adc6cdbfa5c3194faaa6))
+* **UI:** 優化單人和雙人模式的使用者界面 ([912cf0a](https://github.com/haotool/bunny-click/commit/912cf0a183a5b35a6e1bf4acb206293da83388f4))
+* **UI:** 優化雙人模式手機版佈局並修復按鈕響應問題 ([361eeae](https://github.com/haotool/bunny-click/commit/361eeae89c8a3de14cf7e349ad64ab1706b02e1e))
+* **ui:** 優化首頁UI簡潔性並改用高級Material Icons ([312047c](https://github.com/haotool/bunny-click/commit/312047c69f3d48248c019c4c24705f0ba32fa645))
+* **ui:** 恢復中空圖標優雅風格同時保留可愛遊戲字體 v7.1.3 ([200f6c5](https://github.com/haotool/bunny-click/commit/200f6c57b598e3afc714819b863bcf8d762f778d))
+* **ui:** 重大UI/UX改進 - 可愛遊戲字體、粗體優化、完美佈局對齊 v7.1.2 ([283cbba](https://github.com/haotool/bunny-click/commit/283cbba803991a22621108103167d9e795b5ed4f))
+* **品質:** 建立完整的程式碼品質保證系統 ([e613ec5](https://github.com/haotool/bunny-click/commit/e613ec5b13298b7f6d1372e9fa3f5f5a19901391))
+* **專案:** 初始化 ClickFun 點擊遊戲專案 ([3261390](https://github.com/haotool/bunny-click/commit/326139089be3e768906c6f27572dc06358c55510))
+* **測試:** 建立完整的測試框架與開發工具鏈 ([d4edd3a](https://github.com/haotool/bunny-click/commit/d4edd3a0552ca8633d7d0dab50e699314ab8cf02))
+
+### Performance Improvements
+
+* **lighthouse:** 實施Lighthouse性能優化最佳實踐 ([209ba21](https://github.com/haotool/bunny-click/commit/209ba2175f87b4a6d4de6f083e15265a16988246))
+
 ## [8.0.0](https://github.com/haotool/bunny-click/compare/v7.2.3...v8.0.0) (2025-08-17)
 
 ### ⚠ BREAKING CHANGES
