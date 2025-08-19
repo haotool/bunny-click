@@ -128,11 +128,11 @@ export class StorageAdapter {
   /**
    * 儲存資料
    */
-  async setItem(key, value) {
+  async setItem(key, value, options = {}) {
     await this.ensureInitialized();
     
     try {
-      await this.primaryAdapter.setItem(key, value);
+      await this.primaryAdapter.setItem(key, value, options);
       this.log(`💾 儲存成功: ${key}`);
     } catch (error) {
       console.error(`❌ 儲存失敗 ${key}:`, error);
@@ -140,7 +140,7 @@ export class StorageAdapter {
       // 嘗試使用後備適配器
       if (this.fallbackAdapter && this.primaryAdapter !== this.fallbackAdapter) {
         try {
-          await this.fallbackAdapter.setItem(key, value);
+          await this.fallbackAdapter.setItem(key, value, options);
           this.log(`💾 後備儲存成功: ${key}`);
         } catch (fallbackError) {
           console.error(`❌ 後備儲存也失敗 ${key}:`, fallbackError);

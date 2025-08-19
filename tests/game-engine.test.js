@@ -163,7 +163,8 @@ describe('TPSCalculator', () => {
       }
 
       const avgTPS = tpsCalculator.getAverageTPS();
-      expect(avgTPS).toBeCloseTo(10, 1); // 約 10 TPS
+      // 實際時間範圍是 1900ms (0-1900)，TPS = 20 * 1000 / 1900 ≈ 10.53
+      expect(avgTPS).toBeCloseTo(10.53, 1); // 約 10.53 TPS
     });
 
     test('應該能計算峰值 TPS', () => {
@@ -210,7 +211,8 @@ describe('TPSCalculator', () => {
       tpsCalculator.addClick(1200);
       tpsCalculator.addClick(1600); // 超過 500ms 窗口
 
-      expect(tpsCalculator.getCurrentTPS()).toBe(1); // 只有最後一個
+      // 窗口 [1100, 1600] 包含 1200 和 1600，共 2 個點擊
+      expect(tpsCalculator.getCurrentTPS()).toBe(2);
     });
   });
 });
@@ -250,12 +252,8 @@ describe('InputManager', () => {
 
           this.touchPoints.set(touch.identifier || index, touchData);
 
-          // 防抖動處理
-          const now = performance.now();
-          if (now - this.lastClickTime > this.debounceDelay) {
-            this.gameEngine.handleClick(touchData);
-            this.lastClickTime = now;
-          }
+          // 多指點擊遊戲：每個觸點都應該觸發點擊事件
+          this.gameEngine.handleClick(touchData);
         });
       }
 

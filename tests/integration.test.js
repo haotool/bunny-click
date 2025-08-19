@@ -90,24 +90,35 @@ describe('Bunny Click 整合測試', () => {
 
   describe('本地儲存整合', () => {
     test('遊戲狀態儲存', () => {
-      const mockLocalStorage = global.window.localStorage;
+      const mockSetItem = jest.fn();
+      const mockGetItem = jest.fn();
+      const mockLocalStorage = {
+        setItem: mockSetItem,
+        getItem: mockGetItem,
+      };
+      global.window.localStorage = mockLocalStorage;
+
       const gameState = { score: 100, level: 5 };
 
       // 測試儲存
       mockLocalStorage.setItem('gameState', JSON.stringify(gameState));
-      expect(mockLocalStorage.setItem).toHaveBeenCalledWith('gameState', JSON.stringify(gameState));
+      expect(mockSetItem).toHaveBeenCalledWith('gameState', JSON.stringify(gameState));
 
       // 測試讀取
-      mockLocalStorage.getItem.mockReturnValue(JSON.stringify(gameState));
+      mockGetItem.mockReturnValue(JSON.stringify(gameState));
       const retrieved = JSON.parse(mockLocalStorage.getItem('gameState'));
       expect(retrieved).toEqual(gameState);
     });
 
     test('快取清理', () => {
-      const mockLocalStorage = global.window.localStorage;
+      const mockClear = jest.fn();
+      const mockLocalStorage = {
+        clear: mockClear,
+      };
+      global.window.localStorage = mockLocalStorage;
 
       mockLocalStorage.clear();
-      expect(mockLocalStorage.clear).toHaveBeenCalled();
+      expect(mockClear).toHaveBeenCalled();
     });
   });
 
@@ -121,14 +132,19 @@ describe('Bunny Click 整合測試', () => {
     });
 
     test('事件監聽器管理', () => {
-      const mockElement = global.document.createElement('button');
+      const mockAddEventListener = jest.fn();
+      const mockRemoveEventListener = jest.fn();
+      const mockElement = {
+        addEventListener: mockAddEventListener,
+        removeEventListener: mockRemoveEventListener,
+      };
       const mockHandler = jest.fn();
 
       mockElement.addEventListener('click', mockHandler);
-      expect(mockElement.addEventListener).toHaveBeenCalledWith('click', mockHandler);
+      expect(mockAddEventListener).toHaveBeenCalledWith('click', mockHandler);
 
       mockElement.removeEventListener('click', mockHandler);
-      expect(mockElement.removeEventListener).toHaveBeenCalledWith('click', mockHandler);
+      expect(mockRemoveEventListener).toHaveBeenCalledWith('click', mockHandler);
     });
   });
 
@@ -151,14 +167,16 @@ describe('Bunny Click 整合測試', () => {
   describe('錯誤處理整合', () => {
     test('全域錯誤處理', () => {
       const mockErrorHandler = jest.fn();
+      const mockAddEventListener = jest.fn();
+      global.window.addEventListener = mockAddEventListener;
 
       // 模擬錯誤事件監聽器
       global.window.addEventListener('error', mockErrorHandler);
-      expect(global.window.addEventListener).toHaveBeenCalledWith('error', mockErrorHandler);
+      expect(mockAddEventListener).toHaveBeenCalledWith('error', mockErrorHandler);
 
       // 模擬未處理的 Promise 拒絕
       global.window.addEventListener('unhandledrejection', mockErrorHandler);
-      expect(global.window.addEventListener).toHaveBeenCalledWith(
+      expect(mockAddEventListener).toHaveBeenCalledWith(
         'unhandledrejection',
         mockErrorHandler,
       );

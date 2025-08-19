@@ -157,6 +157,15 @@ describe('StorageAdapter', () => {
   });
 
   describe('TTL 過期機制', () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+      jest.runOnlyPendingTimers();
+      jest.useRealTimers();
+    });
+
     test('資料應該在 TTL 過期後自動移除', async () => {
       const key = 'test-ttl';
       const value = 'will expire';
@@ -167,8 +176,8 @@ describe('StorageAdapter', () => {
       // 立即讀取應該成功
       expect(await storageAdapter.getItem(key)).toBe(value);
       
-      // 等待過期
-      await new Promise(resolve => setTimeout(resolve, ttl + 50));
+      // 推進時間到過期後
+      jest.advanceTimersByTime(ttl + 50);
       
       // 過期後讀取應該返回 null
       expect(await storageAdapter.getItem(key)).toBeNull();

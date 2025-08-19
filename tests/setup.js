@@ -17,10 +17,10 @@ global.cancelAnimationFrame = (id) => {
 if (!global.performance) {
   global.performance = {
     now: () => Date.now(),
-    mark: () => {},
-    measure: () => {},
-    getEntriesByName: () => [],
-    getEntriesByType: () => [],
+    mark: jest.fn(),
+    measure: jest.fn(), 
+    getEntriesByName: jest.fn(() => []),
+    getEntriesByType: jest.fn(() => []),
   };
 }
 
@@ -77,4 +77,34 @@ console.error = (...args) => {
     return;
   }
   originalError.apply(console, args);
+};
+
+// Jest global setup for DOM mocks
+global.beforeEach = global.beforeEach || (() => {});
+
+// Service Worker 模擬（用於 PWA 測試）
+global.ServiceWorkerRegistration = class MockServiceWorkerRegistration {
+  constructor() {
+    this.active = null;
+    this.installing = null;
+    this.waiting = null;
+    this.scope = 'http://localhost/';
+    this.updatefound = null;
+  }
+
+  addEventListener(event, listener) {
+    if (event === 'updatefound') {
+      this.updatefound = listener;
+    }
+  }
+
+  removeEventListener() {}
+
+  update() {
+    return Promise.resolve();
+  }
+
+  unregister() {
+    return Promise.resolve(true);
+  }
 };

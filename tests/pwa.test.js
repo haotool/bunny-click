@@ -211,9 +211,10 @@ describe('PWAUpdateManager', () => {
   describe('更新提示', () => {
     test('應該能顯示更新提示', () => {
       // Mock DOM
+      const mockAppendChild = jest.fn();
       global.document = {
         body: {
-          appendChild: jest.fn(),
+          appendChild: mockAppendChild,
         },
         createElement: jest.fn(tag => ({
           className: '',
@@ -226,13 +227,14 @@ describe('PWAUpdateManager', () => {
       updateManager.showUpdatePrompt();
 
       expect(updateManager.needRefresh).toBe(true);
-      expect(document.body.appendChild).toHaveBeenCalled();
+      expect(mockAppendChild).toHaveBeenCalled();
     });
 
     test('應該能顯示離線就緒提示', () => {
+      const mockAppendChild = jest.fn();
       global.document = {
         body: {
-          appendChild: jest.fn(),
+          appendChild: mockAppendChild,
         },
         createElement: jest.fn(tag => ({
           className: '',
@@ -245,7 +247,7 @@ describe('PWAUpdateManager', () => {
       updateManager.showOfflinePrompt();
 
       expect(updateManager.isOfflineReady).toBe(true);
-      expect(document.body.appendChild).toHaveBeenCalled();
+      expect(mockAppendChild).toHaveBeenCalled();
     });
 
     test('應該能隱藏提示', () => {
