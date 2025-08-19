@@ -1,7 +1,7 @@
 {
   "id": ".",
-  "name": "ClickFun",
-  "short_name": "ClickFun",
+  "name": "Bunny Click",
+  "short_name": "Bunny Click",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
@@ -17,7 +17,7 @@
       "purpose": "any maskable"
     },
     {
-      "src": "./icons/click-fun.png",
+      "src": "./icons/bunny-click.png",
       "sizes": "1024x1024",
       "type": "image/png"
     },

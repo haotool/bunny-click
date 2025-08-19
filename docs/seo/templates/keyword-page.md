@@ -1,4 +1,4 @@
-# {KEYWORD} — Click Fun 點擊遊戲
+# {KEYWORD} — Bunny Click 點擊遊戲
 
 > 範本用途：程式化長尾頁（/k/{slug}）。請替換花括號內容。
 
@@ -23,5 +23,5 @@ Q: {常見問題}
 A: {簡明可引用答案（1–2 句）}
 
 ## 行動呼籲（CTA）
-立即體驗 Click Fun：{CANONICAL_URL}
+立即體驗 Bunny Click：{CANONICAL_URL}
 

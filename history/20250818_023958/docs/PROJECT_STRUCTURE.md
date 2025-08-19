@@ -1,13 +1,13 @@
 # 📁 專案結構總覽
 
-## 🎯 Click Fun 點擊樂趣遊戲專案架構
+## 🎯 Bunny Click 點擊樂趣遊戲專案架構
 
 這是一個現代化的 PWA 點擊遊戲專案，採用最佳實踐的檔案組織結構，確保代碼清晰、維護性強、部署簡便。
 
 ## 📂 根目錄 - 核心檔案 (Core Files)
 
 ```
-clickfun/
+bunny-click/
 ├── 📄 index.html              # 🎮 主遊戲檔案 - 包含完整遊戲邏輯
 ├── ⚙️ fx.worker.js            # ✨ 視覺效果 Worker - 處理動畫渲染
 ├── 📱 app.webmanifest         # 📲 PWA 清單 - 應用程式配置

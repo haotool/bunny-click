@@ -1,4 +1,4 @@
-# 🎯 Click Fun 關鍵字策略與優化計劃
+# 🎯 Bunny Click 關鍵字策略與優化計劃
 
 ## 📊 關鍵字研究分析報告
 
@@ -18,9 +18,9 @@
 
 | 關鍵字            | 月搜尋量 | 競爭程度 | 當前排名 | 目標排名 | 優化策略     |
 | ----------------- | -------- | -------- | -------- | -------- | ------------ |
-| **Click Fun**      | 10-50    | 極低     | 未收錄   | #1       | 品牌內容強化 |
-| **Click Fun**     | 20-100   | 低       | 未收錄   | #1       | 標題優化     |
-| **clickfun 遊戲** | 10-30    | 低       | 未收錄   | #1       | 長尾詞佈局   |
+| **Bunny Click**      | 10-50    | 極低     | 未收錄   | #1       | 品牌內容強化 |
+| **Bunny Click**     | 20-100   | 低       | 未收錄   | #1       | 標題優化     |
+| **bunny-click 遊戲** | 10-30    | 低       | 未收錄   | #1       | 長尾詞佈局   |
 
 **優化重點**:
 
@@ -142,8 +142,8 @@
 ### 主頁面內容結構
 
 ```
-H1: Click Fun - 點擊樂趣遊戲 | 免費線上PWA遊戲
-├── H2: 什麼是 Click Fun？
+H1: Bunny Click - 點擊樂趣遊戲 | 免費線上PWA遊戲
+├── H2: 什麼是 Bunny Click？
 ├── H2: 遊戲特色與功能
 │   ├── H3: TPS 計算功能
 │   ├── H3: PWA 離線支援
@@ -176,8 +176,8 @@ H1: Click Fun - 點擊樂趣遊戲 | 免費線上PWA遊戲
 ```yaml
 tracking_keywords:
   tier1_brand:
-    - "Click Fun"
-    - "Click Fun"
+    - "Bunny Click"
+    - "Bunny Click"
     target_position: 1-3
     check_frequency: daily
 
@@ -247,13 +247,13 @@ tracking_keywords:
 
 ```
 ✅ 好的標題範例:
-- "Click Fun - 免費線上點擊遊戲 | PWA支援離線遊戲"
-- "如何提升點擊速度？Click Fun TPS計算遊戲攻略"
-- "最佳PWA遊戲推薦：Click Fun點擊樂趣體驗"
+- "Bunny Click - 免費線上點擊遊戲 | PWA支援離線遊戲"
+- "如何提升點擊速度？Bunny Click TPS計算遊戲攻略"
+- "最佳PWA遊戲推薦：Bunny Click點擊樂趣體驗"
 
 ❌ 避免的標題:
-- "超級棒的遊戲Click Fun！！！"
-- "點擊遊戲點擊遊戲點擊遊戲Click Fun"
+- "超級棒的遊戲Bunny Click！！！"
+- "點擊遊戲點擊遊戲點擊遊戲Bunny Click"
 - "遊戲"
 ```
 

@@ -56,7 +56,7 @@ describe('E2E Tests - 完整遊戲流程', () => {
     
     test('應該正確顯示遊戲標題和控制元件', async () => {
       page.evaluate.mockResolvedValue({
-        title: 'ClickFun',
+        title: 'Bunny Click',
         hasStartButton: true,
         hasSettings: true
       });
@@ -67,7 +67,7 @@ describe('E2E Tests - 完整遊戲流程', () => {
         hasSettings: document.querySelector('#settings-button') !== null
       }));
       
-      expect(elements.title).toBe('ClickFun');
+      expect(elements.title).toBe('Bunny Click');
       expect(elements.hasStartButton).toBe(true);
       expect(elements.hasSettings).toBe(true);
     });

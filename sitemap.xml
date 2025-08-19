@@ -6,7 +6,7 @@
 
   <!-- Main Game Page -->
   <url>
-    <loc>https://haotool.github.io/clickfun/</loc>
+    <loc>https://haotool.org/bunny-click/</loc>
     <lastmod>2025-08-16T18:25:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- Alternative Access URLs -->
   <url>
-    <loc>https://haotool.github.io/clickfun/index.html</loc>
+    <loc>https://haotool.org/bunny-click/index.html</loc>
     <lastmod>2025-08-16T18:25:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -22,7 +22,7 @@
 
   <!-- PWA Manifest -->
   <url>
-    <loc>https://haotool.github.io/clickfun/app.webmanifest</loc>
+    <loc>https://haotool.org/bunny-click/app.webmanifest</loc>
     <lastmod>2025-08-16T18:25:36+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
@@ -30,7 +30,7 @@
 
   <!-- Service Worker -->
   <url>
-    <loc>https://haotool.github.io/clickfun/sw.js</loc>
+    <loc>https://haotool.org/bunny-click/sw.js</loc>
     <lastmod>2025-08-16T18:25:36+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
@@ -38,7 +38,7 @@
 
   <!-- AI/LLM Information -->
   <url>
-    <loc>https://haotool.github.io/clickfun/llms.txt</loc>
+    <loc>https://haotool.org/bunny-click/llms.txt</loc>
     <lastmod>2025-08-16T18:25:36+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>

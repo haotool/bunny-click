@@ -1,6 +1,6 @@
 /// <reference lib="webworker" />
 
-const SW_VERSION = 'clickfun-v7.2.3';
+const SW_VERSION = 'bunny-click-v7.2.3';
 const APP_VERSION = '7.2.3';
 const APP_SHELL = ['./', './index.html', './app.webmanifest', './fx.worker.js', './icons/pwa.svg'];
 

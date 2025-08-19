@@ -8,7 +8,7 @@ const path = require('path');
 
 class CacheCleaner {
   constructor() {
-    this.cacheNames = ['clickfun-v7.2.3', 'workbox-precache', 'workbox-runtime'];
+    this.cacheNames = ['bunny-click-v7.2.3', 'workbox-precache', 'workbox-runtime'];
   }
 
   async clearBrowserCache() {
@@ -71,7 +71,7 @@ class CacheCleaner {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Click Fun 快取清理工具</title>
+    <title>Bunny Click 快取清理工具</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -122,7 +122,7 @@ class CacheCleaner {
 </head>
 <body>
     <div class="container">
-        <h1>🧹 Click Fun 快取清理工具</h1>
+        <h1>🧹 Bunny Click 快取清理工具</h1>
         <p>此工具可以幫助您清理 PWA 相關的快取，解決開發時的快取問題。</p>
         
         <div>
@@ -250,7 +250,7 @@ class CacheCleaner {
   }
 
   async run() {
-    console.log('🚀 Click Fun PWA 快取清理工具');
+    console.log('🚀 Bunny Click PWA 快取清理工具');
     console.log('================================');
 
     try {

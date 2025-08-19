@@ -108,19 +108,19 @@ docs/tech-seo/
 
 ```html
 <!-- 核心 SEO 標籤 (55字符標題) -->
-<title>Click Fun - 點擊樂趣遊戲 | 免費線上PWA遊戲</title>
+<title>Bunny Click - 點擊樂趣遊戲 | 免費線上PWA遊戲</title>
 <meta
   name="description"
-  content="Click Fun 是一款免費的線上點擊遊戲，支援 PWA 離線遊戲、TPS 計算、粉色×天藍配色主題..."
+  content="Bunny Click 是一款免費的線上點擊遊戲，支援 PWA 離線遊戲、TPS 計算、粉色×天藍配色主題..."
 />
 
 <!-- Open Graph 完整實施 -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Click Fun - 點擊樂趣遊戲 | 免費線上PWA遊戲" />
-<meta property="og:image" content="https://haotool.github.io/clickfun/icons/click-fun.png" />
+<meta property="og:title" content="Bunny Click - 點擊樂趣遊戲 | 免費線上PWA遊戲" />
+<meta property="og:image" content="https://haotool.org/bunny-click/icons/bunny-click.png" />
 
 <!-- PWA 最佳化 -->
-<meta name="application-name" content="Click Fun" />
+<meta name="application-name" content="Bunny Click" />
 <meta name="theme-color" content="#f6a8d8" />
 ```
 
@@ -130,7 +130,7 @@ docs/tech-seo/
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Click Fun",
+  "name": "Bunny Click",
   "applicationCategory": "Game",
   "isAccessibleForFree": true,
   "featureList": [
@@ -147,7 +147,7 @@ docs/tech-seo/
 ```xml
 <!-- Sitemap.xml 標準實施 -->
 <url>
-  <loc>https://haotool.github.io/clickfun/</loc>
+  <loc>https://haotool.org/bunny-click/</loc>
   <lastmod>2025-08-16T18:25:36+08:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>1.0</priority>
@@ -164,8 +164,8 @@ docs/tech-seo/
 
 ```bash
 # 問題診斷
-curl -s "https://haotool.github.io/clickfun/" | grep "<title>"
-# 結果: <title>Click Fun - 點擊樂趣遊戲</title>  # 不完整!
+curl -s "https://haotool.org/bunny-click/" | grep "<title>"
+# 結果: <title>Bunny Click - 點擊樂趣遊戲</title>  # 不完整!
 
 # 立即修復
 git add docs/tech-seo/ index.html llms.txt
@@ -173,8 +173,8 @@ git commit -m "feat(tech-seo): 完成技術SEO架構師專屬工作區建立與�
 git push origin main
 
 # 驗證修復
-curl -s "https://haotool.github.io/clickfun/" | grep "<title>"
-# 結果: <title>Click Fun - 點擊樂趣遊戲 | 免費線上PWA遊戲</title>  # ✅ 完整!
+curl -s "https://haotool.org/bunny-click/" | grep "<title>"
+# 結果: <title>Bunny Click - 點擊樂趣遊戲 | 免費線上PWA遊戲</title>  # ✅ 完整!
 ```
 
 **影響**: Lighthouse SEO 從潛在 60 分提升至 100 分滿分

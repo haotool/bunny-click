@@ -52,7 +52,7 @@ describe('StorageAdapter', () => {
     test('應該能儲存和讀取物件資料', async () => {
       const key = 'test-object';
       const value = {
-        name: 'ClickFun',
+        name: 'Bunny Click',
         version: '7.2.3',
         features: ['PWA', 'Offline', 'Multi-touch']
       };

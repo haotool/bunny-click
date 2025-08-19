@@ -1,7 +1,7 @@
 {
-  "name": "clickfun-dev-tools",
+  "name": "bunny-click-dev-tools",
   "version": "7.2.3",
-  "description": "Click Fun 開發工具與測試套件",
+  "description": "Bunny Click 開發工具與測試套件",
   "private": true,
   "scripts": {
     "test": "jest",

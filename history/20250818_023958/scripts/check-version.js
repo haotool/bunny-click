@@ -25,7 +25,7 @@ const filesToCheck = [
   {
     path: 'sw.js',
     patterns: [
-      { name: 'SW_VERSION', regex: /const SW_VERSION = 'clickfun-v([^']+)'/ },
+      { name: 'SW_VERSION', regex: /const SW_VERSION = 'bunny-click-v([^']+)'/ },
       { name: 'APP_VERSION', regex: /const APP_VERSION = '([^']+)'/ },
     ],
   },

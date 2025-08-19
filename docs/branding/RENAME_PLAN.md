@@ -1,5 +1,5 @@
 ---
-title: 遊戲與專案更名計劃（避免與「Click Fun」撞名）
+title: 遊戲與專案更名計劃（避免與「Bunny Click」撞名）
 created_at: 2025-08-19T23:56:12+08:00 [time.now:Asia/Taipei]
 ---
 
@@ -39,7 +39,7 @@ created_at: 2025-08-19T23:56:12+08:00 [time.now:Asia/Taipei]
    - `index.html` `<meta property="og:site_name">`/`og:title`/`og:image`、JSON-LD 中的 `name`/`image`
    - 站點 `robots.txt`、`sitemap.xml` 重生產
 4. 資產
-   - 以 `icons/click-fun.png` 為母檔，執行 `npm run icons:build` 生成全尺寸 PNG、`apple-touch-icon`、favicon
+   - 以 `icons/bunny-click.png` 為母檔，執行 `npm run icons:build` 生成全尺寸 PNG、`apple-touch-icon`、favicon
 5. 發布
    - GitHub Pages 連結與自訂網域（若有）
    - 版本號小版升級（`version:minor`），於 `CHANGELOG.md` 記錄 Breaking/rename 注意事項
@@ -50,7 +50,7 @@ created_at: 2025-08-19T23:56:12+08:00 [time.now:Asia/Taipei]
 NEW_NAME="TapBunny Dash"
 NEW_SLUG="tapbunny-dash"
 
-node -e "const fs=require('fs');const p='./package.json';const j=JSON.parse(fs.readFileSync(p,'utf8'));j.name='${NEW_SLUG}';j.homepage=j.homepage?.replace('clickfun','${NEW_SLUG}')||j.homepage;fs.writeFileSync(p,JSON.stringify(j,null,2));console.log('package.json updated')"
+node -e "const fs=require('fs');const p='./package.json';const j=JSON.parse(fs.readFileSync(p,'utf8'));j.name='${NEW_SLUG}';j.homepage=j.homepage?.replace('bunny-click','${NEW_SLUG}')||j.homepage;fs.writeFileSync(p,JSON.stringify(j,null,2));console.log('package.json updated')"
 
 # 重新產生圖標
 npm run icons:build

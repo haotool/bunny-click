@@ -1,9 +1,9 @@
 /**
- * Click Fun 基本功能測試
+ * Bunny Click 基本功能測試
  * 測試遊戲的核心功能是否正常運作
  */
 
-describe('Click Fun 基本功能測試', () => {
+describe('Bunny Click 基本功能測試', () => {
   let gameState;
 
   beforeEach(() => {

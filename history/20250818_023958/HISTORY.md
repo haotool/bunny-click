@@ -29,7 +29,7 @@
 ### 回滾方法
 ```bash
 # 從壓縮包還原
-cd /Users/azlife.eth/Tools/clickfun
+cd /Users/azlife.eth/Tools/bunny-click
 unzip history/20250818_023958/snapshot_20250818_023958.zip -d restore/
 
 # 或從備份檔案還原

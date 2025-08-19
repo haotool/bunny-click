@@ -1,4 +1,4 @@
-# 🎯 Click Fun AI SEO 優化策略
+# 🎯 Bunny Click AI SEO 優化策略
 
 ## 📊 專案 SEO 現況分析
 
@@ -41,8 +41,8 @@
 ### 主要關鍵字 (Primary Keywords)
 
 - **點擊遊戲** (每月搜尋量: ~8,100)
-- **Click Fun** (品牌詞)
-- **clickfun** (品牌詞變體)
+- **Bunny Click** (品牌詞)
+- **bunny-click** (品牌詞變體)
 - **點擊樂趣** (Long-tail)
 
 ### 次要關鍵字 (Secondary Keywords)
@@ -66,7 +66,7 @@
 
 ### GEO (Generative Engine Optimization)
 
-**目標**: 讓 AI 搜尋引擎能正確理解並推薦 Click Fun
+**目標**: 讓 AI 搜尋引擎能正確理解並推薦 Bunny Click
 
 **實施策略**:
 
@@ -121,7 +121,7 @@
 ### 搜尋引擎排名目標
 
 - **Google 搜尋「點擊遊戲」**: 目標前 10 名 (首頁)
-- **Google 搜尋「Click Fun」**: 目標第 1 名
+- **Google 搜尋「Bunny Click」**: 目標第 1 名
 - **Bing、Yahoo 搜尋**: 目標前 5 名
 
 ### AI 搜尋引擎目標

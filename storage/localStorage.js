@@ -10,7 +10,7 @@
 export class LocalStorageAdapter {
   constructor(config = {}) {
     this.config = config;
-    this.prefix = config.dbName ? `${config.dbName}:` : 'clickfun:';
+    this.prefix = config.dbName ? `${config.dbName}:` : 'bunny-click:';
     this.isAvailable = this.checkAvailability();
   }
 

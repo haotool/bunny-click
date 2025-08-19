@@ -133,19 +133,19 @@ Daily_Technical_Tasks:
     <!-- 必須包含的 Meta 標籤 -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>精確的頁面標題 | Click Fun</title>
+    <title>精確的頁面標題 | Bunny Click</title>
     <meta name="description" content="120-160字符的頁面描述" />
     <meta name="keywords" content="關鍵字1,關鍵字2,關鍵字3" />
     <meta name="author" content="haotool" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
-    <link rel="canonical" href="https://haotool.github.io/clickfun/" />
+    <link rel="canonical" href="https://haotool.org/bunny-click/" />
 
     <!-- Open Graph 必要標籤 -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="頁面標題" />
     <meta property="og:description" content="頁面描述" />
     <meta property="og:url" content="標準化URL" />
-    <meta property="og:site_name" content="Click Fun" />
+    <meta property="og:site_name" content="Bunny Click" />
     <meta property="og:image" content="1200x630 圖片URL" />
     <meta property="og:locale" content="zh_TW" />
 
@@ -164,11 +164,11 @@ Daily_Technical_Tasks:
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Click Fun",
+  "name": "Bunny Click",
   "applicationCategory": "Game",
   "operatingSystem": "Any",
   "browserRequirements": "Requires JavaScript. HTML5 compatible browser.",
-  "url": "https://haotool.github.io/clickfun/",
+  "url": "https://haotool.org/bunny-click/",
   "description": "詳細的應用程式描述",
   "inLanguage": "zh-TW",
   "isAccessibleForFree": true,
@@ -301,7 +301,7 @@ git worktree remove ../tech-seo-daily-$(date +%Y%m%d)
     "tech-seo:validate": "npm run html:validate && npm run schema:validate && npm run lighthouse:test",
     "html:validate": "html-validate index.html",
     "schema:validate": "ajv validate --all-errors -s schema.json -d structured-data.json",
-    "lighthouse:test": "lighthouse --output html --output-path reports/lighthouse.html https://haotool.github.io/clickfun/",
+    "lighthouse:test": "lighthouse --output html --output-path reports/lighthouse.html https://haotool.org/bunny-click/",
     "seo:audit": "npm run tech-seo:validate && npm run performance:check"
   }
 }

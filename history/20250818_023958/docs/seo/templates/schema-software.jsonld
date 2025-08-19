@@ -1,7 +1,7 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Click Fun",
+  "name": "Bunny Click",
   "applicationCategory": "Game",
   "applicationSubCategory": "Clicker Game",
   "operatingSystem": "Web",

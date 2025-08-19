@@ -4,10 +4,10 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Click Fun 是什麼？",
+      "name": "Bunny Click 是什麼？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Click Fun 是一款零門檻、極速載入、支援離線的點擊遊戲（Clicker Game）。"
+        "text": "Bunny Click 是一款零門檻、極速載入、支援離線的點擊遊戲（Clicker Game）。"
       }
     },
     {

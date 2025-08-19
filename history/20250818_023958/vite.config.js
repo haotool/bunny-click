@@ -1,5 +1,5 @@
 /**
- * Vite 配置文件 - ClickFun PWA 專案
+ * Vite 配置文件 - Bunny Click PWA 專案
  * 基於 Context7 最佳實踐的現代化 PWA 配置
  * [context7:vite-pwa/vite-plugin-pwa:2025-08-16T20:52:00+08:00]
  * 版本: 2025.8.16
@@ -21,8 +21,8 @@ export default defineConfig({
 
       // Web App Manifest 配置
       manifest: {
-        name: 'Click Fun - 點擊樂趣遊戲',
-        short_name: 'ClickFun',
+        name: 'Bunny Click - 點擊樂趣遊戲',
+        short_name: 'Bunny Click',
         description: '一個有趣的點擊遊戲，測試您的 TPS (每秒點擊次數) 並享受炫酷特效',
         theme_color: '#ff69b4',
         background_color: '#87ceeb',

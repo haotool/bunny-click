@@ -21,7 +21,7 @@ export class StorageAdapter {
       // 預設使用 IndexedDB，回退到 LocalStorage
       preferredStorage: 'indexeddb',
       // 資料庫名稱
-      dbName: options.dbName || 'ClickFunDB',
+      dbName: options.dbName || 'Bunny ClickDB',
       // 版本號
       version: options.version || 1,
       // 容量警告閾值 (5MB)
@@ -294,7 +294,7 @@ export class StorageAdapter {
 // 建立預設實例
 export const storage = new StorageAdapter({
   debug: false, // 生產環境關閉調試
-  dbName: 'ClickFunDB',
+  dbName: 'Bunny ClickDB',
   version: 1
 });
 

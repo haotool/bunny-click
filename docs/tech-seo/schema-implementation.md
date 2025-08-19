@@ -20,9 +20,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Click Fun",
+  "name": "Bunny Click",
   "description": "免費線上點擊遊戲，支援PWA離線遊戲、TPS計算功能",
-  "url": "https://haotool.github.io/clickfun/",
+  "url": "https://haotool.org/bunny-click/",
   "applicationCategory": "Game",
   "operatingSystem": "Any",
   "browserRequirements": "Requires JavaScript. HTML5 compatible browser.",
@@ -41,13 +41,13 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "@id": "https://haotool.github.io/clickfun/",
-  "name": "Click Fun",
-  "alternateName": ["Click Fun", "clickfun", "點擊樂趣"],
-  "description": "Click Fun 是免費線上點擊遊戲，支援 PWA 離線遊戲、TPS 即時計算、跨平台相容。現代化粉藍配色設計，提供最佳點擊體驗。",
-  "url": "https://haotool.github.io/clickfun/",
+  "@id": "https://haotool.org/bunny-click/",
+  "name": "Bunny Click",
+  "alternateName": ["Bunny Click", "bunny-click", "點擊樂趣"],
+  "description": "Bunny Click 是免費線上點擊遊戲，支援 PWA 離線遊戲、TPS 即時計算、跨平台相容。現代化粉藍配色設計，提供最佳點擊體驗。",
+  "url": "https://haotool.org/bunny-click/",
   "sameAs": [
-    "https://github.com/haotool/clickfun"
+    "https://github.com/haotool/bunny-click"
   ],
   
   "applicationCategory": "Game",
@@ -131,14 +131,14 @@
   "screenshot": [
     {
       "@type": "ImageObject",
-      "url": "https://haotool.github.io/clickfun/icons/screenshot-main.png",
-      "description": "Click Fun 主介面截圖",
+      "url": "https://haotool.org/bunny-click/icons/screenshot-main.png",
+      "description": "Bunny Click 主介面截圖",
       "width": "1200",
       "height": "800"
     },
     {
       "@type": "ImageObject", 
-      "url": "https://haotool.github.io/clickfun/icons/screenshot-stats.png",
+      "url": "https://haotool.org/bunny-click/icons/screenshot-stats.png",
       "description": "TPS 統計介面截圖",
       "width": "1200",
       "height": "800"
@@ -147,17 +147,17 @@
   
   "image": {
     "@type": "ImageObject",
-    "url": "https://haotool.github.io/clickfun/icons/og-image-1200x630.png",
+    "url": "https://haotool.org/bunny-click/icons/og-image-1200x630.png",
     "width": "1200",
     "height": "630",
-    "description": "Click Fun 遊戲標誌和介面預覽"
+    "description": "Bunny Click 遊戲標誌和介面預覽"
   },
   
   "potentialAction": {
     "@type": "PlayAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": "https://haotool.github.io/clickfun/",
+      "urlTemplate": "https://haotool.org/bunny-click/",
       "actionPlatform": [
         "https://schema.org/DesktopWebPlatform",
         "https://schema.org/MobileWebPlatform"
@@ -170,8 +170,8 @@
     }
   },
   
-  "installUrl": "https://haotool.github.io/clickfun/",
-  "downloadUrl": "https://haotool.github.io/clickfun/",
+  "installUrl": "https://haotool.org/bunny-click/",
+  "downloadUrl": "https://haotool.org/bunny-click/",
   
   "requirements": [
     "JavaScript enabled",
@@ -197,10 +197,10 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://haotool.github.io/clickfun/#website",
-  "name": "Click Fun - 點擊樂趣遊戲",
-  "alternateName": "Click Fun Game",
-  "url": "https://haotool.github.io/clickfun/",
+  "@id": "https://haotool.org/bunny-click/#website",
+  "name": "Bunny Click - 點擊樂趣遊戲",
+  "alternateName": "Bunny Click Game",
+  "url": "https://haotool.org/bunny-click/",
   "description": "免費線上點擊遊戲網站，提供最佳的點擊體驗和 PWA 功能",
   "inLanguage": "zh-TW",
   "isPartOf": {
@@ -209,17 +209,17 @@
   },
   "about": {
     "@type": "WebApplication",
-    "@id": "https://haotool.github.io/clickfun/"
+    "@id": "https://haotool.org/bunny-click/"
   },
   "mainEntity": {
     "@type": "WebApplication",
-    "@id": "https://haotool.github.io/clickfun/"
+    "@id": "https://haotool.org/bunny-click/"
   },
   "potentialAction": {
     "@type": "SearchAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": "https://haotool.github.io/clickfun/?q={search_term_string}"
+      "urlTemplate": "https://haotool.org/bunny-click/?q={search_term_string}"
     },
     "query-input": "required name=search_term_string"
   },
@@ -246,22 +246,22 @@
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "@id": "https://haotool.github.io/clickfun/#faq",
+  "@id": "https://haotool.org/bunny-click/#faq",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "什麼是 Click Fun？",
+      "name": "什麼是 Bunny Click？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Click Fun 是一款免費線上點擊遊戲，支援 PWA 離線遊戲功能，具備 TPS 即時計算、現代化介面設計，可在各種設備上運行。"
+        "text": "Bunny Click 是一款免費線上點擊遊戲，支援 PWA 離線遊戲功能，具備 TPS 即時計算、現代化介面設計，可在各種設備上運行。"
       }
     },
     {
       "@type": "Question", 
-      "name": "如何安裝 Click Fun PWA？",
+      "name": "如何安裝 Bunny Click PWA？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "在支援的瀏覽器中訪問 Click Fun，瀏覽器會自動提示安裝選項。點擊地址欄的安裝圖示或使用瀏覽器選單中的「安裝應用程式」選項。"
+        "text": "在支援的瀏覽器中訪問 Bunny Click，瀏覽器會自動提示安裝選項。點擊地址欄的安裝圖示或使用瀏覽器選單中的「安裝應用程式」選項。"
       }
     },
     {
@@ -269,15 +269,15 @@
       "name": "TPS 是什麼意思？",
       "acceptedAnswer": {
         "@type": "Answer", 
-        "text": "TPS 代表 Taps Per Second（每秒點擊次數），是衡量點擊速度的指標。Click Fun 提供即時 TPS 計算，幫助您了解點擊表現。"
+        "text": "TPS 代表 Taps Per Second（每秒點擊次數），是衡量點擊速度的指標。Bunny Click 提供即時 TPS 計算，幫助您了解點擊表現。"
       }
     },
     {
       "@type": "Question",
-      "name": "Click Fun 支援哪些平台？", 
+      "name": "Bunny Click 支援哪些平台？", 
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Click Fun 支援所有現代網頁瀏覽器，包括 Chrome、Firefox、Safari、Edge，同時支援 Android、iOS 行動裝置，具備完整的響應式設計。"
+        "text": "Bunny Click 支援所有現代網頁瀏覽器，包括 Chrome、Firefox、Safari、Edge，同時支援 Android、iOS 行動裝置，具備完整的響應式設計。"
       }
     },
     {
@@ -293,17 +293,17 @@
       "name": "如何提升點擊速度？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "建議使用食指快速連續點擊，保持手腕穩定，選擇適合的滑鼠或觸控設備。Click Fun 的即時 TPS 顯示能幫助您監控和改善表現。"
+        "text": "建議使用食指快速連續點擊，保持手腕穩定，選擇適合的滑鼠或觸控設備。Bunny Click 的即時 TPS 顯示能幫助您監控和改善表現。"
       }
     }
   ],
   "about": {
     "@type": "WebApplication",
-    "@id": "https://haotool.github.io/clickfun/"
+    "@id": "https://haotool.org/bunny-click/"
   },
   "isPartOf": {
     "@type": "WebSite", 
-    "@id": "https://haotool.github.io/clickfun/#website"
+    "@id": "https://haotool.org/bunny-click/#website"
   }
 }
 ```
@@ -333,7 +333,7 @@
   ],
   "owns": {
     "@type": "WebApplication",
-    "@id": "https://haotool.github.io/clickfun/"
+    "@id": "https://haotool.org/bunny-click/"
   },
   "alumniOf": {
     "@type": "EducationalOrganization",
@@ -427,7 +427,7 @@ done
 # 4. Google Rich Results 測試
 echo "✅ 準備 Rich Results 測試..."
 echo "請訪問: https://search.google.com/test/rich-results"
-echo "測試 URL: https://haotool.github.io/clickfun/"
+echo "測試 URL: https://haotool.org/bunny-click/"
 
 echo "🎯 Schema.org 驗證完成"
 ```
@@ -444,7 +444,7 @@ echo "🎯 Schema.org 驗證完成"
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Click Fun"
+  "name": "Bunny Click"
 }
 </script>
 
@@ -490,14 +490,14 @@ Optimization_Strategies:
 // ❌ 錯誤
 {
   "@type": "Game",  // 不是有效的 Schema.org 類型
-  "name": "Click Fun"
+  "name": "Bunny Click"
 }
 
 // ✅ 正確
 {
   "@type": "WebApplication",
   "applicationCategory": "Game",
-  "name": "Click Fun"
+  "name": "Bunny Click"
 }
 ```
 
@@ -507,15 +507,15 @@ Optimization_Strategies:
 // ❌ 錯誤 - WebApplication 缺少關鍵屬性
 {
   "@type": "WebApplication",
-  "name": "Click Fun"
+  "name": "Bunny Click"
 }
 
 // ✅ 正確 - 包含必要屬性
 {
   "@type": "WebApplication", 
-  "name": "Click Fun",
+  "name": "Bunny Click",
   "description": "點擊遊戲描述",
-  "url": "https://haotool.github.io/clickfun/",
+  "url": "https://haotool.org/bunny-click/",
   "applicationCategory": "Game"
 }
 ```
@@ -525,14 +525,14 @@ Optimization_Strategies:
 ```json
 // ❌ 錯誤
 {
-  "url": "clickfun/",  // 相對路徑
+  "url": "bunny-click/",  // 相對路徑
   "image": "/icon.png"  // 缺少域名
 }
 
 // ✅ 正確  
 {
-  "url": "https://haotool.github.io/clickfun/",
-  "image": "https://haotool.github.io/clickfun/icons/icon.png"
+  "url": "https://haotool.org/bunny-click/",
+  "image": "https://haotool.org/bunny-click/icons/icon.png"
 }
 ```
 

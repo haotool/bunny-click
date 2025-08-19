@@ -1,5 +1,5 @@
 {
-  "name": "clickfun",
+  "name": "bunny-click",
   "version": "7.2.3",
   "description": "A fun click-based game with PWA support and automated versioning",
   "type": "module",
@@ -43,10 +43,10 @@
     "git-hooks:install": "node scripts/setup-git-hooks.cjs install",
     "git-hooks:remove": "node scripts/setup-git-hooks.cjs remove",
     "git-hooks:status": "node scripts/setup-git-hooks.cjs status",
-    "icons:optimize": "squoosh-cli --webp auto --avif auto icons/click-fun.png -d icons",
-    "icons:generate": "pwa-asset-generator icons/click-fun.png public/icons --background \'transparent\' --padding 10 --opaque false --favicon true --mstile true --type png --log true",
+    "icons:optimize": "squoosh-cli --webp auto --avif auto icons/bunny-click.png -d icons",
+    "icons:generate": "pwa-asset-generator icons/bunny-click.png public/icons --background 'transparent' --padding 10 --opaque false --favicon true --mstile true --type png --log true",
     "icons:build": "npm run icons:optimize && npm run icons:generate",
-    "serve:lighthouse": "node dev-tools/tps-test-server.js || node lighthouse-server.js"
+    "serve:lighthouse": "node dev-tools/tps-test-server.js || node dev-tools/lighthouse-server.js"
   },
   "keywords": [
     "game",
@@ -102,10 +102,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/haotool/clickfun.git"
+    "url": "https://github.com/haotool/bunny-click.git"
   },
   "bugs": {
-    "url": "https://github.com/haotool/clickfun/issues"
+    "url": "https://github.com/haotool/bunny-click/issues"
   },
-  "homepage": "https://haotool.github.io/clickfun/"
+  "homepage": "https://haotool.org/bunny-click"
 }

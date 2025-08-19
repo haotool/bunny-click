@@ -1,6 +1,6 @@
 # 🚀 GitHub Actions 自動發布設置指南
 
-本指南將幫助您設置 Click Fun 專案的 GitHub Actions 自動發布流程。
+本指南將幫助您設置 Bunny Click 專案的 GitHub Actions 自動發布流程。
 
 ## 📋 前置需求
 
@@ -36,7 +36,7 @@
 git init
 
 # 添加遠端倉庫
-git remote add origin https://github.com/username/clickfun.git
+git remote add origin https://github.com/username/bunny-click.git
 
 # 添加所有檔案
 git add .

@@ -66,7 +66,7 @@ function testServiceWorkerConfig() {
       swEnhanced.includes('checkVersionUpdate') || swEnhanced.includes('VERSION_CHECK');
 
     // 檢查快取清理邏輯
-    const hasCacheCleanup = swEnhanced.includes('clickfun-v') && swEnhanced.includes('delete');
+    const hasCacheCleanup = swEnhanced.includes('bunny-click-v') && swEnhanced.includes('delete');
 
     if (hasVersionCheck) {
       console.log('   ✅ 版本檢測邏輯已實現');

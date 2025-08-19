@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * 批量更新品牌名稱：ClickFun → Click Fun
+ * 批量更新品牌名稱：Bunny Click → Bunny Click
  * 執行時間：2025-08-17T02:24:38+08:00
  * 負責人：鐵漢阿強 (Iron Man Strong)
  * 
@@ -37,29 +37,29 @@ const EXCLUDED_FILES = [
 // 更新規則
 const UPDATE_RULES = [
   // 基本品牌名稱更新
-  { from: /ClickFun/g, to: 'Click Fun' },
+  { from: /Bunny Click/g, to: 'Bunny Click' },
   
   // 特殊情況保持不變（檔案名、目錄名、技術標識符等）
   // 這些規則用於回復不應該被更改的情況
 ];
 
-// 應該保持 ClickFun 的特殊情況（不更新的模式）
+// 應該保持 Bunny Click 的特殊情況（不更新的模式）
 const KEEP_CLICKFUN_PATTERNS = [
   // URL 路徑和檔案名
-  /\/clickfun\//g,
-  /clickfun\./g,
-  /clickfun-/g,
-  /clickfun_/g,
+  /\/bunny-click\//g,
+  /bunny-click\./g,
+  /bunny-click-/g,
+  /bunny-click_/g,
   // GitHub repository name
-  /github\.com\/[^\/]*\/clickfun/g,
+  /github\.com\/[^\/]*\/bunny-click/g,
   // JavaScript 變數和函數名
-  /const\s+clickfun/g,
-  /let\s+clickfun/g,
-  /var\s+clickfun/g,
-  /function\s+clickfun/g,
+  /const\s+bunny-click/g,
+  /let\s+bunny-click/g,
+  /var\s+bunny-click/g,
+  /function\s+bunny-click/g,
   // CSS class names and IDs
-  /\.clickfun/g,
-  /#clickfun/g,
+  /\.bunny-click/g,
+  /#bunny-click/g,
 ];
 
 let totalFiles = 0;
@@ -95,7 +95,7 @@ function updateFileContent(filePath, content) {
   let updatedContent = content;
   let fileReplacements = 0;
   
-  // 先保存應該保持 ClickFun 的內容
+  // 先保存應該保持 Bunny Click 的內容
   const protectedContent = {};
   let protectedIndex = 0;
   
@@ -178,7 +178,7 @@ function processDirectory(dirPath) {
  * 主函數
  */
 function main() {
-  console.log('🚀 開始批量更新品牌名稱：ClickFun → Click Fun');
+  console.log('🚀 開始批量更新品牌名稱：Bunny Click → Bunny Click');
   console.log('📁 掃描目錄：', process.cwd());
   console.log('');
   

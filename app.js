@@ -1,10 +1,10 @@
 {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Click Fun",
-        "alternateName": "Click Fun",
-        "description": "Click Fun 是一款免費的線上點擊遊戲，支援 PWA 離線遊戲、TPS 計算功能。粉色×天藍配色主題，支援手機、平板、電腦多平台使用。",
-        "url": "https://haotool.github.io/clickfun/",
+        "name": "Bunny Click",
+        "alternateName": "Bunny Click",
+        "description": "Bunny Click 是一款免費的線上點擊遊戲，支援 PWA 離線遊戲、TPS 計算功能。粉色×天藍配色主題，支援手機、平板、電腦多平台使用。",
+        "url": "https://haotool.org/bunny-click/",
         "applicationCategory": "Game",
         "applicationSubCategory": "CasualGame",
         "operatingSystem": "Any",
@@ -31,9 +31,9 @@
           "availability": "https://schema.org/InStock",
           "category": "Free"
         },
-        "screenshot": "https://haotool.github.io/clickfun/icons/click-fun.png",
-        "image": "https://haotool.github.io/clickfun/icons/click-fun.png",
-        "thumbnailUrl": "https://haotool.github.io/clickfun/icons/icon-192x192.png",
+        "screenshot": "https://haotool.org/bunny-click/icons/bunny-click.png",
+        "image": "https://haotool.org/bunny-click/icons/bunny-click.png",
+        "thumbnailUrl": "https://haotool.org/bunny-click/icons/icon-192x192.png",
         "featureList": [
           "TPS (每秒點擊次數) 計算",
           "PWA 離線遊戲支援",
@@ -53,10 +53,10 @@
           "touch support",
           "screen reader compatible"
         ],
-        "keywords": "點擊遊戲, Click Fun, Click Fun, 免費遊戲, PWA遊戲, 線上遊戲, TPS計算, 點擊速度, 手機遊戲, 離線遊戲",
+        "keywords": "點擊遊戲, Bunny Click, Bunny Click, 免費遊戲, PWA遊戲, 線上遊戲, TPS計算, 點擊速度, 手機遊戲, 離線遊戲",
         "mainEntity": {
           "@type": "Game",
-          "name": "Click Fun",
+          "name": "Bunny Click",
           "description": "測試你的點擊速度！計算每秒點擊次數 (TPS)，挑戰你的極限。",
           "genre": "Casual Gaming",
           "playMode": "SinglePlayer",
@@ -68,7 +68,7 @@
         },
         "potentialAction": {
           "@type": "PlayAction",
-          "target": "https://haotool.github.io/clickfun/",
+          "target": "https://haotool.org/bunny-click/",
           "name": "開始遊戲"
         }
       }
@@ -78,10 +78,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Click Fun 是什麼？",
+            "name": "Bunny Click 是什麼？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Click Fun 是一款免費的線上點擊遊戲，採用 PWA 技術支援離線遊戲體驗。提供精確的 TPS (每秒點擊次數) 計算系統，讓您測試和提升點擊速度。"
+              "text": "Bunny Click 是一款免費的線上點擊遊戲，採用 PWA 技術支援離線遊戲體驗。提供精確的 TPS (每秒點擊次數) 計算系統，讓您測試和提升點擊速度。"
             }
           },
           {
@@ -89,7 +89,7 @@
             "name": "如何開始遊戲？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "開啟瀏覽器訪問 Click Fun 網站，點擊「單人挑戰模式」或「雙人對戰模式」即可立即開始遊戲，無需下載安裝任何軟體。"
+              "text": "開啟瀏覽器訪問 Bunny Click 網站，點擊「單人挑戰模式」或「雙人對戰模式」即可立即開始遊戲，無需下載安裝任何軟體。"
             }
           },
           {
@@ -97,7 +97,7 @@
             "name": "什麼是 TPS 計算？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "TPS 是 Taps Per Second (每秒點擊次數) 的縮寫，Click Fun 提供精確的 TPS 計算系統，即時顯示您的點擊速度表現，幫助您挑戰極限。"
+              "text": "TPS 是 Taps Per Second (每秒點擊次數) 的縮寫，Bunny Click 提供精確的 TPS 計算系統，即時顯示您的點擊速度表現，幫助您挑戰極限。"
             }
           },
           {
@@ -105,7 +105,7 @@
             "name": "支援哪些裝置？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Click Fun 完美支援手機、平板、電腦等多種裝置，採用響應式設計確保在任何螢幕尺寸下都能提供最佳遊戲體驗。"
+              "text": "Bunny Click 完美支援手機、平板、電腦等多種裝置，採用響應式設計確保在任何螢幕尺寸下都能提供最佳遊戲體驗。"
             }
           },
           {
@@ -113,7 +113,7 @@
             "name": "什麼是 PWA 離線功能？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "PWA (Progressive Web App) 技術讓 Click Fun 支援離線遊戲，即使沒有網路連線也能繼續遊戲，並可安裝到裝置主畫面像原生 App 一樣使用。"
+              "text": "PWA (Progressive Web App) 技術讓 Bunny Click 支援離線遊戲，即使沒有網路連線也能繼續遊戲，並可安裝到裝置主畫面像原生 App 一樣使用。"
             }
           },
           {
@@ -121,7 +121,7 @@
             "name": "遊戲完全免費嗎？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "是的，Click Fun 完全免費，無需註冊或登入，無隱藏費用，也沒有廣告干擾，讓您專注享受純粹的點擊樂趣。"
+              "text": "是的，Bunny Click 完全免費，無需註冊或登入，無隱藏費用，也沒有廣告干擾，讓您專注享受純粹的點擊樂趣。"
             }
           },
           {
@@ -145,7 +145,7 @@
             "name": "有排行榜功能嗎？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "有的，Click Fun 提供本地排行榜功能，記錄您的最佳成績，支援單人模式和雙人對戰模式的分別排名，激勵您不斷挑戰更高分數。"
+              "text": "有的，Bunny Click 提供本地排行榜功能，記錄您的最佳成績，支援單人模式和雙人對戰模式的分別排名，激勵您不斷挑戰更高分數。"
             }
           },
           {
@@ -161,11 +161,11 @@
 {
         "@context": "https://schema.org",
         "@type": "VideoGame",
-        "name": "Click Fun - 點擊樂趣遊戲",
-        "alternateName": ["Click Fun", "Click Fun", "點擊遊戲"],
+        "name": "Bunny Click - 點擊樂趣遊戲",
+        "alternateName": ["Bunny Click", "Bunny Click", "點擊遊戲"],
         "description": "免費的線上點擊速度測試遊戲，支援 PWA 技術可離線遊戲。測試您的點擊速度，計算 TPS (每秒點擊次數)，享受粉色×天藍的美麗配色。",
-        "url": "https://haotool.github.io/clickfun/",
-        "image": "https://haotool.github.io/clickfun/icons/click-fun.png",
+        "url": "https://haotool.org/bunny-click/",
+        "image": "https://haotool.org/bunny-click/icons/bunny-click.png",
         "genre": ["Casual", "Arcade", "Clicker Game"],
         "playMode": "SinglePlayer",
         "applicationCategory": "Game",
@@ -202,13 +202,13 @@
         },
         "contentRating": "Everyone",
         "keywords": "點擊遊戲, 速度測試, TPS計算, PWA遊戲, 免費遊戲",
-        "mainEntityOfPage": "https://haotool.github.io/clickfun/"
+        "mainEntityOfPage": "https://haotool.org/bunny-click/"
       }
 {
         "@context": "https://schema.org",
         "@type": "HowTo",
-        "name": "如何玩 ClickFun 點擊遊戲",
-        "description": "學習如何使用 ClickFun 進行點擊速度測試和提升 TPS 表現的完整指南",
+        "name": "如何玩 Bunny Click 點擊遊戲",
+        "description": "學習如何使用 Bunny Click 進行點擊速度測試和提升 TPS 表現的完整指南",
         "totalTime": "PT2M",
         "estimatedCost": {
           "@type": "MonetaryAmount",
@@ -231,27 +231,27 @@
           {
             "@type": "HowToStep",
             "name": "開始遊戲",
-            "text": "開啟瀏覽器訪問 ClickFun 網站，選擇單人挑戰模式或雙人對戰模式開始遊戲",
-            "url": "https://haotool.github.io/clickfun/#start",
-            "image": "https://haotool.github.io/clickfun/icons/click-fun.png"
+            "text": "開啟瀏覽器訪問 Bunny Click 網站，選擇單人挑戰模式或雙人對戰模式開始遊戲",
+            "url": "https://haotool.org/bunny-click/#start",
+            "image": "https://haotool.org/bunny-click/icons/bunny-click.png"
           },
           {
             "@type": "HowToStep",
             "name": "進行點擊測試",
             "text": "快速點擊遊戲區域，系統會即時計算並顯示您的 TPS (每秒點擊次數) 表現",
-            "url": "https://haotool.github.io/clickfun/#gameplay"
+            "url": "https://haotool.org/bunny-click/#gameplay"
           },
           {
             "@type": "HowToStep",
             "name": "查看成績",
             "text": "遊戲結束後查看詳細統計數據，包括總點擊數、平均 TPS 和最高 TPS 記錄",
-            "url": "https://haotool.github.io/clickfun/#results"
+            "url": "https://haotool.org/bunny-click/#results"
           },
           {
             "@type": "HowToStep",
             "name": "提升技巧",
             "text": "使用食指快速點擊，保持手部放鬆，找到節奏感。定期練習以提升點擊速度",
-            "url": "https://haotool.github.io/clickfun/#tips"
+            "url": "https://haotool.org/bunny-click/#tips"
           }
         ]
       }
@@ -266,7 +266,7 @@
 
       // ===== 版本管理 =====
       const APP_VERSION = '7.1.4';
-      const SW_ENHANCED_VERSION = 'clickfun-enhanced-v1.1.0';
+      const SW_ENHANCED_VERSION = 'bunny-click-enhanced-v1.1.0';
 
       // 更新版本號顯示
       function updateVersionDisplay() {
@@ -278,7 +278,7 @@
 
       // 當前版本的所有快取名稱模式
       const CURRENT_CACHE_PATTERNS = [
-        `clickfun-v${APP_VERSION}`,
+        `bunny-click-v${APP_VERSION}`,
         `${SW_ENHANCED_VERSION}-app-shell`,
         `${SW_ENHANCED_VERSION}-static`,
         `${SW_ENHANCED_VERSION}-dynamic`,
@@ -1288,7 +1288,7 @@
             window.addEventListener('beforeinstallprompt', e => {
               e.preventDefault();
               deferredPrompt = e;
-              title.textContent = '安裝 Click Fun';
+              title.textContent = '安裝 Bunny Click';
               hint.textContent = '支援離線、啟動更快、全螢幕體驗';
               btnInstall.textContent = '安裝';
               banner.classList.add('show');
@@ -1961,7 +1961,7 @@
           return;
         }
 
-        console.log('Initializing Click Fun...');
+        console.log('Initializing Bunny Click...');
 
         try {
           // 檢查版本更新

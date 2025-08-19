@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Click Fun 快取測試工具</title>
+    <title>Bunny Click 快取測試工具</title>
     <style>
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -100,7 +100,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>🧪 Click Fun 快取測試工具</h1>
+      <h1>🧪 Bunny Click 快取測試工具</h1>
 
       <div class="test-section">
         <h3>📦 快取管理測試</h3>
@@ -163,9 +163,9 @@
       async function createTestCaches() {
         try {
           const testCaches = [
-            'clickfun-v7.2.3',
-            'clickfun-v7.2.3',
-            'clickfun-v7.2.3',
+            'bunny-click-v7.2.3',
+            'bunny-click-v7.2.3',
+            'bunny-click-v7.2.3',
             'old-test-cache',
           ];
 
@@ -187,11 +187,11 @@
         try {
           const cacheNames = await caches.keys();
           const currentCachePatterns = [
-            `clickfun-v${APP_VERSION}`,
-            'clickfun-enhanced-v1.1.0-app-shell',
-            'clickfun-enhanced-v1.1.0-static',
-            'clickfun-enhanced-v1.1.0-dynamic',
-            'clickfun-enhanced-v1.1.0-images',
+            `bunny-click-v${APP_VERSION}`,
+            'bunny-click-enhanced-v1.1.0-app-shell',
+            'bunny-click-enhanced-v1.1.0-static',
+            'bunny-click-enhanced-v1.1.0-dynamic',
+            'bunny-click-enhanced-v1.1.0-images',
           ];
 
           log(`🗑️ 清除舊快取 (保留當前版本快取)...`);

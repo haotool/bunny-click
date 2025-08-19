@@ -10,7 +10,7 @@
 export class IndexedDBAdapter {
   constructor(config = {}) {
     this.config = {
-      dbName: 'ClickFunDB',
+      dbName: 'Bunny ClickDB',
       version: 1,
       storeName: 'gameData',
       ...config

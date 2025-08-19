@@ -1,6 +1,6 @@
-# Click Fun 點擊樂趣遊戲 - Robots.txt
+# Bunny Click 點擊樂趣遊戲 - Robots.txt
 # 生成時間: 2025-08-16T18:25:36+08:00
-# 網站: https://haotool.github.io/clickfun/
+# 網站: https://haotool.org/bunny-click/
 
 # 允許所有搜尋引擎爬取
 User-agent: *
@@ -31,7 +31,7 @@ Allow: /sitemap.xml
 Allow: /robots.txt
 
 # Sitemap 位置
-Sitemap: https://haotool.github.io/clickfun/sitemap.xml
+Sitemap: https://haotool.org/bunny-click/sitemap.xml
 
 # 針對主要搜尋引擎的特殊指示
 User-agent: Googlebot

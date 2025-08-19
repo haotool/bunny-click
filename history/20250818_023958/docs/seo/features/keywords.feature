@@ -11,8 +11,8 @@
   @MVP
   情境: 核心關鍵字出現於標題與首頁首屏
     當 我打開 首頁
-    那麼 我可以在 <title> 與 H1 中看到「點擊遊戲 Click Fun」
-    而且 首屏內容包含「clickfun / Click Fun / 點擊遊戲」語意變體
+    那麼 我可以在 <title> 與 H1 中看到「點擊遊戲 Bunny Click」
+    而且 首屏內容包含「bunny-click / Bunny Click / 點擊遊戲」語意變體
 
   @Std
   情境大綱: 主要與長尾關鍵字具備專屬落地頁或段落
@@ -23,8 +23,8 @@
     例子:
       | keyword                 | path               |
       | 點擊遊戲               | /                  |
-      | Click Fun              | /                  |
-      | clickfun               | /                  |
+      | Bunny Click              | /                  |
+      | bunny-click               | /                  |
       | Clicker Game           | /k/clicker-game    |
       | Idle Clicker           | /k/idle-clicker    |
       | 點擊放置遊戲           | /k/click-idle-zh   |
@@ -33,6 +33,6 @@
   @AI
   情境: FAQ 與 answers.json 可被 LLM 準確擷取
     假設 存在 /faq 與 /api/answers.json
-    當 LLM 擷取「Click Fun 是什麼？」
+    當 LLM 擷取「Bunny Click 是什麼？」
     那麼 可獲得 1–2 句清楚定義與引導連結（可引用段落）
 

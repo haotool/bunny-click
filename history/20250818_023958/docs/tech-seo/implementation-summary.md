@@ -58,21 +58,21 @@ Lighthouse_Scores:
     />
 
     <!-- ✅ SEO 核心標籤 -->
-    <title>Click Fun - 點擊樂趣遊戲 | 免費線上PWA遊戲</title>
+    <title>Bunny Click - 點擊樂趣遊戲 | 免費線上PWA遊戲</title>
     <meta
       name="description"
-      content="Click Fun 是一款免費的線上點擊遊戲，支援 PWA 離線遊戲、TPS 計算、粉色×天藍配色主題。立即開始您的點擊樂趣！支援手機、平板、電腦多平台。"
+      content="Bunny Click 是一款免費的線上點擊遊戲，支援 PWA 離線遊戲、TPS 計算、粉色×天藍配色主題。立即開始您的點擊樂趣！支援手機、平板、電腦多平台。"
     />
     <meta
       name="keywords"
-      content="點擊遊戲,Click Fun,Click Fun,免費遊戲,PWA遊戲,線上遊戲,TPS計算,點擊速度,手機遊戲,離線遊戲"
+      content="點擊遊戲,Bunny Click,Bunny Click,免費遊戲,PWA遊戲,線上遊戲,TPS計算,點擊速度,手機遊戲,離線遊戲"
     />
     <meta name="author" content="s123104" />
     <meta
       name="robots"
       content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
     />
-    <link rel="canonical" href="https://haotool.github.io/clickfun/" />
+    <link rel="canonical" href="https://haotool.org/bunny-click/" />
   </head>
 </html>
 ```
@@ -89,17 +89,17 @@ Lighthouse_Scores:
 ```html
 <!-- ✅ Facebook 優化完美 -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Click Fun - 點擊樂趣遊戲 | 免費線上PWA遊戲" />
+<meta property="og:title" content="Bunny Click - 點擊樂趣遊戲 | 免費線上PWA遊戲" />
 <meta
   property="og:description"
-  content="Click Fun 是一款免費的線上點擊遊戲，支援 PWA 離線遊戲、TPS 計算、粉色×天藍配色主題。立即開始您的點擊樂趣！"
+  content="Bunny Click 是一款免費的線上點擊遊戲，支援 PWA 離線遊戲、TPS 計算、粉色×天藍配色主題。立即開始您的點擊樂趣！"
 />
-<meta property="og:url" content="https://haotool.github.io/clickfun/" />
-<meta property="og:site_name" content="Click Fun" />
-<meta property="og:image" content="https://haotool.github.io/clickfun/icons/click-fun.png" />
+<meta property="og:url" content="https://haotool.org/bunny-click/" />
+<meta property="og:site_name" content="Bunny Click" />
+<meta property="og:image" content="https://haotool.org/bunny-click/icons/bunny-click.png" />
 <meta property="og:image:width" content="1024" />
 <meta property="og:image:height" content="1024" />
-<meta property="og:image:alt" content="Click Fun 點擊樂趣遊戲 - 粉色×天藍配色的免費PWA遊戲" />
+<meta property="og:image:alt" content="Bunny Click 點擊樂趣遊戲 - 粉色×天藍配色的免費PWA遊戲" />
 <meta property="og:locale" content="zh_TW" />
 ```
 
@@ -108,13 +108,13 @@ Lighthouse_Scores:
 ```html
 <!-- ✅ Twitter 分享優化 -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Click Fun - 點擊樂趣遊戲" />
+<meta name="twitter:title" content="Bunny Click - 點擊樂趣遊戲" />
 <meta
   name="twitter:description"
   content="免費線上點擊遊戲，支援PWA離線遊戲、TPS計算。立即開始點擊樂趣！"
 />
-<meta name="twitter:image" content="https://haotool.github.io/clickfun/icons/click-fun.png" />
-<meta name="twitter:image:alt" content="Click Fun 點擊樂趣遊戲截圖" />
+<meta name="twitter:image" content="https://haotool.org/bunny-click/icons/bunny-click.png" />
+<meta name="twitter:image:alt" content="Bunny Click 點擊樂趣遊戲截圖" />
 ```
 
 ### 4. Schema.org 結構化數據 ✅
@@ -125,10 +125,10 @@ Lighthouse_Scores:
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Click Fun",
-  "alternateName": "Click Fun",
-  "description": "Click Fun 是一款免費的線上點擊遊戲，支援 PWA 離線遊戲、TPS 計算功能...",
-  "url": "https://haotool.github.io/clickfun/",
+  "name": "Bunny Click",
+  "alternateName": "Bunny Click",
+  "description": "Bunny Click 是一款免費的線上點擊遊戲，支援 PWA 離線遊戲、TPS 計算功能...",
+  "url": "https://haotool.org/bunny-click/",
   "applicationCategory": "Game",
   "applicationSubCategory": "CasualGame",
   "operatingSystem": "Any",
@@ -155,7 +155,7 @@ Lighthouse_Scores:
 {
   "@context": "https://schema.org",
   "@type": "VideoGame",
-  "name": "Click Fun - 點擊樂趣遊戲",
+  "name": "Bunny Click - 點擊樂趣遊戲",
   "genre": ["Casual", "Arcade", "Clicker Game"],
   "contentRating": "Everyone",
   "aggregateRating": {
@@ -175,7 +175,7 @@ Lighthouse_Scores:
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://haotool.github.io/clickfun/</loc>
+    <loc>https://haotool.org/bunny-click/</loc>
     <lastmod>2025-08-16T18:25:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -200,7 +200,7 @@ Allow: /
 Allow: /llms.txt
 
 # Sitemap 位置
-Sitemap: https://haotool.github.io/clickfun/sitemap.xml
+Sitemap: https://haotool.org/bunny-click/sitemap.xml
 ```
 
 ---
@@ -285,7 +285,7 @@ team-worktrees/
 
 ```html
 <!-- 問題版本 -->
-<title>Click Fun - 點擊樂趣遊戲</title>
+<title>Bunny Click - 點擊樂趣遊戲</title>
 <!-- 缺少 description, keywords, Open Graph 等 -->
 ```
 
@@ -328,8 +328,8 @@ git push origin main
 
 **關鍵字排名目標**:
 
-- "Click Fun": 目標 #1 位
-- "Click Fun": 目標 #1 位
+- "Bunny Click": 目標 #1 位
+- "Bunny Click": 目標 #1 位
 - "點擊遊戲": 目標前 10 名
 - "免費點擊遊戲": 目標前 20 名
 
@@ -419,7 +419,7 @@ Code_Quality_Metrics:
 
 **鐵漢阿強 (Iron Man Strong) 正式宣告**:
 
-> 作為 Click Fun 專案的技術 SEO 架構師，我已完成所有指派任務，達成 Lighthouse SEO 100 分滿分目標，建立了符合 20 年資深工程師標準的技術架構，確保專案具備極高的可維護性和零技術債。
+> 作為 Bunny Click 專案的技術 SEO 架構師，我已完成所有指派任務，達成 Lighthouse SEO 100 分滿分目標，建立了符合 20 年資深工程師標準的技術架構，確保專案具備極高的可維護性和零技術債。
 >
 > 所有實施均基於最新的 Context7 技術文檔和 Schema.org 官方標準，並通過了完整的品質驗證流程。專案已準備好面對未來 5 年的技術挑戰。
 

@@ -47,8 +47,8 @@ const filesToUpdate = [
     path: 'sw.js',
     patterns: [
       {
-        regex: /const SW_VERSION = 'clickfun-v[\d.]+';/,
-        replacement: `const SW_VERSION = 'clickfun-v${newVersion}';`,
+        regex: /const SW_VERSION = 'bunny-click-v[\d.]+';/,
+        replacement: `const SW_VERSION = 'bunny-click-v${newVersion}';`,
       },
       {
         regex: /const APP_VERSION = '[\d.]+';/,
@@ -97,8 +97,8 @@ const filesToUpdate = [
     path: 'dev-tools/clear-cache.js',
     patterns: [
       {
-        regex: /'clickfun-v[\d.]+'/g,
-        replacement: `'clickfun-v${newVersion}'`,
+        regex: /'bunny-click-v[\d.]+'/g,
+        replacement: `'bunny-click-v${newVersion}'`,
       },
     ],
   },
@@ -110,8 +110,8 @@ const filesToUpdate = [
         replacement: `const APP_VERSION = '${newVersion}';`,
       },
       {
-        regex: /'clickfun-v[\d.]+'/g,
-        replacement: `'clickfun-v${newVersion}'`,
+        regex: /'bunny-click-v[\d.]+'/g,
+        replacement: `'bunny-click-v${newVersion}'`,
       },
     ],
   },
@@ -119,8 +119,8 @@ const filesToUpdate = [
     path: 'dev-tools/test-cache-clear.js',
     patterns: [
       {
-        regex: /'clickfun-v[\d.]+'/g,
-        replacement: `'clickfun-v${newVersion}'`,
+        regex: /'bunny-click-v[\d.]+'/g,
+        replacement: `'bunny-click-v${newVersion}'`,
       },
       {
         regex: /const currentVersion = '[\d.]+';/,

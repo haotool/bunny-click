@@ -1,8 +1,8 @@
-# 🎮 關於 Click Fun
+# 🎮 關於 Bunny Click
 
 ## 🌟 專案願景
 
-**Click Fun** 不只是一個點擊遊戲，而是一個展示現代 Web 技術極限的技術實驗場。我們相信簡單的互動可以創
+**Bunny Click** 不只是一個點擊遊戲，而是一個展示現代 Web 技術極限的技術實驗場。我們相信簡單的互動可以創
 造無限的樂趣，透過精心設計的視覺效果、音效系統和流暢的使用者體驗，將最基本的「點擊」動作昇華為一種藝
 術。
 
@@ -196,7 +196,7 @@ document.addEventListener(
 
 - **Discord**: 即時討論與技術支援
 - **GitHub Discussions**: 深度技術討論
-- **Stack Overflow**: 標籤 `clickfun-game`
+- **Stack Overflow**: 標籤 `bunny-click-game`
 
 ## 🏆 獲獎記錄
 
@@ -213,7 +213,7 @@ document.addEventListener(
 
 ## 💝 致謝
 
-感謝所有為 Click Fun 做出貢獻的開發者、設計師、測試者和使用者。特別感謝：
+感謝所有為 Bunny Click 做出貢獻的開發者、設計師、測試者和使用者。特別感謝：
 
 - **Web 標準組織**: 提供強大的技術基礎
 - **開源社群**: 無私分享的知識與工具
@@ -226,8 +226,8 @@ document.addEventListener(
 
 ### 🎮 開始你的點擊之旅
 
-**[立即遊玩](https://clickfun.game) | [查看原始碼](https://github.com/haotool/clickfun) |
-[加入社群](https://discord.gg/clickfun)**
+**[立即遊玩](https://bunny-click.game) | [查看原始碼](https://github.com/haotool/bunny-click) |
+[加入社群](https://discord.gg/bunny-click)**
 
 _用 ❤️、☕ 和無數次點擊製作_
 

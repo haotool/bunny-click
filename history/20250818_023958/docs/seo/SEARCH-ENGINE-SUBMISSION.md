@@ -23,7 +23,7 @@
    1. 使用 Google 帳號登入 Search Console
    2. 點擊「新增資源」
    3. 選擇「網址前置字元」
-   4. 輸入：https://haotool.github.io/clickfun/
+   4. 輸入：https://haotool.org/bunny-click/
    ```
 
 2. **所有權驗證**
@@ -43,7 +43,7 @@
 
    ```
    1. 進入「Sitemap」選單
-   2. 新增 Sitemap：https://haotool.github.io/clickfun/sitemap.xml
+   2. 新增 Sitemap：https://haotool.org/bunny-click/sitemap.xml
    3. 點擊「提交」
    4. 確認狀態為「成功」
    ```
@@ -52,7 +52,7 @@
 
    ```yaml
    基本設定:
-     - 偏好網域: https://haotool.github.io/clickfun/
+     - 偏好網域: https://haotool.org/bunny-click/
      - 地理目標: 台灣
      - 國際目標: zh-TW
      - 爬取頻率: 正常
@@ -75,7 +75,7 @@
 
    ```
    1. 點擊「Add a Site」
-   2. 輸入：https://haotool.github.io/clickfun/
+   2. 輸入：https://haotool.org/bunny-click/
    3. 選擇驗證方法
    ```
 
@@ -191,8 +191,8 @@
   }
   gtag('js', new Date());
   gtag('config', 'GA_MEASUREMENT_ID', {
-    page_title: 'Click Fun - 點擊樂趣遊戲',
-    page_location: 'https://haotool.github.io/clickfun/',
+    page_title: 'Bunny Click - 點擊樂趣遊戲',
+    page_location: 'https://haotool.org/bunny-click/',
     content_group1: 'Games',
     content_group2: 'PWA',
   });
@@ -253,12 +253,12 @@
 ```yaml
 監控項目:
   Google:
-    - site:haotool.github.io/clickfun/
+    - site:haotool.github.io/bunny-click/
     - 收錄頁面數量
     - 索引狀態
 
   Bing:
-    - site:haotool.github.io/clickfun/
+    - site:haotool.github.io/bunny-click/
     - 收錄狀態
     - 爬取頻率
 
@@ -271,8 +271,8 @@
 
 ```yaml
 daily_tracking:
-  - 'Click Fun'
-  - 'Click Fun'
+  - 'Bunny Click'
+  - 'Bunny Click'
 
 weekly_tracking:
   - '點擊遊戲'

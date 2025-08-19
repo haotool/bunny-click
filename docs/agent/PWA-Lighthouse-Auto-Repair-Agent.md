@@ -28,7 +28,7 @@
 
 參數區（可覆寫）：
 
-- PROJECT_ROOT: <abs path，例如 /workspace/clickfun>
+- PROJECT_ROOT: <abs path，例如 /workspace/bunny-click>
 - TARGET_URL: http://localhost:8080
 - LIGHTHOUSE_PRESET: desktop（可切換 mobile）
 - SCORE_TARGETS: { performance: 100, seo: 100, best_practices: 95, accessibility: 95 }

@@ -1,14 +1,14 @@
-# SEO 整體策略（Click Fun / clickfun）
+# SEO 整體策略（Bunny Click / bunny-click）
 
 ## 1. 目標與定位
 
-- 品牌關鍵字：Click Fun、clickfun、Click Fun、Click-Fun
+- 品牌關鍵字：Bunny Click、bunny-click、Bunny Click、Click-Fun
 - 核心主題：點擊遊戲、放置點擊、Clicker Game、Idle Clicker、網頁點擊遊戲
 - 差異化：PWA、離線可玩、零門檻即玩、極速載入、可分享競榜
 
 ## 2. 資訊架構（IA）與內容集群
 
-- 首頁（/）：主題頁「點擊遊戲 Click Fun」+ 主要 CTA
+- 首頁（/）：主題頁「點擊遊戲 Bunny Click」+ 主要 CTA
 - 子頁：
   - /features：玩法與特性（快、爽、裝飾、競榜）
   - /how-to-play：教學與技巧
@@ -19,7 +19,7 @@
 
 ## 3. 關鍵字策略（精簡）
 
-- 主要：點擊遊戲、Clicker Game、Idle Clicker、Click Fun、clickfun
+- 主要：點擊遊戲、Clicker Game、Idle Clicker、Bunny Click、bunny-click
 - 長尾：
   - 點擊遊戲推薦、免費點擊遊戲、瀏覽器點擊遊戲、手機點擊遊戲
   - clicker game online、idle clicker web、best clicker game 2025

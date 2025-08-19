@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./icons/click-fun.png">
-  <source media="(prefers-color-scheme: light)" srcset="./icons/click-fun.png">
-  <img alt="Click Fun Logo" src="./icons/click-fun.png" width="160" height="160" style="border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+  <source media="(prefers-color-scheme: dark)" srcset="./icons/bunny-click.png">
+  <source media="(prefers-color-scheme: light)" srcset="./icons/bunny-click.png">
+  <img alt="Bunny Click Logo" src="./icons/bunny-click.png" width="160" height="160" style="border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
 </picture>
 
 <p align="center">
@@ -15,14 +15,14 @@
 </p>
 
 <p align="center">
-  <a href="https://haotool.github.io/clickfun/">
+  <a href="https://haotool.org/bunny-click/">
     <img src="https://img.shields.io/badge/🎮_立即遊玩-FF69B4?style=for-the-badge&logo=gamepad&logoColor=white&labelColor=FF69B4" alt="Play Now">
   </a>
-  <a href="https://haotool.github.io/clickfun/">
+  <a href="https://haotool.org/bunny-click/">
     <img src="https://img.shields.io/badge/📱_安裝_PWA-52B7FF?style=for-the-badge&logo=pwa&logoColor=white&labelColor=52B7FF" alt="Install PWA">
   </a>
-  <a href="https://github.com/haotool/clickfun">
-    <img src="https://img.shields.io/github/stars/haotool/clickfun?style=for-the-badge&logo=github&color=FFD700&labelColor=333" alt="GitHub Stars">
+  <a href="https://github.com/haotool/bunny-click">
+    <img src="https://img.shields.io/github/stars/haotool/bunny-click?style=for-the-badge&logo=github&color=FFD700&labelColor=333" alt="GitHub Stars">
   </a>
 </p>
 
@@ -152,7 +152,7 @@ interface GameFeatures {
 
 ### 立即體驗
 
-<a href="https://haotool.github.io/clickfun/">
+<a href="https://haotool.org/bunny-click/">
   <img src="https://img.shields.io/badge/🌐_線上遊玩-立即開始-FF69B4?style=for-the-badge&logo=play&logoColor=white" alt="Play Online">
 </a>
 
@@ -171,7 +171,7 @@ interface GameFeatures {
 #### PWA 安裝
 
 ```bash
-1. 訪問 https://haotool.github.io/clickfun/
+1. 訪問 https://haotool.org/bunny-click/
 2. 點擊瀏覽器的「安裝」提示
 3. 享受原生 App 體驗
 ```
@@ -184,8 +184,8 @@ interface GameFeatures {
 #### 開發者本地運行
 
 ```bash
-git clone https://github.com/haotool/clickfun.git
-cd clickfun
+git clone https://github.com/haotool/bunny-click.git
+cd bunny-click
 python3 -m http.server 8080
 # 或 npx serve .
 ```
@@ -198,13 +198,13 @@ python3 -m http.server 8080
 
 ### 🌐 線上遊玩（推薦）
 
-**👆 一鍵直達** → [https://haotool.github.io/clickfun/](https://haotool.github.io/clickfun/)
+**👆 一鍵直達** → [https://haotool.org/bunny-click/](https://haotool.org/bunny-click/)
 
 _支援所有現代瀏覽器，手機、平板、電腦都能完美運行！_
 
 ### 📱 PWA 安裝指南
 
-1. **🌐 開啟遊戲網址** → [https://haotool.github.io/clickfun/](https://haotool.github.io/clickfun/)
+1. **🌐 開啟遊戲網址** → [https://haotool.org/bunny-click/](https://haotool.org/bunny-click/)
 2. **📱 點擊瀏覽器的「安裝」提示**
 3. **🎮 享受原生 App 般的體驗**
 
@@ -214,8 +214,8 @@ _支援所有現代瀏覽器，手機、平板、電腦都能完美運行！_
 
 ```bash
 # 🚀 快速啟動
-git clone https://github.com/haotool/clickfun.git
-cd clickfun
+git clone https://github.com/haotool/bunny-click.git
+cd bunny-click
 
 # 🐍 Python 方式
 python3 -m http.server 8080
@@ -391,7 +391,7 @@ _就是這麼簡單！但要成為大師，還有更多秘訣..._
 ## 🏗️ 專案結構
 
 ```
-clickfun/
+bunny-click/
 ├── 📄 index.html          # 主遊戲檔案
 ├── ⚙️ fx.worker.js        # 視覺效果 Worker
 ├── 📱 app.webmanifest     # PWA 清單
@@ -474,7 +474,7 @@ const TIER = {
 
 ## 🤝 加入我們的開發者社群
 
-想讓 Click Fun 變得更棒嗎？我們歡迎所有形式的貢獻！
+想讓 Bunny Click 變得更棒嗎？我們歡迎所有形式的貢獻！
 
 <div align="center">
   <table>
@@ -482,17 +482,17 @@ const TIER = {
       <td align="center">
         <h3>🐛 回報問題</h3>
         <p>發現 Bug？告訴我們！</p>
-        <p><a href="https://github.com/haotool/clickfun/issues">提交 Issue</a></p>
+        <p><a href="https://github.com/haotool/bunny-click/issues">提交 Issue</a></p>
       </td>
       <td align="center">
         <h3>💡 建議功能</h3>
         <p>有好點子？分享給我們！</p>
-        <p><a href="https://github.com/haotool/clickfun/discussions">功能討論</a></p>
+        <p><a href="https://github.com/haotool/bunny-click/discussions">功能討論</a></p>
       </td>
       <td align="center">
         <h3>🔧 貢獻程式碼</h3>
         <p>想參與開發？歡迎 PR！</p>
-        <p><a href="https://github.com/haotool/clickfun/pulls">Pull Request</a></p>
+        <p><a href="https://github.com/haotool/bunny-click/pulls">Pull Request</a></p>
       </td>
     </tr>
   </table>
@@ -502,7 +502,7 @@ const TIER = {
 
 ```bash
 # 1️⃣ Fork 並 Clone
-git clone https://github.com/your-username/clickfun.git
+git clone https://github.com/your-username/bunny-click.git
 
 # 2️⃣ 建立功能分支
 git checkout -b feature/amazing-feature
@@ -532,7 +532,7 @@ git push origin feature/amazing-feature
 ### v7.1.0 (2025-08-16)
 
 - 🏆 **排行榜時間分類功能**：新增三種遊戲時間（15秒、30秒、60秒）對應的排行榜分類
-- 📱 **完整 PWA 圖標系統**：從 click-fun.png 生成全套 PWA 圖標，支援所有設備尺寸
+- 📱 **完整 PWA 圖標系統**：從 bunny-click.png 生成全套 PWA 圖標，支援所有設備尺寸
 - 🎮 **遊戲時間標記**：排行榜記錄現在顯示對應的遊戲時間模式
 - 🎨 排行榜新增時間篩選標籤（全部、15秒、30秒、60秒）
 - 📱 新增完整的圖標尺寸支援，改善 PWA 安裝體驗
@@ -652,7 +652,7 @@ git push origin feature/amazing-feature
 
 ### 立即開始挑戰
 
-<a href="https://haotool.github.io/clickfun/">
+<a href="https://haotool.org/bunny-click/">
   <img src="https://img.shields.io/badge/🎯_開始遊戲-立即挑戰-FF69B4?style=for-the-badge&logo=rocket&logoColor=white" alt="Start Game">
 </a>
 
@@ -668,7 +668,7 @@ git push origin feature/amazing-feature
 
 #### 問題回報
 
-<a href="https://github.com/haotool/clickfun/issues">
+<a href="https://github.com/haotool/bunny-click/issues">
   <img src="https://img.shields.io/badge/Issues-回報_Bug-FF6B6B?style=for-the-badge&logo=bug&logoColor=white" alt="Issues">
 </a>
 
@@ -679,7 +679,7 @@ git push origin feature/amazing-feature
 
 #### 功能建議
 
-<a href="https://github.com/haotool/clickfun/discussions">
+<a href="https://github.com/haotool/bunny-click/discussions">
   <img src="https://img.shields.io/badge/Discussions-功能建議-4ECDC4?style=for-the-badge&logo=chat&logoColor=white" alt="Discussions">
 </a>
 
@@ -690,7 +690,7 @@ git push origin feature/amazing-feature
 
 #### 程式碼貢獻
 
-<a href="https://github.com/haotool/clickfun">
+<a href="https://github.com/haotool/bunny-click">
   <img src="https://img.shields.io/badge/Contribute-貢獻程式碼-9B59B6?style=for-the-badge&logo=code&logoColor=white" alt="Contribute">
 </a>
 
@@ -707,15 +707,15 @@ git push origin feature/amazing-feature
 <div align="center">
 
 <p>
-  <img src="https://img.shields.io/github/stars/haotool/clickfun?style=for-the-badge&logo=star&color=FFD700" alt="GitHub Stars">
-  <img src="https://img.shields.io/github/forks/haotool/clickfun?style=for-the-badge&logo=fork&color=32CD32" alt="GitHub Forks">
-  <img src="https://img.shields.io/github/issues/haotool/clickfun?style=for-the-badge&logo=issue&color=FF6B6B" alt="GitHub Issues">
-  <img src="https://img.shields.io/github/license/haotool/clickfun?style=for-the-badge&logo=license&color=00C851" alt="License">
+  <img src="https://img.shields.io/github/stars/haotool/bunny-click?style=for-the-badge&logo=star&color=FFD700" alt="GitHub Stars">
+  <img src="https://img.shields.io/github/forks/haotool/bunny-click?style=for-the-badge&logo=fork&color=32CD32" alt="GitHub Forks">
+  <img src="https://img.shields.io/github/issues/haotool/bunny-click?style=for-the-badge&logo=issue&color=FF6B6B" alt="GitHub Issues">
+  <img src="https://img.shields.io/github/license/haotool/bunny-click?style=for-the-badge&logo=license&color=00C851" alt="License">
 </p>
 
 <p>
-  <img src="https://img.shields.io/github/commit-activity/m/haotool/clickfun?style=for-the-badge&logo=git&color=F66FB9" alt="Commit Activity">
-  <img src="https://img.shields.io/github/last-commit/haotool/clickfun?style=for-the-badge&logo=clock&color=52B7FF" alt="Last Commit">
+  <img src="https://img.shields.io/github/commit-activity/m/haotool/bunny-click?style=for-the-badge&logo=git&color=F66FB9" alt="Commit Activity">
+  <img src="https://img.shields.io/github/last-commit/haotool/bunny-click?style=for-the-badge&logo=clock&color=52B7FF" alt="Last Commit">
 </p>
 
 </div>
@@ -724,11 +724,11 @@ git push origin feature/amazing-feature
 
 <div align="center">
 
-### Click Fun - 專業級點擊競技體驗
+### Bunny Click - 專業級點擊競技體驗
 
 **在快節奏的世界裡，享受簡單而純粹的挑戰**
 
-<a href="https://haotool.github.io/clickfun/">
+<a href="https://haotool.org/bunny-click/">
   <img src="https://img.shields.io/badge/🏆_立即挑戰-成為點擊大師-gradient?style=for-the-badge&logo=trophy&logoColor=white" alt="Challenge Now">
 </a>
 

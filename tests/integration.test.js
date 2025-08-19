@@ -1,5 +1,5 @@
 /**
- * 整合測試 - Click Fun 專案
+ * 整合測試 - Bunny Click 專案
  * 測試主要功能模組的整合
  */
 
@@ -57,7 +57,7 @@ global.navigator = {
 };
 
 // 測試套件
-describe('Click Fun 整合測試', () => {
+describe('Bunny Click 整合測試', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     jest.resetModules();

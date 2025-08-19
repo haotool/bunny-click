@@ -1,4 +1,4 @@
-# 🏗️ Click Fun 當前內容架構分析報告
+# 🏗️ Bunny Click 當前內容架構分析報告
 
 **分析時間**: 2025-08-17T02:03:01+08:00  
 **分析師**: 文案高手 (Content Master Pro)  
@@ -51,21 +51,21 @@ Technical_SEO_Audit:
 
 ```yaml
 Brand_Keywords_Content_Analysis:
-  "Click Fun":
+  "Bunny Click":
     current_coverage:
-      - Meta Title: ✅ "Click Fun - 點擊樂趣遊戲"
-      - Meta Description: ✅ "Click Fun 是一款免費的線上點擊遊戲"
-      - JSON-LD: ✅ "name": "Click Fun"
-      - Visual Branding: ✅ "Click Fun" 顯示在遊戲界面
+      - Meta Title: ✅ "Bunny Click - 點擊樂趣遊戲"
+      - Meta Description: ✅ "Bunny Click 是一款免費的線上點擊遊戲"
+      - JSON-LD: ✅ "name": "Bunny Click"
+      - Visual Branding: ✅ "Bunny Click" 顯示在遊戲界面
     missing_elements:
       - H1 Tag: ❌ 主標題缺失
       - First Paragraph: ❌ 首段品牌介紹缺失
       - About Section: ❌ 品牌故事區塊缺失
     optimization_score: 60/100
 
-  "Click Fun":
+  "Bunny Click":
     current_coverage:
-      - Brand Display: ✅ "Click Fun" 遊戲界面顯示
+      - Brand Display: ✅ "Bunny Click" 遊戲界面顯示
       - Meta Variants: ✅ JSON-LD alternateName
       - Visual Identity: ✅ 品牌副標題使用
     missing_elements:
@@ -291,7 +291,7 @@ Monthly_Strategic_Content_P2:
 ### 1. H1 標題添加 (30分鐘)
 
 - 位置: 主要品牌標題區域
-- 內容: `<h1>Click Fun - 點擊樂趣遊戲 | 免費線上PWA遊戲</h1>`
+- 內容: `<h1>Bunny Click - 點擊樂趣遊戲 | 免費線上PWA遊戲</h1>`
 - 樣式: 保持現有視覺效果，僅標籤語義化
 
 ### 2. 產品描述段落 (45分鐘)
@@ -346,9 +346,9 @@ Monthly_Strategic_Content_P2:
 ```yaml
 Ranking_Predictions_After_Optimization:
   tier1_brand_keywords:
-    - "Click Fun": "預計2週內達到 #1"
-    - "Click Fun": "預計2週內達到 #1"
-    - "clickfun遊戲": "預計1週內達到 #1"
+    - "Bunny Click": "預計2週內達到 #1"
+    - "Bunny Click": "預計2週內達到 #1"
+    - "bunny-click遊戲": "預計1週內達到 #1"
     confidence_level: "95%"
 
   tier2_primary_keywords:

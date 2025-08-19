@@ -3,11 +3,11 @@
 > **建立時間**: 2025-08-17T02:03:06+08:00  
 > **負責人**: 數據狂人 (Data Ninja Master)  
 > **版本**: v1.0.0  
-> **專案**: Click Fun SEO 全方位數據分析平台
+> **專案**: Bunny Click SEO 全方位數據分析平台
 
 ## 🎯 系統概述
 
-這是一個企業級的 SEO 數據分析平台，專為 Click Fun 項目設計，提供全方位的 SEO 效果監控、AI 搜尋可見度追蹤、預測分析和即時儀表板功能。
+這是一個企業級的 SEO 數據分析平台，專為 Bunny Click 項目設計，提供全方位的 SEO 效果監控、AI 搜尋可見度追蹤、預測分析和即時儀表板功能。
 
 ### 核心特色
 
@@ -97,10 +97,10 @@ generator = ReportGenerator()
 
 # 配置報告
 config = ReportConfig(
-    title="Click Fun SEO 每日分析報告",
+    title="Bunny Click SEO 每日分析報告",
     subtitle="數據驅動的 SEO 效果監控與優化建議",
     author="數據狂人 (Data Ninja Master)",
-    department="Click Fun SEO 團隊",
+    department="Bunny Click SEO 團隊",
     report_type="daily",
     template_name="daily_report.html",
     output_format="html"
@@ -317,14 +317,14 @@ class PredictionFeatures:
 {
   "google_search_console": {
     "service_account_file": "credentials/gsc_service_account.json",
-    "site_url": "https://haotool.github.io/clickfun/"
+    "site_url": "https://haotool.org/bunny-click/"
   },
   "google_analytics": {
     "property_id": "G-XXXXXXXXXX",
     "credentials_path": "credentials/ga4_credentials.json"
   },
   "lighthouse": {
-    "target_url": "https://haotool.github.io/clickfun/",
+    "target_url": "https://haotool.org/bunny-click/",
     "api_key": "YOUR_PAGESPEED_API_KEY"
   },
   "collection_interval": 3600,
@@ -623,4 +623,4 @@ git commit -m "feat(monitoring): 新增數據收集器"
 
 ---
 
-**© 2025 Click Fun SEO 團隊 | 數據狂人 (Data Ninja Master) 設計開發**
+**© 2025 Bunny Click SEO 團隊 | 數據狂人 (Data Ninja Master) 設計開發**

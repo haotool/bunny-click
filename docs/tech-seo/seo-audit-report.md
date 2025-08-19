@@ -1,4 +1,4 @@
-# 🚨 Click Fun 技術 SEO 緊急審計報告
+# 🚨 Bunny Click 技術 SEO 緊急審計報告
 
 ## 📋 審計資訊
 
@@ -15,20 +15,20 @@
 
 **發現問題**:
 - 線上版本缺少完整的 SEO Meta 標籤
-- 線上版本 title 僅為 "Click Fun - 點擊樂趣遊戲"
+- 線上版本 title 僅為 "Bunny Click - 點擊樂趣遊戲"
 - 缺少 description、keywords、Open Graph 等重要標籤
 
 **實際線上內容**:
 ```html
-<title>Click Fun - 點擊樂趣遊戲</title>
+<title>Bunny Click - 點擊樂趣遊戲</title>
 <!-- 缺少其他 SEO 標籤 -->
 ```
 
 **開發版本應有內容**:
 ```html
-<title>Click Fun - 點擊樂趣遊戲 | 免費線上PWA遊戲</title>
-<meta name="description" content="Click Fun 是一款免費的線上點擊遊戲，支援 PWA 離線遊戲、TPS 計算、粉色×天藍配色主題。立即開始您的點擊樂趣！支援手機、平板、電腦多平台。" />
-<meta name="keywords" content="點擊遊戲,Click Fun,Click Fun,免費遊戲,PWA遊戲,線上遊戲,TPS計算,點擊速度,手機遊戲,離線遊戲" />
+<title>Bunny Click - 點擊樂趣遊戲 | 免費線上PWA遊戲</title>
+<meta name="description" content="Bunny Click 是一款免費的線上點擊遊戲，支援 PWA 離線遊戲、TPS 計算、粉色×天藍配色主題。立即開始您的點擊樂趣！支援手機、平板、電腦多平台。" />
+<meta name="keywords" content="點擊遊戲,Bunny Click,Bunny Click,免費遊戲,PWA遊戲,線上遊戲,TPS計算,點擊速度,手機遊戲,離線遊戲" />
 <!-- + 完整的 Open Graph 和 Twitter Cards -->
 ```
 
@@ -108,8 +108,8 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Click Fun",
-  "alternateName": "Click Fun",
+  "name": "Bunny Click",
+  "alternateName": "Bunny Click",
   "description": "完整描述存在",
   "applicationCategory": "Game",
   "operatingSystem": "Any",
@@ -144,7 +144,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://haotool.github.io/clickfun/</loc>
+    <loc>https://haotool.org/bunny-click/</loc>
     <lastmod>2025-08-16T18:25:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>

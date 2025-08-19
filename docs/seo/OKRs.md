@@ -2,7 +2,7 @@
 
 ## O（Objective）
 
-- 讓「點擊遊戲」「Click Fun」「clickfun」等核心關鍵字進入 Google 首頁頂端，並在 AI/Answer 引擎中獲得高曝光可引用回鏈。
+- 讓「點擊遊戲」「Bunny Click」「bunny-click」等核心關鍵字進入 Google 首頁頂端，並在 AI/Answer 引擎中獲得高曝光可引用回鏈。
 
 ## KR（Key Results）
 

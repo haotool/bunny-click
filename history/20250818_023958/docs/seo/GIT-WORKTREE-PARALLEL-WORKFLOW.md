@@ -55,7 +55,7 @@ Team_Worktree_Mapping:
 ### 專案根目錄布局
 
 ```
-clickfun/                           # 主要專案目錄
+bunny-click/                           # 主要專案目錄
 ├── .git/                          # Git 主倉庫
 ├── index.html                     # 主要遊戲檔案
 ├── docs/seo/                      # SEO 策略文檔
@@ -453,7 +453,7 @@ cat > "team-status-dashboard.html" << 'EOF'
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Click Fun SEO 團隊並行開發狀態</title>
+    <title>Bunny Click SEO 團隊並行開發狀態</title>
     <meta http-equiv="refresh" content="30">
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
@@ -465,7 +465,7 @@ cat > "team-status-dashboard.html" << 'EOF'
     </style>
 </head>
 <body>
-    <h1>🏢 Click Fun SEO 團隊並行開發狀態</h1>
+    <h1>🏢 Bunny Click SEO 團隊並行開發狀態</h1>
     <div class="timestamp">最後更新: $(date)</div>
 
     <div class="team-card status-good">

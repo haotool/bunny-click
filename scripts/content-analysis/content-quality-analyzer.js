@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Click Fun 內容品質分析器
+ * Bunny Click 內容品質分析器
  * 分析關鍵字密度、可讀性、SEO優化指標
  *
  * 建立時間: 2025-08-17T02:12:30+08:00
@@ -14,7 +14,7 @@ const path = require('path');
 class ContentQualityAnalyzer {
   constructor() {
     this.targetKeywords = {
-      tier1: ['Click Fun', 'Click Fun', '點擊樂趣遊戲'],
+      tier1: ['Bunny Click', 'Bunny Click', '點擊樂趣遊戲'],
       tier2: ['點擊遊戲', '免費點擊遊戲', '線上點擊遊戲', 'PWA遊戲', 'TPS計算'],
       tier3: [
         '免費線上點擊速度測試遊戲',
@@ -284,7 +284,7 @@ class ContentQualityAnalyzer {
   analyzeInternalLinks(htmlContent) {
     const allLinks = htmlContent.match(/<a[^>]+href=['"][^'"]*['"][^>]*>/gi) || [];
     const internalLinks = allLinks.filter(
-      link => !link.includes('http') || link.includes('haotool.github.io/clickfun'),
+      link => !link.includes('http') || link.includes('haotool.github.io/bunny-click'),
     );
 
     const issues = [];
@@ -491,7 +491,7 @@ class ContentQualityAnalyzer {
       titleOptimization: {
         標題過長: '將標題精簡至 50-60 字符，突出核心關鍵字',
         標題過短: '適當延長標題，增加相關關鍵字和吸引力',
-        標題未包含主要品牌關鍵字: '在標題前端加入品牌關鍵字「Click Fun」',
+        標題未包含主要品牌關鍵字: '在標題前端加入品牌關鍵字「Bunny Click」',
       },
       metaDescription: {
         描述過長: '精簡描述至 150-160 字符，突出核心賣點',
@@ -527,7 +527,7 @@ class ContentQualityAnalyzer {
       timeZone: 'Asia/Taipei',
     });
 
-    let markdown = '# Click Fun 內容品質分析報告\n\n';
+    let markdown = '# Bunny Click 內容品質分析報告\n\n';
     markdown += `**分析時間**: ${timestamp}\n`;
     markdown += `**檔案路徑**: ${report.file_path}\n`;
     markdown += `**總體評分**: ${report.overall_score}/100\n\n`;

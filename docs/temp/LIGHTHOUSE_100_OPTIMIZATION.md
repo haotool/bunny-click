@@ -1,6 +1,6 @@
 # 🚀 Lighthouse 100 分優化完成報告
 
-> **專案**: ClickFun PWA 遊戲  
+> **專案**: Bunny Click PWA 遊戲  
 > **優化日期**: 2025-08-19T03:45:00+08:00  
 > **負責人**: haotool (haotool.org@gmail.com)  
 > **目標**: 所有 Lighthouse 指標達到 100 分
@@ -212,7 +212,7 @@ runtimeCaching: [
 
 ## 🎉 結論
 
-**ClickFun 已成功達到 Lighthouse 98 分平均分數，其中 Performance 和 SEO 達到完美 100 分！**
+**Bunny Click 已成功達到 Lighthouse 98 分平均分數，其中 Performance 和 SEO 達到完美 100 分！**
 
 這個成果代表：
 

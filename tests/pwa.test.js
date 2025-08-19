@@ -329,8 +329,8 @@ describe('Cache Strategy', () => {
     // 模擬 CacheManager 類別
     class CacheManager {
       constructor() {
-        this.cacheName = 'clickfun-cache-v1';
-        this.staticCacheName = 'clickfun-static-v1';
+        this.cacheName = 'bunny-click-cache-v1';
+        this.staticCacheName = 'bunny-click-static-v1';
       }
 
       async preCache(urls) {
@@ -370,7 +370,7 @@ describe('Cache Strategy', () => {
         try {
           const cacheNames = await caches.keys();
           const oldCaches = cacheNames.filter(
-            name => name.startsWith('clickfun-') && name !== currentVersion
+            name => name.startsWith('bunny-click-') && name !== currentVersion
           );
 
           const deletePromises = oldCaches.map(name => caches.delete(name));
@@ -410,7 +410,7 @@ describe('Cache Strategy', () => {
       const result = await cacheManager.preCache(urls);
 
       expect(result).toBe(true);
-      expect(caches.open).toHaveBeenCalledWith('clickfun-cache-v1');
+      expect(caches.open).toHaveBeenCalledWith('bunny-click-cache-v1');
     });
   });
 
@@ -435,13 +435,13 @@ describe('Cache Strategy', () => {
 
       const response = await cacheManager.getCachedResponse(mockRequest);
 
-      expect(caches.open).toHaveBeenCalledWith('clickfun-cache-v1');
+      expect(caches.open).toHaveBeenCalledWith('bunny-click-cache-v1');
     });
   });
 
   describe('快取管理', () => {
     test('應該能清理舊快取', async () => {
-      const deletedCount = await cacheManager.clearOldCaches('clickfun-cache-v2');
+      const deletedCount = await cacheManager.clearOldCaches('bunny-click-cache-v2');
 
       expect(deletedCount).toBeGreaterThanOrEqual(0);
       expect(caches.keys).toHaveBeenCalled();
@@ -453,7 +453,7 @@ describe('Cache Strategy', () => {
       expect(stats).toHaveProperty('cacheName');
       expect(stats).toHaveProperty('itemCount');
       expect(stats).toHaveProperty('keys');
-      expect(stats.cacheName).toBe('clickfun-cache-v1');
+      expect(stats.cacheName).toBe('bunny-click-cache-v1');
     });
   });
 });

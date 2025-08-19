@@ -11,7 +11,7 @@
 
 ### 核心目標
 
-建立全面的 AI 搜尋引擎測試自動化系統，確保 Click Fun 在主要 AI 平台中維持最佳可見度和推薦準確性。
+建立全面的 AI 搜尋引擎測試自動化系統，確保 Bunny Click 在主要 AI 平台中維持最佳可見度和推薦準確性。
 
 ### 測試覆蓋範圍
 
@@ -45,7 +45,7 @@ AI_Testing_Coverage:
 ```javascript
 /**
  * ChatGPT 推薦測試套件
- * 測試 Click Fun 在 ChatGPT 中的推薦表現
+ * 測試 Bunny Click 在 ChatGPT 中的推薦表現
  */
 class ChatGPTRecommendationTest {
   constructor() {
@@ -63,7 +63,7 @@ class ChatGPTRecommendationTest {
     ];
 
     this.expectedKeywords = [
-      'Click Fun',
+      'Bunny Click',
       '點擊遊戲',
       'PWA',
       'TPS',
@@ -90,7 +90,7 @@ class ChatGPTRecommendationTest {
         query,
         timestamp: new Date().toISOString(),
         response_time: endTime - startTime,
-        mentioned: this.checkClick FunMention(response),
+        mentioned: this.checkBunny ClickMention(response),
         position: this.getMentionPosition(response),
         context: this.extractMentionContext(response),
         accuracy: this.checkDescriptionAccuracy(response),
@@ -111,17 +111,17 @@ class ChatGPTRecommendationTest {
   }
 
   /**
-   * 檢查 Click Fun 是否被提及
+   * 檢查 Bunny Click 是否被提及
    * @param {string} response - AI 回應內容
    * @returns {boolean} 是否提及
    */
-  checkClick FunMention(response) {
+  checkBunny ClickMention(response) {
     const mentionPatterns = [
-      /Click Fun/gi,
-      /Click Fun/gi,
-      /clickfun/gi,
+      /Bunny Click/gi,
+      /Bunny Click/gi,
+      /bunny-click/gi,
       /點擊樂趣/gi,
-      /haotool\.github\.io\/clickfun/gi,
+      /haotool\.github\.io\/bunny-click/gi,
     ];
 
     return mentionPatterns.some(pattern => pattern.test(response));
@@ -136,7 +136,7 @@ class ChatGPTRecommendationTest {
     const recommendations = this.parseRecommendations(response);
 
     for (let i = 0; i < recommendations.length; i++) {
-      if (this.checkClick FunMention(recommendations[i])) {
+      if (this.checkBunny ClickMention(recommendations[i])) {
         return i + 1;
       }
     }
@@ -271,11 +271,11 @@ class PerplexitySourceTest {
    */
   checkCitation(response) {
     const citationPatterns = [
-      /haotool\.github\.io\/clickfun/gi,
-      /Click Fun.*技術/gi,
-      /PWA.*Click Fun/gi,
-      /\[.*Click Fun.*\]/gi,
-      /來源.*Click Fun/gi,
+      /haotool\.github\.io\/bunny-click/gi,
+      /Bunny Click.*技術/gi,
+      /PWA.*Bunny Click/gi,
+      /\[.*Bunny Click.*\]/gi,
+      /來源.*Bunny Click/gi,
     ];
 
     return citationPatterns.some(pattern => pattern.test(response));
@@ -369,11 +369,11 @@ class ClaudeTechnicalTest {
    */
   checkExampleMention(response) {
     const examplePatterns = [
-      /Click Fun.*案例/gi,
-      /例如.*Click Fun/gi,
-      /Click Fun.*展示/gi,
-      /實例.*Click Fun/gi,
-      /Click Fun.*實現/gi,
+      /Bunny Click.*案例/gi,
+      /例如.*Bunny Click/gi,
+      /Bunny Click.*展示/gi,
+      /實例.*Bunny Click/gi,
+      /Bunny Click.*實現/gi,
     ];
 
     return examplePatterns.some(pattern => pattern.test(response));
@@ -385,13 +385,13 @@ class ClaudeTechnicalTest {
    * @returns {string} 認知等級
    */
   checkProfessionalRecognition(response) {
-    if (/Click Fun.*業界領先|標杆|優秀案例/gi.test(response)) {
+    if (/Bunny Click.*業界領先|標杆|優秀案例/gi.test(response)) {
       return 'Industry Leader';
-    } else if (/Click Fun.*專業|高品質|企業級/gi.test(response)) {
+    } else if (/Bunny Click.*專業|高品質|企業級/gi.test(response)) {
       return 'Professional Grade';
-    } else if (/Click Fun.*不錯|良好|可用/gi.test(response)) {
+    } else if (/Bunny Click.*不錯|良好|可用/gi.test(response)) {
       return 'Good Quality';
-    } else if (/Click Fun/gi.test(response)) {
+    } else if (/Bunny Click/gi.test(response)) {
       return 'Basic Recognition';
     } else {
       return 'No Recognition';

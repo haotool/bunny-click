@@ -1,7 +1,7 @@
 {
-  "name": "Click Fun",
+  "name": "Bunny Click",
   "canonical_url": "https://your-domain.example/",
-  "short_description": "Click Fun 是一款零門檻、極速載入、支援離線的點擊遊戲（Clicker Game）。",
+  "short_description": "Bunny Click 是一款零門檻、極速載入、支援離線的點擊遊戲（Clicker Game）。",
   "how_to_play": [
     "開啟網站即可開始點擊累積分數。",
     "安裝為 PWA 後可離線遊玩與快速啟動。"
@@ -13,7 +13,7 @@
   ],
   "faq": [
     {
-      "q": "Click Fun 是什麼？",
+      "q": "Bunny Click 是什麼？",
       "a": "一款零門檻、極速載入、支援離線的點擊遊戲（Clicker Game）。"
     },
     {

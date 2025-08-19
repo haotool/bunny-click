@@ -25,7 +25,7 @@ class CacheClearTester {
     console.log('📦 測試 1: 創建測試快取...');
 
     // 創建一些測試快取
-    const testCaches = ['clickfun-v7.2.3', 'clickfun-v7.2.3', 'clickfun-v7.2.3', 'old-cache-test'];
+    const testCaches = ['bunny-click-v7.2.3', 'bunny-click-v7.2.3', 'bunny-click-v7.2.3', 'old-cache-test'];
 
     for (const cacheName of testCaches) {
       const cache = await caches.open(cacheName);
@@ -67,7 +67,7 @@ class CacheClearTester {
     console.log('清除前的快取:', beforeCaches);
 
     // 執行快取清除邏輯
-    const currentCacheName = 'clickfun-v7.2.3';
+    const currentCacheName = 'bunny-click-v7.2.3';
     const cachesToDelete = beforeCaches.filter(name => name !== currentCacheName);
 
     await Promise.all(
