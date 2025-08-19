@@ -43,9 +43,9 @@
     "git-hooks:install": "node scripts/setup-git-hooks.cjs install",
     "git-hooks:remove": "node scripts/setup-git-hooks.cjs remove",
     "git-hooks:status": "node scripts/setup-git-hooks.cjs status",
-    "icons:optimize": "squoosh-cli --webp auto --avif auto icons/bunny-click.png -d icons",
+    "icons:optimize": "sharp icons/bunny-click.png --resize 1024 --withoutEnlargement --png --output icons/bunny-click.png && sharp icons/bunny-click.png --to-format webp --output icons/bunny-click.webp && sharp icons/bunny-click.png --to-format avif --output icons/bunny-click.avif",
     "icons:generate": "pwa-asset-generator icons/bunny-click.png public/icons --background 'transparent' --padding 10 --opaque false --favicon true --mstile true --type png --log true",
-    "icons:build": "npm run icons:optimize && npm run icons:generate",
+    "icons:build": "npm run icons:generate",
     "serve:lighthouse": "node dev-tools/tps-test-server.js || node dev-tools/lighthouse-server.js"
   },
   "keywords": [
