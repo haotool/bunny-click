@@ -18,7 +18,7 @@ if (!global.performance) {
   global.performance = {
     now: jest.fn(() => Date.now()),
     mark: jest.fn(),
-    measure: jest.fn(), 
+    measure: jest.fn(),
     getEntriesByName: jest.fn(() => []),
     getEntriesByType: jest.fn(() => []),
     memory: {
@@ -28,6 +28,29 @@ if (!global.performance) {
     },
   };
 }
+
+// Navigator API polyfill for PWA/offline testing
+if (!global.navigator) {
+  global.navigator = {
+    onLine: true,
+    userAgent: 'jest-test-environment',
+    language: 'en-US',
+    languages: ['en-US', 'en'],
+  };
+}
+
+// 確保 Object.defineProperty 正確定義 navigator.onLine
+Object.defineProperty(global.navigator, 'onLine', {
+  writable: true,
+  value: true,
+  configurable: true,
+});
+
+// 模擬 window.navigator 為了 PWA 測試
+if (!global.window) {
+  global.window = {};
+}
+global.window.navigator = global.navigator;
 
 // URL constructor polyfill for Web API tests
 global.URL = global.URL || require('url').URL;
