@@ -1,42 +1,80 @@
 /**
- * Jest 測試設置文件
- * 配置測試環境和全局設置
- * 基於 Context7 最佳實踐
+ * Jest 測試環境設置文件
+ * 提供瀏覽器環境 polyfills 與模擬對象
+ * [context7:/jestjs/jest:2025-08-20T01:33:46+08:00]
  */
 
-// 設置測試環境變數
-process.env.NODE_ENV = 'test';
+// DOM polyfills for jsdom environment
+global.requestAnimationFrame = (callback) => {
+  return setTimeout(callback, 0);
+};
 
-// 模擬瀏覽器環境（如果需要）
-global.window = global.window || {};
-global.document = global.document || {};
-global.navigator = global.navigator || {};
+global.cancelAnimationFrame = (id) => {
+  clearTimeout(id);
+};
 
-// 清理函數
-afterEach(() => {
-  // 清理測試後的狀態
-  jest.clearAllMocks();
-  jest.clearAllTimers();
+// Performance API polyfill
+if (!global.performance) {
+  global.performance = {
+    now: () => Date.now(),
+    mark: () => {},
+    measure: () => {},
+    getEntriesByName: () => [],
+    getEntriesByType: () => [],
+  };
+}
+
+// URL constructor polyfill for Web API tests
+global.URL = global.URL || require('url').URL;
+
+// Request/Response polyfills for PWA tests
+global.Request = global.Request || class MockRequest {
+  constructor(url, options = {}) {
+    this.url = new URL(url, 'http://localhost').href;
+    this.method = options.method || 'GET';
+    this.headers = new Map(Object.entries(options.headers || {}));
+  }
+};
+
+global.Response = global.Response || class MockResponse {
+  constructor(body, options = {}) {
+    this.body = body;
+    this.status = options.status || 200;
+    this.headers = new Map(Object.entries(options.headers || {}));
+    this.ok = this.status >= 200 && this.status < 300;
+  }
+  
+  async json() {
+    return JSON.parse(this.body);
+  }
+  
+  async text() {
+    return this.body;
+  }
+};
+
+// Navigator polyfill
+Object.defineProperty(global, 'navigator', {
+  value: {
+    userAgent: 'Mozilla/5.0 (Test Environment)',
+    serviceWorker: {
+      register: jest.fn().mockResolvedValue({}),
+    },
+  },
+  writable: true,
 });
 
-// 全局測試工具函數
-global.testUtils = {
-  // 創建模擬遊戲狀態
-  createMockGameState: () => ({
-    score: 0,
-    tps: 0,
-    isActive: false,
-    mode: 'single',
-    timeLeft: 30,
-  }),
+// Window event listener polyfill
+global.addEventListener = global.addEventListener || jest.fn();
+global.removeEventListener = global.removeEventListener || jest.fn();
 
-  // 等待異步操作
-  wait: ms => new Promise(resolve => setTimeout(resolve, ms)),
-
-  // 模擬點擊事件
-  simulateClick: element => {
-    if (element && typeof element.click === 'function') {
-      element.click();
-    }
-  },
+// Console polyfill for cleaner test output
+const originalError = console.error;
+console.error = (...args) => {
+  // Suppress expected errors in test environment
+  if (args[0] && typeof args[0] === 'string' && 
+      (args[0].includes('Warning:') || args[0].includes('React'))) {
+    return;
+  }
+  originalError.apply(console, args);
 };

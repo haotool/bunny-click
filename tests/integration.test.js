@@ -3,7 +3,7 @@
  * 測試主要功能模組的整合
  */
 
-import { jest } from '@jest/globals';
+// Jest 全域對象由測試環境提供
 
 // 模擬瀏覽器環境
 global.window = {

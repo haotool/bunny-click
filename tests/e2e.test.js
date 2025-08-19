@@ -396,7 +396,8 @@ describe('E2E Tests - 完整遊戲流程', () => {
       });
       
       const memoryInfo = await page.evaluate(() => ({
-        memoryUsage: (performance as any).memory?.usedJSHeapSize / 1024 / 1024 || 50,
+        memoryUsage: (performance.memory && performance.memory.usedJSHeapSize) ? 
+                     performance.memory.usedJSHeapSize / 1024 / 1024 : 50,
         stable: true
       }));
       

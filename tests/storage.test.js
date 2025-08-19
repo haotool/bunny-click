@@ -7,9 +7,9 @@
  * @created 2025-08-18T02:39:58+08:00
  */
 
-import { StorageAdapter, GameStorage } from '../storage/adapter.js';
-import { LocalStorageAdapter } from '../storage/localStorage.js';
-import { IndexedDBAdapter } from '../storage/indexedDB.js';
+const { StorageAdapter, GameStorage } = require('../storage/adapter.js');
+const { LocalStorageAdapter } = require('../storage/localStorage.js');
+const { IndexedDBAdapter } = require('../storage/indexedDB.js');
 
 // Mock IndexedDB for testing
 global.indexedDB = require('fake-indexeddb');
