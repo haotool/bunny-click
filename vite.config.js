@@ -68,7 +68,7 @@ export default defineConfig({
         globPatterns: [
           '**/*.{js,css,html,ico,png,svg,webmanifest,woff2}',
           'icons/**/*.{png,svg,ico}',
-          'fonts/**/*.{woff2,woff,ttf}',
+          'assets/fonts/**/*.{woff2,woff,ttf}',
         ],
 
         // 排除特定檔案

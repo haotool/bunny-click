@@ -18,12 +18,12 @@ export default [
       'dist/**',
       'build/**',
       'coverage/**',
-      'team-worktrees/**', // 排除多工作區目錄
+      'team-worktrees/**',
+      'history/**', // 忽略歷史檔案目錄
       '*.min.js',
       '*.bundle.js',
-      'dev-tools/cache-test.html',
-      'dev-tools/tps-test.html',
       'app.js', // JSON-LD 結構化數據，非 JavaScript 代碼
+      'jest.setup.js', // 測試設置檔案，包含特殊模擬代碼
     ],
   },
 
@@ -50,7 +50,8 @@ export default [
     ...js.configs.recommended,
     rules: {
       // 程式碼品質規則
-      'no-console': 'warn', // 開發工具中允許 console
+      // 允許部分 console 方法，禁止其他方法
+      'no-console': ['warn', { 'allow': ['warn', 'error', 'info'] }], // 開發工具中允許 console
       'no-unused-vars': [
         'warn',
         {

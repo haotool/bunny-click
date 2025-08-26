@@ -98,3 +98,8 @@ performance-*.json
 test-results.json
 e2e-results.json
 performance-results.json
+
+# 問題目錄 - 包含過時代碼和開發工具
+history/
+dev-tools/
+team-worktrees/
