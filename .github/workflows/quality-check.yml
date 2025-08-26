@@ -142,8 +142,8 @@ jobs:
       - name: 🔧 安裝依賴
         run: npm ci
 
-          - name: 📦 下載建置產物
-      uses: actions/download-artifact@v4
+      - name: 📦 下載建置產物
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist/
@@ -174,8 +174,8 @@ jobs:
       - name: 🔧 安裝依賴
         run: npm ci
 
-          - name: 📦 下載建置產物
-      uses: actions/download-artifact@v4
+      - name: 📦 下載建置產物
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist/
