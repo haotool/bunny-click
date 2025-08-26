@@ -2,6 +2,17 @@
 
 所有重要變更都會記錄在此文件中。
 
+## [1.1.0](https://github.com/haotool/bunny-click/compare/v1.0.0...v1.1.0) (2025-08-26)
+
+### Bug Fixes
+
+* **ci:** 修復 GitHub Actions artifact 版本相容性 ([6c7d5c0](https://github.com/haotool/bunny-click/commit/6c7d5c01b8c24089c25bfc212bd42534634241c1))
+* **ci:** 修復所有 GitHub Actions YAML 縮排問題 ([9539b7e](https://github.com/haotool/bunny-click/commit/9539b7ebb393d38e81bc3b590d389d96912e9fcc))
+
+### Features
+
+* 完成自動化最佳實踐落地與品質提升 ([f716163](https://github.com/haotool/bunny-click/commit/f716163cf8d55eb8aa1c84c0edaf6236286e3562))
+
 ## 1.0.0 (2025-08-19)
 
 ### ⚠ BREAKING CHANGES
