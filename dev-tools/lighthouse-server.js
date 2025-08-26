@@ -26,7 +26,7 @@ app.use((req, res, next) => {
   res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
   res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
   res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
-  
+
   // 壓縮標頭
   if (req.url.match(/\.(html|css|js|json)$/)) {
     res.setHeader('Content-Encoding', 'gzip');
@@ -46,7 +46,7 @@ app.use(express.static(path.join(__dirname, 'dist'), {
     } else if (filePath.endsWith('.webmanifest')) {
       res.setHeader('Content-Type', 'application/manifest+json');
     }
-  }
+  },
 }));
 
 // 處理 SPA 路由

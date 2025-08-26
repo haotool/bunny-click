@@ -172,7 +172,7 @@ describe('Bunny Click 整合測試', () => {
       if (!global.performance.measure) {
         global.performance.measure = jest.fn();
       }
-      
+
       // 驗證 Performance API 可用性
       expect(global.performance.now).toBeDefined();
       expect(global.performance.mark).toBeDefined();

@@ -28,7 +28,8 @@ const config = {
     // 處理樣式檔案
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
     // 處理圖片與靜態資源
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/tests/__mocks__/fileMock.js',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/tests/__mocks__/fileMock.js',
   },
 
   // 變換配置 - ES6 模組支援
@@ -37,10 +38,7 @@ const config = {
   },
 
   // 測試匹配模式
-  testMatch: [
-    '<rootDir>/tests/**/*.test.js',
-    '<rootDir>/scripts/**/*.test.js',
-  ],
+  testMatch: ['<rootDir>/tests/**/*.test.js', '<rootDir>/scripts/**/*.test.js'],
 
   // 忽略測試路徑
   testPathIgnorePatterns: [
@@ -88,19 +86,32 @@ const config = {
   // 錯誤處理
   errorOnDeprecated: false,
 
-  // 覆蓋率門檻 (暫時設為 0，避免 CI 失敗)
+  // 覆蓋率門檻 (根據 .cursor/rules/quality.mdc 標準)
   coverageThreshold: {
     global: {
-      branches: 0,
-      functions: 0,
-      lines: 0,
-      statements: 0,
+      branches: 75,
+      functions: 90,
+      lines: 80,
+      statements: 85,
+    },
+    // 核心模組更嚴格要求
+    './app.js': {
+      branches: 80,
+      functions: 95,
+      lines: 85,
+      statements: 90,
+    },
+    './storage/': {
+      branches: 75,
+      functions: 90,
+      lines: 80,
+      statements: 85,
     },
   },
 
   // Jest 全域變數
   globals: {
-    'NODE_ENV': 'test',
+    NODE_ENV: 'test',
   },
 };
 

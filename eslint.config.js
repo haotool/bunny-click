@@ -2,7 +2,7 @@
  * ESLint 配置檔案 (v9 格式)
  * 基於 Context7 最新最佳實踐優化
  *
- * @author: @s123104
+ * @author: @haotool
  * @version: 1.0.0
  * @created: 2025-01-27T15:45:00+08:00
  */

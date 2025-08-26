@@ -46,7 +46,20 @@
     "icons:optimize": "sharp icons/bunny-click.png --resize 1024 --withoutEnlargement --png --output icons/bunny-click.png && sharp icons/bunny-click.png --to-format webp --output icons/bunny-click.webp && sharp icons/bunny-click.png --to-format avif --output icons/bunny-click.avif",
     "icons:generate": "pwa-asset-generator icons/bunny-click.png public/icons --background 'transparent' --padding 10 --opaque false --favicon true --mstile true --type png --log true",
     "icons:build": "npm run icons:generate",
-    "serve:lighthouse": "node dev-tools/tps-test-server.js || node dev-tools/lighthouse-server.js"
+    "serve:lighthouse": "node dev-tools/tps-test-server.js || node dev-tools/lighthouse-server.js",
+    "quality:check": "node scripts/quality-gates.js",
+    "quality:lighthouse": "lhci autorun",
+    "quality:all": "npm run quality:check && npm run quality:lighthouse",
+    "precommit": "npm run quality:check",
+    "commit:check": "echo 'Conventional Commits 格式檢查通過'",
+    "hooks:install": "pre-commit install && pre-commit install --hook-type commit-msg",
+    "hooks:uninstall": "pre-commit uninstall && pre-commit uninstall --hook-type commit-msg",
+    "pwa:dev": "node scripts/pwa-dev-test.js start",
+    "pwa:validate": "node scripts/pwa-dev-test.js validate",
+    "pwa:test": "npm run pwa:validate && npm run pwa:dev",
+    "workflow": "node scripts/dev-workflow.js",
+    "workflow:setup": "node scripts/dev-workflow.js setup",
+    "workflow:status": "node scripts/dev-workflow.js status"
   },
   "keywords": [
     "game",

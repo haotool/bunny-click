@@ -1,7 +1,7 @@
 /**
  * IndexedDB 適配器
  * 提供標準化的 IndexedDB 介面，支援大容量儲存
- * 
+ *
  * @author haotool
  * @version 7.2.3
  * @created 2025-08-18T02:39:58+08:00
@@ -13,9 +13,9 @@ export class IndexedDBAdapter {
       dbName: 'Bunny ClickDB',
       version: 1,
       storeName: 'gameData',
-      ...config
+      ...config,
     };
-    
+
     this.db = null;
     this.isAvailable = this.checkAvailability();
   }
@@ -25,8 +25,8 @@ export class IndexedDBAdapter {
    */
   checkAvailability() {
     try {
-      return 'indexedDB' in window && 
-             window.indexedDB !== null && 
+      return 'indexedDB' in window &&
+             window.indexedDB !== null &&
              window.indexedDB !== undefined;
     } catch (e) {
       console.warn('⚠️ IndexedDB 不可用:', e);
@@ -52,27 +52,27 @@ export class IndexedDBAdapter {
       request.onsuccess = () => {
         this.db = request.result;
         this.log(`✅ IndexedDB 連接成功: ${this.config.dbName}`);
-        
+
         // 設定錯誤處理
         this.db.onerror = (event) => {
           console.error('❌ IndexedDB 操作錯誤:', event);
         };
-        
+
         resolve();
       };
 
       request.onupgradeneeded = (event) => {
         const db = event.target.result;
         this.log(`🔄 IndexedDB 升級: v${event.oldVersion} → v${event.newVersion}`);
-        
+
         // 建立 object store
         if (!db.objectStoreNames.contains(this.config.storeName)) {
           const store = db.createObjectStore(this.config.storeName, { keyPath: 'key' });
-          
+
           // 建立索引
           store.createIndex('timestamp', 'timestamp', { unique: false });
           store.createIndex('expires', 'expires', { unique: false });
-          
+
           this.log(`📦 建立 Object Store: ${this.config.storeName}`);
         }
       };
@@ -86,7 +86,7 @@ export class IndexedDBAdapter {
     if (!this.db) {
       throw new Error('IndexedDB 未初始化');
     }
-    
+
     return this.db.transaction([this.config.storeName], mode);
   }
 
@@ -109,13 +109,13 @@ export class IndexedDBAdapter {
     return new Promise((resolve, reject) => {
       try {
         const store = this.getStore('readwrite');
-        
+
         // 建立資料物件
         const data = {
           key,
           value,
           timestamp: Date.now(),
-          version: this.config.version
+          version: this.config.version,
         };
 
         // 添加過期時間 (如果指定)
@@ -155,7 +155,7 @@ export class IndexedDBAdapter {
 
         request.onsuccess = () => {
           const result = request.result;
-          
+
           if (!result) {
             resolve(null);
             return;
@@ -309,16 +309,16 @@ export class IndexedDBAdapter {
         const store = this.getStore('readwrite');
         const index = store.index('expires');
         const now = Date.now();
-        
+
         // 查詢所有過期的資料
         const range = IDBKeyRange.upperBound(now);
         const request = index.openCursor(range);
-        
+
         let deletedCount = 0;
 
         request.onsuccess = (event) => {
           const cursor = event.target.result;
-          
+
           if (cursor) {
             // 刪除過期資料
             const deleteRequest = cursor.delete();
@@ -352,17 +352,17 @@ export class IndexedDBAdapter {
     try {
       const keys = await this.keys();
       const itemCount = keys.length;
-      
+
       // 估算存儲空間使用 (IndexedDB 沒有直接的大小查詢方法)
       // 這是一個粗略的估算
       let estimatedSize = 0;
-      
+
       // 取樣部分資料來估算平均大小
       const sampleSize = Math.min(10, itemCount);
       if (sampleSize > 0) {
         const sampleKeys = keys.slice(0, sampleSize);
         let sampleTotalSize = 0;
-        
+
         for (const key of sampleKeys) {
           const value = await this.getItem(key);
           if (value !== null) {
@@ -370,7 +370,7 @@ export class IndexedDBAdapter {
             sampleTotalSize += serialized.length * 2; // UTF-16
           }
         }
-        
+
         const averageSize = sampleTotalSize / sampleSize;
         estimatedSize = averageSize * itemCount;
       }
@@ -379,9 +379,9 @@ export class IndexedDBAdapter {
         itemCount,
         estimatedSize,
         formattedSize: this.formatBytes(estimatedSize),
-        isEstimated: true
+        isEstimated: true,
       };
-      
+
     } catch (error) {
       this.log('⚠️ 獲取統計資訊時發生錯誤:', error);
       return null;
@@ -394,24 +394,24 @@ export class IndexedDBAdapter {
   async maintenance() {
     try {
       this.log('🔧 開始 IndexedDB 維護...');
-      
+
       // 清理過期資料
       const deletedCount = await this.cleanupExpiredData();
-      
+
       // 獲取統計資訊
       const stats = await this.getStats();
-      
+
       this.log('✅ IndexedDB 維護完成', {
         deletedExpired: deletedCount,
         totalItems: stats?.itemCount || 0,
-        estimatedSize: stats?.formattedSize || '未知'
+        estimatedSize: stats?.formattedSize || '未知',
       });
-      
+
       return {
         deletedExpired: deletedCount,
-        stats
+        stats,
       };
-      
+
     } catch (error) {
       this.log('⚠️ IndexedDB 維護時發生錯誤:', error);
       throw error;
@@ -433,11 +433,11 @@ export class IndexedDBAdapter {
    * 格式化位元組大小
    */
   formatBytes(bytes) {
-    if (bytes === 0) return '0 Bytes';
+    if (bytes === 0) {return '0 Bytes';}
     const k = 1024;
     const sizes = ['Bytes', 'KB', 'MB', 'GB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`;
   }
 
   /**

@@ -1,0 +1,85 @@
+# Pre-commit hooks 配置
+# 基於 .cursor/rules/ 規範自動執行品質檢查
+# 建立時間: 2025-08-26T23:10:06+08:00 [time.now:Asia/Taipei]
+# 負責人: haotool
+
+repos:
+  # ESLint 程式碼品質檢查
+  - repo: local
+    hooks:
+      - id: eslint
+        name: ESLint 程式碼品質檢查
+        entry: npm run lint:check
+        language: system
+        files: \.(js|jsx|ts|tsx)$
+        pass_filenames: false
+
+  # Prettier 程式碼格式化檢查
+  - repo: local
+    hooks:
+      - id: prettier
+        name: Prettier 格式化檢查
+        entry: npm run format:check
+        language: system
+        files: \.(js|jsx|ts|tsx|json|md|css|scss)$
+        pass_filenames: false
+
+  # Jest 單元測試
+  - repo: local
+    hooks:
+      - id: jest
+        name: Jest 單元測試執行
+        entry: npm run test:ci
+        language: system
+        pass_filenames: false
+        stages: [commit]
+
+  # 安全性掃描
+  - repo: local
+    hooks:
+      - id: audit
+        name: npm 安全性掃描
+        entry: npm audit --audit-level=moderate
+        language: system
+        pass_filenames: false
+        stages: [commit]
+
+  # 檔案大小檢查
+  - repo: pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-added-large-files
+        args: ['--maxkb=1000'] # 限制 1MB
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: check-json
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  # Git 提交訊息檢查 (Conventional Commits)
+  - repo: local
+    hooks:
+      - id: commitizen
+        name: Conventional Commits 格式檢查
+        entry: npm run commit:check
+        language: system
+        stages: [commit-msg]
+        pass_filenames: false
+
+# 全域設定
+default_stages: [commit]
+fail_fast: false
+
+# CI 設定
+ci:
+  autofix_commit_msg: |
+    [pre-commit.ci] auto fixes from pre-commit hooks
+
+    for more information, see https://pre-commit.ci
+  autofix_prs: true
+  autoupdate_branch: ''
+  autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false

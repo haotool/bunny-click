@@ -22,7 +22,7 @@ global.navigator = {
       Promise.resolve({
         quota: 10 * 1024 * 1024 * 1024, // 10GB
         usage: 50 * 1024 * 1024, // 50MB
-      })
+      }),
     ),
     persist: jest.fn(() => Promise.resolve(true)),
   },
@@ -212,9 +212,9 @@ describe('PWAUpdateManager', () => {
     test('應該能顯示更新提示', () => {
       // 測試狀態變更，而不是 DOM 操作
       updateManager.showUpdatePrompt();
-      
+
       expect(updateManager.needRefresh).toBe(true);
-      
+
       // 檢查內部狀態而不是 DOM 操作
       expect(updateManager.needRefresh).toBe(true);
     });
@@ -346,7 +346,7 @@ describe('Cache Strategy', () => {
         try {
           const cacheNames = await caches.keys();
           const oldCaches = cacheNames.filter(
-            name => name.startsWith('bunny-click-') && name !== currentVersion
+            name => name.startsWith('bunny-click-') && name !== currentVersion,
           );
 
           const deletePromises = oldCaches.map(name => caches.delete(name));
@@ -508,7 +508,7 @@ describe('Offline Detection', () => {
       Promise.resolve({
         ok: true,
         status: 200,
-      })
+      }),
     );
 
     offlineManager = new OfflineManager();
@@ -598,7 +598,7 @@ describe('Storage Quota Management', () => {
 
       async checkQuota() {
         const estimate = await this.getStorageEstimate();
-        if (!estimate) return null;
+        if (!estimate) {return null;}
 
         const { quota, usage } = estimate;
         const usagePercentage = quota > 0 ? usage / quota : 0;
@@ -613,8 +613,8 @@ describe('Storage Quota Management', () => {
       }
 
       getQuotaStatus(percentage) {
-        if (percentage >= this.criticalThreshold) return 'critical';
-        if (percentage >= this.warningThreshold) return 'warning';
+        if (percentage >= this.criticalThreshold) {return 'critical';}
+        if (percentage >= this.warningThreshold) {return 'warning';}
         return 'normal';
       }
 
@@ -626,11 +626,11 @@ describe('Storage Quota Management', () => {
       }
 
       formatBytes(bytes) {
-        if (bytes === 0) return '0 Bytes';
+        if (bytes === 0) {return '0 Bytes';}
         const k = 1024;
         const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
         const i = Math.floor(Math.log(bytes) / Math.log(k));
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`;
       }
     }
 
@@ -716,7 +716,7 @@ describe('PWA Installation', () => {
       }
 
       async showInstallPrompt() {
-        if (!this.deferredPrompt) return null;
+        if (!this.deferredPrompt) {return null;}
 
         try {
           const result = await this.deferredPrompt.prompt();
@@ -760,7 +760,7 @@ describe('PWA Installation', () => {
     test('應該設置安裝事件監聽器', () => {
       expect(window.addEventListener).toHaveBeenCalledWith(
         'beforeinstallprompt',
-        expect.any(Function)
+        expect.any(Function),
       );
       expect(window.addEventListener).toHaveBeenCalledWith('appinstalled', expect.any(Function));
     });

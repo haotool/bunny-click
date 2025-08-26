@@ -2,7 +2,7 @@
  * 統一儲存適配器 - Storage Adapter
  * 提供 LocalStorage 與 IndexedDB 的統一介面
  * 基於適配器模式設計，支援自動回退與容量管理
- * 
+ *
  * @author haotool
  * @version 7.2.3
  * @created 2025-08-18T02:39:58+08:00
@@ -28,7 +28,7 @@ export class StorageAdapter {
       quotaWarningThreshold: options.quotaWarningThreshold || 5 * 1024 * 1024,
       // 是否啟用調試模式
       debug: options.debug || false,
-      ...options
+      ...options,
     };
 
     this.primaryAdapter = null;
@@ -47,7 +47,7 @@ export class StorageAdapter {
       if (this.config.preferredStorage === 'indexeddb' && this.isIndexedDBSupported()) {
         this.primaryAdapter = new IndexedDBAdapter(this.config);
         this.fallbackAdapter = new LocalStorageAdapter(this.config);
-        
+
         await this.primaryAdapter.init();
         this.log('✅ IndexedDB 初始化成功，LocalStorage 作為後備');
       } else {
@@ -58,13 +58,13 @@ export class StorageAdapter {
 
       await this.primaryAdapter.init();
       this.isInitialized = true;
-      
+
       // 檢查儲存配額
       await this.checkStorageQuota();
-      
+
     } catch (error) {
       console.error('❌ 儲存適配器初始化失敗:', error);
-      
+
       // 回退到 LocalStorage
       if (this.fallbackAdapter) {
         this.log('🔄 回退到 LocalStorage');
@@ -82,8 +82,8 @@ export class StorageAdapter {
    */
   isIndexedDBSupported() {
     try {
-      return 'indexedDB' in window && 
-             window.indexedDB !== null && 
+      return 'indexedDB' in window &&
+             window.indexedDB !== null &&
              window.indexedDB !== undefined;
     } catch (e) {
       return false;
@@ -99,13 +99,13 @@ export class StorageAdapter {
         const estimate = await navigator.storage.estimate();
         const used = estimate.usage || 0;
         const total = estimate.quota || 0;
-        
+
         this.log(`📊 儲存使用狀況: ${this.formatBytes(used)} / ${this.formatBytes(total)}`);
-        
+
         if (used > this.config.quotaWarningThreshold) {
           console.warn(`⚠️ 儲存空間使用量較高: ${this.formatBytes(used)}`);
         }
-        
+
         return { used, total, percentage: total > 0 ? (used / total) * 100 : 0 };
       }
     } catch (error) {
@@ -118,11 +118,11 @@ export class StorageAdapter {
    * 格式化位元組大小
    */
   formatBytes(bytes) {
-    if (bytes === 0) return '0 Bytes';
+    if (bytes === 0) {return '0 Bytes';}
     const k = 1024;
     const sizes = ['Bytes', 'KB', 'MB', 'GB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`;
   }
 
   /**
@@ -130,13 +130,13 @@ export class StorageAdapter {
    */
   async setItem(key, value, options = {}) {
     await this.ensureInitialized();
-    
+
     try {
       await this.primaryAdapter.setItem(key, value, options);
       this.log(`💾 儲存成功: ${key}`);
     } catch (error) {
       console.error(`❌ 儲存失敗 ${key}:`, error);
-      
+
       // 嘗試使用後備適配器
       if (this.fallbackAdapter && this.primaryAdapter !== this.fallbackAdapter) {
         try {
@@ -157,7 +157,7 @@ export class StorageAdapter {
    */
   async getItem(key) {
     await this.ensureInitialized();
-    
+
     try {
       const value = await this.primaryAdapter.getItem(key);
       if (value !== null) {
@@ -195,14 +195,14 @@ export class StorageAdapter {
    */
   async removeItem(key) {
     await this.ensureInitialized();
-    
+
     const promises = [];
-    
+
     // 從主適配器移除
     promises.push(
       this.primaryAdapter.removeItem(key).catch(error => {
         console.error(`❌ 主適配器移除失敗 ${key}:`, error);
-      })
+      }),
     );
 
     // 從後備適配器移除
@@ -210,7 +210,7 @@ export class StorageAdapter {
       promises.push(
         this.fallbackAdapter.removeItem(key).catch(error => {
           console.error(`❌ 後備適配器移除失敗 ${key}:`, error);
-        })
+        }),
       );
     }
 
@@ -223,20 +223,20 @@ export class StorageAdapter {
    */
   async clear() {
     await this.ensureInitialized();
-    
+
     const promises = [];
-    
+
     promises.push(
       this.primaryAdapter.clear().catch(error => {
         console.error('❌ 主適配器清空失敗:', error);
-      })
+      }),
     );
 
     if (this.fallbackAdapter && this.primaryAdapter !== this.fallbackAdapter) {
       promises.push(
         this.fallbackAdapter.clear().catch(error => {
           console.error('❌ 後備適配器清空失敗:', error);
-        })
+        }),
       );
     }
 
@@ -286,7 +286,7 @@ export class StorageAdapter {
       primary: this.primaryAdapter?.constructor.name || 'None',
       fallback: this.fallbackAdapter?.constructor.name || 'None',
       isInitialized: this.isInitialized,
-      config: this.config
+      config: this.config,
     };
   }
 }
@@ -295,7 +295,7 @@ export class StorageAdapter {
 export const storage = new StorageAdapter({
   debug: false, // 生產環境關閉調試
   dbName: 'Bunny ClickDB',
-  version: 1
+  version: 1,
 });
 
 // 遊戲專用的高階 API
@@ -315,9 +315,9 @@ export class GameStorage {
       soundEnabled: true,
       vibrationEnabled: true,
       effectsEnabled: true,
-      theme: 'auto'
+      theme: 'auto',
     };
-    
+
     const settings = await this.storage.getItem('game:settings');
     return settings ? { ...defaultSettings, ...settings } : defaultSettings;
   }
@@ -329,9 +329,9 @@ export class GameStorage {
       score,
       tps,
       timestamp: Date.now(),
-      date: new Date().toISOString()
+      date: new Date().toISOString(),
     };
-    
+
     await this.storage.setItem(key, record);
   }
 
@@ -347,14 +347,14 @@ export class GameStorage {
     history.unshift({
       ...gameData,
       id: Date.now(),
-      timestamp: Date.now()
+      timestamp: Date.now(),
     });
-    
+
     // 保留最近 100 筆記錄
     if (history.length > 100) {
       history.splice(100);
     }
-    
+
     await this.storage.setItem('game:history', history);
   }
 
@@ -367,7 +367,7 @@ export class GameStorage {
   async clearGameData() {
     const keys = await this.storage.keys();
     const gameKeys = keys.filter(key => key.startsWith('game:'));
-    
+
     for (const key of gameKeys) {
       await this.storage.removeItem(key);
     }

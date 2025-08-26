@@ -59,10 +59,10 @@ describe('TPSCalculator', () => {
       }
 
       getAverageTPS() {
-        if (this.clickBuffer.length === 0) return 0;
+        if (this.clickBuffer.length === 0) {return 0;}
         const timeSpan = Math.max(
           this.clickBuffer[this.clickBuffer.length - 1] - this.clickBuffer[0],
-          this.windowSize
+          this.windowSize,
         );
         return (this.clickBuffer.length * 1000) / timeSpan;
       }
@@ -75,7 +75,7 @@ describe('TPSCalculator', () => {
           const windowStart = bufferCopy[i];
           const windowEnd = windowStart + this.windowSize;
           const clicksInWindow = bufferCopy.filter(
-            time => time >= windowStart && time <= windowEnd
+            time => time >= windowStart && time <= windowEnd,
           ).length;
           peak = Math.max(peak, clicksInWindow);
         }
@@ -325,7 +325,7 @@ describe('InputManager', () => {
           y: 200,
           playerId: 1, // 左側
           timestamp: expect.any(Number),
-        })
+        }),
       );
     });
 
@@ -376,7 +376,7 @@ describe('InputManager', () => {
           playerId: 1,
           type: 'mouse',
           timestamp: expect.any(Number),
-        })
+        }),
       );
     });
   });
@@ -529,7 +529,7 @@ describe('GameEngine', () => {
       }
 
       handleClick(clickEvent) {
-        if (this.state.mode !== 'playing') return;
+        if (this.state.mode !== 'playing') {return;}
 
         const player = this.state.players.find(p => p.id === clickEvent.playerId);
         if (player && player.active) {

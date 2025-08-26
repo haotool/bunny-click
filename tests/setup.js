@@ -71,11 +71,11 @@ global.Response = global.Response || class MockResponse {
     this.headers = new Map(Object.entries(options.headers || {}));
     this.ok = this.status >= 200 && this.status < 300;
   }
-  
+
   async json() {
     return JSON.parse(this.body);
   }
-  
+
   async text() {
     return this.body;
   }
@@ -100,7 +100,7 @@ global.removeEventListener = global.removeEventListener || jest.fn();
 const originalError = console.error;
 console.error = (...args) => {
   // Suppress expected errors in test environment
-  if (args[0] && typeof args[0] === 'string' && 
+  if (args[0] && typeof args[0] === 'string' &&
       (args[0].includes('Warning:') || args[0].includes('React'))) {
     return;
   }

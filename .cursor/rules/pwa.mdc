@@ -1,0 +1,507 @@
+---
+description: 'PWA 專用規範 - 漸進式 Web 應用程式最佳實踐'
+type: 'Auto Attached'
+pattern: '**/*.{js,ts,html,json,webmanifest}'
+version: '1.0.0'
+author: 'haotool'
+last_updated: '2025-08-26T23:10:06+08:00'
+context7_source: '/vite-pwa/vite-plugin-pwa:2025-08-26T23:10:06+08:00'
+---
+
+# PWA 專用規範
+
+基於 [context7:/vite-pwa/vite-plugin-pwa:2025-08-26T23:10:06+08:00] 最新文檔
+
+## Vite PWA 配置最佳實踐
+
+### 基礎配置
+
+```javascript
+// vite.config.js - 推薦配置
+import { defineConfig } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
+
+export default defineConfig({
+  plugins: [
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+      manifest: {
+        name: 'Bunny Click - 點擊樂趣遊戲',
+        short_name: 'BunnyClick',
+        description: '現代化的 PWA 點擊遊戲，展示 Web 技術極限',
+        theme_color: '#f66fb9',
+        background_color: '#ffffff',
+        display: 'standalone',
+        orientation: 'portrait',
+        scope: '/',
+        start_url: '/',
+        icons: [
+          {
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable',
+          },
+        ],
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365, // 365 days
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+        ],
+      },
+      devOptions: {
+        enabled: true,
+        type: 'module',
+      },
+    }),
+  ],
+});
+```
+
+## PWA 最低要求標準
+
+### HTML Head 必要元素
+
+```html
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bunny Click - 點擊樂趣遊戲</title>
+  <meta name="description" content="現代化的 PWA 點擊遊戲，展示 Web 技術極限" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+  <link rel="mask-icon" href="/mask-icon.svg" color="#f66fb9" />
+  <meta name="theme-color" content="#f66fb9" />
+
+  <!-- PWA 相關 meta -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="BunnyClick" />
+</head>
+```
+
+### Manifest 檔案要求
+
+```json
+{
+  "name": "Bunny Click - 點擊樂趣遊戲",
+  "short_name": "BunnyClick",
+  "description": "現代化的 PWA 點擊遊戲，展示 Web 技術極限",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#f66fb9",
+  "background_color": "#ffffff",
+  "categories": ["games", "entertainment"],
+  "lang": "zh-TW",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
+```
+
+## Service Worker 最佳實踐
+
+### 基礎 Service Worker 結構
+
+```javascript
+// sw.js - 基本 Service Worker 實作
+import { precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching';
+import { registerRoute } from 'workbox-routing';
+import { StaleWhileRevalidate, CacheFirst } from 'workbox-strategies';
+
+// 預快取靜態資源
+precacheAndRoute(self.__WB_MANIFEST);
+
+// 清理過期快取
+cleanupOutdatedCaches();
+
+// 快取策略配置
+registerRoute(
+  ({ request }) => request.destination === 'image',
+  new CacheFirst({
+    cacheName: 'images',
+    plugins: [
+      {
+        cacheKeyWillBeUsed: async ({ request }) => {
+          return `${request.url}?v=${Date.now()}`;
+        },
+      },
+    ],
+  })
+);
+
+// API 快取策略
+registerRoute(
+  ({ url }) => url.pathname.startsWith('/api/'),
+  new StaleWhileRevalidate({
+    cacheName: 'api-cache',
+    plugins: [
+      {
+        cacheWillUpdate: async ({ response }) => {
+          return response.status === 200 ? response : null;
+        },
+      },
+    ],
+  })
+);
+```
+
+### 自動更新實作
+
+```javascript
+// 配置自動更新
+VitePWA({
+  registerType: 'autoUpdate',
+  workbox: {
+    clientsClaim: true,
+    skipWaiting: true,
+  },
+});
+
+// 手動更新控制
+import { registerSW } from 'virtual:pwa-register';
+
+const updateSW = registerSW({
+  onNeedRefresh() {
+    // 顯示更新提示
+    showUpdatePrompt();
+  },
+  onOfflineReady() {
+    // 顯示離線就緒提示
+    showOfflineReadyPrompt();
+  },
+});
+
+const showUpdatePrompt = () => {
+  if (confirm('有新版本可用，是否立即更新？')) {
+    updateSW(true); // 重新載入頁面
+  }
+};
+```
+
+## 離線功能實作
+
+### 離線頁面策略
+
+```javascript
+// 離線頁面回退
+registerRoute(
+  ({ request }) => request.mode === 'navigate',
+  async ({ event }) => {
+    try {
+      return await fetch(event.request);
+    } catch (error) {
+      return caches.match('/offline.html');
+    }
+  }
+);
+```
+
+### 資料同步策略
+
+```javascript
+// 背景同步實作
+registerRoute(
+  ({ url }) => url.pathname === '/api/sync',
+  new NetworkOnly({
+    plugins: [
+      {
+        fetchDidFail: async ({ originalRequest }) => {
+          // 儲存失敗的請求供後續同步
+          await saveFailedRequest(originalRequest);
+        },
+      },
+    ],
+  }),
+  'POST'
+);
+
+// 註冊背景同步
+self.addEventListener('sync', event => {
+  if (event.tag === 'game-data-sync') {
+    event.waitUntil(syncGameData());
+  }
+});
+```
+
+## 效能優化
+
+### 預載入策略
+
+```javascript
+// 關鍵資源預載入
+const CRITICAL_ASSETS = ['/styles/critical.css', '/js/game-engine.js', '/sounds/click.mp3'];
+
+self.addEventListener('install', event => {
+  event.waitUntil(caches.open('critical-assets').then(cache => cache.addAll(CRITICAL_ASSETS)));
+});
+```
+
+### 智慧快取清理
+
+```javascript
+// 定期清理過期快取
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheName.startsWith('old-cache-')) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
+```
+
+## 安裝與更新體驗
+
+### 安裝提示實作
+
+```javascript
+// 自定義安裝提示
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', event => {
+  // 阻止預設安裝提示
+  event.preventDefault();
+  deferredPrompt = event;
+
+  // 顯示自定義安裝按鈕
+  showInstallButton();
+});
+
+const showInstallPrompt = async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === 'accepted') {
+      console.log('用戶同意安裝 PWA');
+    }
+
+    deferredPrompt = null;
+    hideInstallButton();
+  }
+};
+```
+
+### 更新通知實作
+
+```javascript
+// 更新通知組件
+class UpdateNotification {
+  constructor() {
+    this.element = this.createElement();
+    this.isVisible = false;
+  }
+
+  createElement() {
+    const div = document.createElement('div');
+    div.className = 'update-notification';
+    div.innerHTML = `
+      <div class="update-content">
+        <p>有新版本可用</p>
+        <button id="update-btn">更新</button>
+        <button id="dismiss-btn">稍後</button>
+      </div>
+    `;
+    return div;
+  }
+
+  show() {
+    if (!this.isVisible) {
+      document.body.appendChild(this.element);
+      this.isVisible = true;
+
+      this.element.querySelector('#update-btn').addEventListener('click', () => {
+        updateSW(true);
+      });
+
+      this.element.querySelector('#dismiss-btn').addEventListener('click', () => {
+        this.hide();
+      });
+    }
+  }
+
+  hide() {
+    if (this.isVisible) {
+      document.body.removeChild(this.element);
+      this.isVisible = false;
+    }
+  }
+}
+```
+
+## 測試與驗證
+
+### PWA 檢查清單
+
+- [ ] Manifest 檔案正確配置
+- [ ] Service Worker 正常運作
+- [ ] 離線功能可用
+- [ ] 安裝提示正常顯示
+- [ ] 圖標齊全且正確尺寸
+- [ ] HTTPS 部署
+- [ ] Lighthouse PWA 分數 ≥ 90
+
+### 測試腳本
+
+```javascript
+// PWA 功能測試
+describe('PWA Features', () => {
+  test('Service Worker 註冊成功', async () => {
+    const registration = await navigator.serviceWorker.ready;
+    expect(registration).toBeDefined();
+  });
+
+  test('Manifest 檔案可存取', async () => {
+    const response = await fetch('/manifest.webmanifest');
+    expect(response.status).toBe(200);
+    expect(response.headers.get('content-type')).toBe('application/manifest+json');
+  });
+
+  test('離線功能正常', async () => {
+    // 模擬離線狀態
+    await page.setOfflineMode(true);
+
+    const response = await page.goto('/');
+    expect(response.status()).toBe(200);
+  });
+});
+```
+
+## 部署配置
+
+### NGINX 配置
+
+```nginx
+# PWA 相關 NGINX 配置
+location /manifest.webmanifest {
+    add_header Content-Type application/manifest+json;
+    add_header Cache-Control "public, max-age=31536000";
+}
+
+location /sw.js {
+    add_header Cache-Control "public, max-age=0, must-revalidate";
+}
+
+location ~* \.(png|jpg|jpeg|gif|ico|svg)$ {
+    add_header Cache-Control "public, max-age=31536000, immutable";
+}
+```
+
+### Netlify 配置
+
+```toml
+# netlify.toml
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+## 可存取性要求
+
+### PWA 無障礙最佳實踐
+
+```html
+<!-- 安裝按鈕無障礙實作 -->
+<button id="install-btn" aria-label="安裝 Bunny Click 遊戲到您的裝置" role="button" tabindex="0">
+  <svg aria-hidden="true">...</svg>
+  安裝應用程式
+</button>
+
+<!-- 更新通知無障礙實作 -->
+<div role="alert" aria-live="polite" class="update-notification">
+  有新版本可用，點擊更新按鈕以獲得最新功能
+</div>
+```
+
+## 效能指標
+
+### PWA 效能要求
+
+- **First Contentful Paint**: ≤ 1.8s
+- **Largest Contentful Paint**: ≤ 2.5s
+- **Cumulative Layout Shift**: ≤ 0.1
+- **First Input Delay**: ≤ 100ms
+- **Time to Interactive**: ≤ 3.8s
+
+### 監控實作
+
+```javascript
+// Core Web Vitals 監控
+import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals';
+
+getCLS(console.log);
+getFID(console.log);
+getFCP(console.log);
+getLCP(console.log);
+getTTFB(console.log);
+
+// 發送到分析服務
+const sendToAnalytics = metric => {
+  fetch('/api/analytics', {
+    method: 'POST',
+    body: JSON.stringify(metric),
+  });
+};
+```

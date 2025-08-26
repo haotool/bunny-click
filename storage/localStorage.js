@@ -1,7 +1,7 @@
 /**
  * LocalStorage 適配器
  * 提供標準化的 LocalStorage 介面
- * 
+ *
  * @author haotool
  * @version 7.2.3
  * @created 2025-08-18T02:39:58+08:00
@@ -36,10 +36,10 @@ export class LocalStorageAdapter {
     if (!this.isAvailable) {
       throw new Error('LocalStorage 不可用');
     }
-    
+
     // 清理過期資料
     await this.cleanupExpiredData();
-    
+
     this.log('✅ LocalStorage 適配器初始化完成');
   }
 
@@ -50,11 +50,11 @@ export class LocalStorageAdapter {
     try {
       const keys = Object.keys(localStorage);
       const prefixedKeys = keys.filter(key => key.startsWith(this.prefix));
-      
+
       for (const key of prefixedKeys) {
         try {
           const data = JSON.parse(localStorage.getItem(key));
-          
+
           // 檢查是否有過期時間且已過期
           if (data && data.__expires && Date.now() > data.__expires) {
             localStorage.removeItem(key);
@@ -87,12 +87,12 @@ export class LocalStorageAdapter {
 
     try {
       const fullKey = this.getFullKey(key);
-      
+
       // 包裝資料，添加元資訊
       const wrappedData = {
         value,
         __timestamp: Date.now(),
-        __version: this.config.version || 1
+        __version: this.config.version || 1,
       };
 
       // 添加過期時間 (如果指定)
@@ -101,7 +101,7 @@ export class LocalStorageAdapter {
       }
 
       const serializedData = JSON.stringify(wrappedData);
-      
+
       // 檢查大小限制 (LocalStorage 通常限制為 5-10MB)
       if (serializedData.length > 5 * 1024 * 1024) {
         throw new Error('資料過大，超出 LocalStorage 限制');
@@ -109,12 +109,12 @@ export class LocalStorageAdapter {
 
       localStorage.setItem(fullKey, serializedData);
       this.log(`💾 LocalStorage 儲存: ${key} (${this.formatBytes(serializedData.length)})`);
-      
+
     } catch (error) {
       if (error.name === 'QuotaExceededError' || error.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
         // 配額超出，嘗試清理舊資料
         await this.cleanupOldData();
-        
+
         // 再次嘗試儲存
         try {
           const fullKey = this.getFullKey(key);
@@ -141,13 +141,13 @@ export class LocalStorageAdapter {
     try {
       const fullKey = this.getFullKey(key);
       const serializedData = localStorage.getItem(fullKey);
-      
+
       if (serializedData === null) {
         return null;
       }
 
       const wrappedData = JSON.parse(serializedData);
-      
+
       // 檢查是否過期
       if (wrappedData.__expires && Date.now() > wrappedData.__expires) {
         localStorage.removeItem(fullKey);
@@ -164,7 +164,7 @@ export class LocalStorageAdapter {
         this.log(`📖 LocalStorage 讀取 (舊格式): ${key}`);
         return wrappedData;
       }
-      
+
     } catch (error) {
       console.error(`❌ LocalStorage 讀取失敗 ${key}:`, error);
       return null;
@@ -194,11 +194,11 @@ export class LocalStorageAdapter {
 
     const keys = Object.keys(localStorage);
     const prefixedKeys = keys.filter(key => key.startsWith(this.prefix));
-    
+
     for (const key of prefixedKeys) {
       localStorage.removeItem(key);
     }
-    
+
     this.log(`🧹 LocalStorage 清空: ${prefixedKeys.length} 項目`);
   }
 
@@ -231,10 +231,10 @@ export class LocalStorageAdapter {
     try {
       const keys = Object.keys(localStorage);
       const prefixedKeys = keys.filter(key => key.startsWith(this.prefix));
-      
+
       // 獲取所有資料的時間戳記
       const dataWithTimestamp = [];
-      
+
       for (const key of prefixedKeys) {
         try {
           const data = JSON.parse(localStorage.getItem(key));
@@ -249,14 +249,14 @@ export class LocalStorageAdapter {
       // 按時間戳記排序，移除最舊的 25% 資料
       dataWithTimestamp.sort((a, b) => a.timestamp - b.timestamp);
       const itemsToRemove = Math.ceil(dataWithTimestamp.length * 0.25);
-      
+
       for (let i = 0; i < itemsToRemove; i++) {
         localStorage.removeItem(dataWithTimestamp[i].key);
         this.log(`🧹 清理舊資料: ${dataWithTimestamp[i].key}`);
       }
-      
+
       this.log(`🧹 清理完成，移除 ${itemsToRemove} 項舊資料`);
-      
+
     } catch (error) {
       this.log('⚠️ 清理舊資料時發生錯誤:', error);
     }
@@ -266,11 +266,11 @@ export class LocalStorageAdapter {
    * 格式化位元組大小
    */
   formatBytes(bytes) {
-    if (bytes === 0) return '0 Bytes';
+    if (bytes === 0) {return '0 Bytes';}
     const k = 1024;
     const sizes = ['Bytes', 'KB', 'MB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`;
   }
 
   /**
@@ -289,7 +289,7 @@ export class LocalStorageAdapter {
     try {
       const keys = await this.keys();
       let totalSize = 0;
-      
+
       for (const key of keys) {
         const fullKey = this.getFullKey(key);
         const data = localStorage.getItem(fullKey);
@@ -303,7 +303,7 @@ export class LocalStorageAdapter {
         totalSize,
         formattedSize: this.formatBytes(totalSize),
         maxSize: 5 * 1024 * 1024, // 5MB 估計值
-        usagePercentage: (totalSize / (5 * 1024 * 1024)) * 100
+        usagePercentage: (totalSize / (5 * 1024 * 1024)) * 100,
       };
     } catch (error) {
       this.log('⚠️ 獲取統計資訊時發生錯誤:', error);

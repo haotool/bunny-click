@@ -1,8 +1,9 @@
 /**
  * Vite 配置文件 - Bunny Click PWA 專案
  * 基於 Context7 最佳實踐的現代化 PWA 配置
- * [context7:vite-pwa/vite-plugin-pwa:2025-08-16T20:52:00+08:00]
- * 版本: 2025.8.16
+ * [context7:vite-pwa/vite-plugin-pwa:2025-08-26T23:10:06+08:00]
+ * [context7:vitejs/vite:2025-08-26T23:10:06+08:00]
+ * 版本: 2025.8.26
  */
 
 import { defineConfig } from 'vite';
@@ -11,25 +12,32 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
   plugins: [
     VitePWA({
-      // 註冊類型：提示用戶更新 (基於 Context7 最佳實踐)
-      registerType: 'prompt',
+      // 註冊類型：自動更新 (Context7 最新推薦)
+      registerType: 'autoUpdate',
 
-      // 開發選項
+      // 包含額外資產 (Context7 最佳實踐)
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+
+      // 開發選項 (支援開發階段測試)
       devOptions: {
         enabled: true,
+        type: 'module',
+        navigateFallbackAllowlist: [/^index\.html$/],
       },
 
-      // Web App Manifest 配置
+      // Web App Manifest 配置 (基於專案品牌色彩)
       manifest: {
         name: 'Bunny Click - 點擊樂趣遊戲',
-        short_name: 'Bunny Click',
-        description: '一個有趣的點擊遊戲，測試您的 TPS (每秒點擊次數) 並享受炫酷特效',
-        theme_color: '#ff69b4',
-        background_color: '#87ceeb',
+        short_name: 'BunnyClick',
+        description: '現代化的 PWA 點擊遊戲，展示 Web 技術極限的炫酷特效與音效體驗',
+        theme_color: '#f66fb9',
+        background_color: '#ffffff',
         start_url: '/',
         scope: '/',
         display: 'standalone',
         orientation: 'portrait',
+        categories: ['games', 'entertainment'],
+        lang: 'zh-TW',
         icons: [
           {
             src: 'icons/icon-192x192.png',
@@ -50,13 +58,17 @@ export default defineConfig({
         ],
       },
 
-      // Workbox 配置 - 基於 Context7 最佳實踐
+      // Workbox 配置 - 基於 Context7 最新最佳實踐
       workbox: {
+        // 強制自動更新行為
+        clientsClaim: true,
+        skipWaiting: true,
+
         // 預快取檔案模式 - 包含所有必要資源
         globPatterns: [
           '**/*.{js,css,html,ico,png,svg,webmanifest,woff2}',
           'icons/**/*.{png,svg,ico}',
-          'fonts/**/*.{woff2,woff,ttf}'
+          'fonts/**/*.{woff2,woff,ttf}',
         ],
 
         // 排除特定檔案
@@ -64,6 +76,10 @@ export default defineConfig({
 
         // 最大檔案大小限制 (3MB)
         maximumFileSizeToCacheInBytes: 3000000,
+
+        // 導航回退處理
+        navigateFallback: '/index.html',
+        navigateFallbackDenylist: [/^\/api\//],
 
         // 運行時快取策略 - 基於 Context7 最佳實踐
         runtimeCaching: [
@@ -211,10 +227,19 @@ export default defineConfig({
     host: true,
   },
 
-  // 開發伺服器配置
+  // 開發伺服器配置 (Context7 效能最佳實踐)
   server: {
     port: 8000,
     host: true,
     open: true,
+    // 檔案預熱，提升開發體驗
+    warmup: {
+      clientFiles: ['./index.html', './styles.css', './app.js', './fx.worker.js'],
+    },
+  },
+
+  // 依賴預建置優化
+  optimizeDeps: {
+    include: ['workbox-core', 'workbox-precaching', 'workbox-routing', 'workbox-strategies'],
   },
 });

@@ -85,7 +85,7 @@ describe('效能監控', () => {
       }
 
       trackGamePerformance(gameEngine) {
-        if (!gameEngine) return;
+        if (!gameEngine) {return;}
 
         const tpsStats = gameEngine.tpsCalculator?.getStatistics();
         if (tpsStats) {
@@ -148,11 +148,11 @@ describe('效能監控', () => {
       }
 
       formatBytes(bytes) {
-        if (bytes === 0) return '0 Bytes';
+        if (bytes === 0) {return '0 Bytes';}
         const k = 1024;
         const sizes = ['Bytes', 'KB', 'MB', 'GB'];
         const i = Math.floor(Math.log(bytes) / Math.log(k));
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`;
       }
 
       clearMetrics() {
@@ -538,7 +538,7 @@ describe('快取效能測試', () => {
       }
 
       getCacheHitRate() {
-        if (this.totalRequests === 0) return 0;
+        if (this.totalRequests === 0) {return 0;}
         return (this.hitCount / this.totalRequests) * 100;
       }
 
@@ -682,11 +682,11 @@ describe('網路效能測試', () => {
     // 簡單的效能評分算法
     let score = 100;
 
-    if (metrics.fcp > 1800) score -= 10;
-    if (metrics.lcp > 2500) score -= 15;
-    if (metrics.cls > 0.1) score -= 10;
-    if (metrics.fid > 100) score -= 10;
-    if (metrics.ttfb > 200) score -= 5;
+    if (metrics.fcp > 1800) {score -= 10;}
+    if (metrics.lcp > 2500) {score -= 15;}
+    if (metrics.cls > 0.1) {score -= 10;}
+    if (metrics.fid > 100) {score -= 10;}
+    if (metrics.ttfb > 200) {score -= 5;}
 
     expect(score).toBeGreaterThanOrEqual(90); // 目標分數 90+
   });
