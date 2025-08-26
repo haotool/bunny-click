@@ -93,9 +93,7 @@ jobs:
       pages: write
       id-token: write
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    environment: github-pages
 
     steps:
       - name: 📥 Checkout 程式碼
@@ -160,6 +158,7 @@ jobs:
           echo "- 強化 pre-commit hooks" >> release_notes.md
 
       - name: 🏷️ 建立 GitHub Release
+        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,534 @@
+/**
+ * Components Styles - UI 元件樣式
+ * 模組化的元件樣式定義
+ * 
+ * @author haotool
+ * @version 7.2.3
+ * @created 2025-08-26
+ */
+
+/* ============ 遊戲板樣式 ============ */
+.game-board {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  position: relative;
+}
+
+.game-area {
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* 單人模式區域 */
+.bunny-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.bunny-btn {
+  width: 200px;
+  height: 200px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.bunny-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(246, 168, 216, 0.4);
+}
+
+.bunny-btn:active,
+.bunny-btn.clicked {
+  transform: scale(0.95);
+  box-shadow: var(--shadow-md);
+}
+
+.bunny-emoji {
+  font-size: 4rem;
+  line-height: 1;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.click-text {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--text-white);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* 雙人模式區域 */
+.dual-zone {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: var(--spacing-xl);
+  align-items: center;
+  justify-content: space-around;
+}
+
+.player-zone {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-btn {
+  width: 150px;
+  height: 150px;
+  border: none;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+.player-1-btn {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+}
+
+.player-2-btn {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #c1e3f6 100%);
+}
+
+.player-btn:hover {
+  transform: scale(1.05);
+}
+
+.player-btn:active,
+.player-btn.clicked {
+  transform: scale(0.95);
+}
+
+.player-emoji {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.player-text {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--text-white);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ============ 分數板樣式 ============ */
+.score-board {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.score-container {
+  margin-bottom: var(--spacing-lg);
+}
+
+.score-section {
+  text-align: center;
+}
+
+.single-score .score-value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.dual-scores {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: var(--spacing-md);
+}
+
+.player-score {
+  flex: 1;
+  text-align: center;
+}
+
+.player-score .score-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.vs-separator {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--text-secondary);
+  padding: 0 var(--spacing-md);
+}
+
+.score-label {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-around;
+  gap: var(--spacing-md);
+}
+
+.info-item {
+  text-align: center;
+  flex: 1;
+}
+
+.info-label {
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-value {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* 分數動畫效果 */
+.score-value.winner {
+  color: var(--success-color);
+  animation: pulse 0.5s ease-in-out 3;
+}
+
+.score-value.tie {
+  color: var(--warning-color);
+  animation: shake 0.5s ease-in-out;
+}
+
+.score-value.final-score {
+  color: var(--accent-color);
+  animation: glow 1s ease-in-out 2;
+}
+
+/* 時間警告樣式 */
+.info-value.time-warning {
+  color: var(--error-color);
+  animation: blink 0.5s ease-in-out infinite;
+}
+
+/* TPS 樣式 */
+.info-value.tps-low { color: #6c757d; }
+.info-value.tps-medium { color: var(--warning-color); }
+.info-value.tps-high { color: var(--accent-color); }
+.info-value.tps-extreme { 
+  color: var(--error-color);
+  animation: pulse 0.3s ease-in-out infinite;
+}
+
+/* 等級樣式 */
+.info-value.level-low { color: #6c757d; }
+.info-value.level-medium { color: var(--warning-color); }
+.info-value.level-high { color: var(--accent-color); }
+.info-value.level-max { 
+  color: var(--error-color);
+  animation: rainbow 2s linear infinite;
+}
+
+/* ============ 控制面板樣式 ============ */
+.control-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.panel-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.panel-section:last-child {
+  margin-bottom: 0;
+}
+
+/* 遊戲控制按鈕 */
+.game-controls {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.control-btn {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  box-shadow: var(--shadow-sm);
+  min-width: 120px;
+  justify-content: center;
+}
+
+.start-btn {
+  background: linear-gradient(135deg, var(--success-color) 0%, #69db7c 100%);
+  color: var(--text-white);
+}
+
+.reset-btn {
+  background: linear-gradient(135deg, var(--warning-color) 0%, #fff066 100%);
+  color: var(--text-primary);
+}
+
+.exit-btn {
+  background: linear-gradient(135deg, var(--error-color) 0%, #ff8787 100%);
+  color: var(--text-white);
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.control-btn:active {
+  transform: translateY(0);
+}
+
+.control-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 模式選擇 */
+.mode-selector {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+.mode-btn {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--primary-color);
+  font-size: var(--font-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex: 1;
+  justify-content: center;
+  max-width: 150px;
+}
+
+.mode-btn.active {
+  background: var(--primary-color);
+  color: var(--text-white);
+}
+
+.mode-btn:hover:not(:disabled) {
+  background: var(--primary-light);
+  color: var(--text-white);
+}
+
+.mode-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 設定控制 */
+.setting-group {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.setting-btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--text-muted);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  min-width: 80px;
+  justify-content: center;
+}
+
+.setting-btn.active {
+  background: var(--primary-color);
+  color: var(--text-white);
+  border-color: var(--primary-color);
+}
+
+.setting-btn:hover {
+  background: var(--primary-light);
+  color: var(--text-white);
+  border-color: var(--primary-light);
+}
+
+/* 版本資訊 */
+.version-info {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--font-xs);
+  font-weight: 500;
+}
+
+/* ============ 響應式設計 ============ */
+@media (max-width: 768px) {
+  .bunny-btn {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .bunny-emoji {
+    font-size: 3rem;
+  }
+  
+  .player-btn {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .player-emoji {
+    font-size: 2.5rem;
+  }
+  
+  .dual-zone {
+    gap: var(--spacing-md);
+  }
+  
+  .single-score .score-value {
+    font-size: 2.5rem;
+  }
+  
+  .player-score .score-value {
+    font-size: 1.5rem;
+  }
+  
+  .game-controls {
+    flex-direction: column;
+  }
+  
+  .mode-selector {
+    flex-direction: column;
+  }
+  
+  .mode-btn {
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .bunny-btn {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .bunny-emoji {
+    font-size: 2.5rem;
+  }
+  
+  .player-btn {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .player-emoji {
+    font-size: 2rem;
+  }
+  
+  .score-board, .control-panel {
+    margin: var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+  
+  .single-score .score-value {
+    font-size: 2rem;
+  }
+  
+  .setting-group {
+    flex-direction: column;
+  }
+}
+
+/* ============ 動畫定義 ============ */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px currentColor; }
+  50% { box-shadow: 0 0 20px currentColor; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes rainbow {
+  0% { color: #ff0000; }
+  16.67% { color: #ff8800; }
+  33.33% { color: #ffff00; }
+  50% { color: #00ff00; }
+  66.67% { color: #0088ff; }
+  83.33% { color: #8800ff; }
+  100% { color: #ff0000; }
+}

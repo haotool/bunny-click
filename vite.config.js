@@ -10,6 +10,44 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  // 建置配置 (整合配置)
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: './src/index.html',
+      },
+      output: {
+        // 檔案命名策略 - 優化快取
+        chunkFileNames: 'js/[name]-[hash].js',
+        entryFileNames: 'js/[name]-[hash].js',
+        assetFileNames: ({ name }) => {
+          if (/\.(gif|jpe?g|png|svg|ico)$/.test(name ?? '')) {
+            return 'assets/images/[name]-[hash][extname]';
+          }
+          if (/\.css$/.test(name ?? '')) {
+            return 'assets/css/[name]-[hash][extname]';
+          }
+          if (/\.(woff2|woff|ttf)$/.test(name ?? '')) {
+            return 'assets/fonts/[name]-[hash][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        },
+      },
+    },
+    // 壓縮選項
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: false, // 開發階段保留 console
+        drop_debugger: true,
+      },
+    },
+    // 資源內聯閾值
+    assetsInlineLimit: 4096,
+  },
+
   plugins: [
     VitePWA({
       // 註冊類型：自動更新 (Context7 最新推薦)
@@ -176,48 +214,6 @@ export default defineConfig({
     }),
   ],
 
-  // 建置配置
-  build: {
-    // 產物目錄
-    outDir: 'dist',
-
-    // 最佳化選項
-    rollupOptions: {
-      output: {
-        // 檔案命名策略 - 優化快取
-        chunkFileNames: 'js/[name]-[hash].js',
-        entryFileNames: 'js/[name]-[hash].js',
-        assetFileNames: ({ name }) => {
-          if (/\.(gif|jpe?g|png|svg|ico)$/.test(name ?? '')) {
-            return 'assets/images/[name]-[hash][extname]';
-          }
-          if (/\.css$/.test(name ?? '')) {
-            return 'assets/css/[name]-[hash][extname]';
-          }
-          if (/\.(woff2|woff|ttf)$/.test(name ?? '')) {
-            return 'assets/fonts/[name]-[hash][extname]';
-          }
-          return 'assets/[name]-[hash][extname]';
-        },
-      },
-    },
-
-    // 壓縮選項
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
-
-    // 資源內聯閾值
-    assetsInlineLimit: 4096,
-  },
-
-  // 公共目錄資源複製
-  publicDir: 'public',
-
   // 靜態資源處理
   assetsInclude: ['**/*.woff2', '**/*.woff', '**/*.png', '**/*.svg', '**/*.ico'],
 
@@ -231,10 +227,9 @@ export default defineConfig({
   server: {
     port: 8000,
     host: true,
-    open: true,
     // 檔案預熱，提升開發體驗
     warmup: {
-      clientFiles: ['./index.html', './styles.css', './app.js', './fx.worker.js'],
+      clientFiles: ['./src/index.html', './src/main.js', './src/styles/main.css'],
     },
   },
 
