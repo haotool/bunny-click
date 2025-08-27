@@ -70,6 +70,11 @@ test-results/
 screenshots/
 *.test.log
 
+# Jest 快取目錄 - 根據 Context7 Jest 最佳實踐
+.jest-cache/
+jest-transform-cache-*/
+jest-cache/
+
 # 本地開發伺服器
 server.log
 .local-server/

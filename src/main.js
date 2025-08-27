@@ -701,8 +701,10 @@ class BunnyClickGame {
    */
   showLeaderboard() {
     console.info('🏆 顯示排行榜');
-    // TODO: 實現排行榜功能
-    alert('排行榜功能開發中...');
+    const modal = document.getElementById('leaderboardModal');
+    if (modal) {
+      modal.setAttribute('aria-hidden', 'false');
+    }
   }
 
   /**
@@ -710,8 +712,10 @@ class BunnyClickGame {
    */
   showSettings() {
     console.info('⚙️ 顯示設定');
-    // TODO: 實現設定功能
-    alert('設定功能開發中...');
+    const modal = document.getElementById('settingsModal');
+    if (modal) {
+      modal.setAttribute('aria-hidden', 'false');
+    }
   }
 
   /**
@@ -719,8 +723,10 @@ class BunnyClickGame {
    */
   showGameInfo() {
     console.info('ℹ️ 顯示遊戲說明');
-    // TODO: 實現遊戲說明功能
-    alert('遊戲說明功能開發中...');
+    const modal = document.getElementById('gameInfoModal');
+    if (modal) {
+      modal.setAttribute('aria-hidden', 'false');
+    }
   }
 
   /**
@@ -753,6 +759,9 @@ function initializeGame() {
   // 啟動遊戲
   const game = new BunnyClickGame();
 
+  // 設置模態框事件監聽器
+  setupModalListeners();
+
   // 將遊戲物件和類別匯出到全域範圍 (向後相容性)
   window.game = game;
   window.BunnyClickGame = BunnyClickGame;
@@ -760,6 +769,70 @@ function initializeGame() {
 
   console.info('🎮 Bunny Click Game v7.2.3 初始化完成');
   return game;
+}
+
+/**
+ * 設置模態框事件監聽器
+ */
+function setupModalListeners() {
+  // 排行榜模態框
+  const closeLeaderboardBtn = document.getElementById('closeLeaderboardBtn');
+  if (closeLeaderboardBtn) {
+    closeLeaderboardBtn.addEventListener('click', () => {
+      closeModal('leaderboardModal');
+    });
+  }
+
+  // 設定模態框
+  const closeSettingsBtn = document.getElementById('closeSettingsBtn');
+  if (closeSettingsBtn) {
+    closeSettingsBtn.addEventListener('click', () => {
+      closeModal('settingsModal');
+    });
+  }
+
+  // 遊戲說明模態框
+  const closeGameInfoBtn = document.getElementById('closeGameInfoBtn');
+  if (closeGameInfoBtn) {
+    closeGameInfoBtn.addEventListener('click', () => {
+      closeModal('gameInfoModal');
+    });
+  }
+
+  // 點擊背景關閉模態框
+  const modals = ['leaderboardModal', 'settingsModal', 'gameInfoModal'];
+  modals.forEach(modalId => {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal(modalId);
+        }
+      });
+    }
+  });
+
+  // ESC 鍵關閉模態框
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modals.forEach(modalId => {
+        const modal = document.getElementById(modalId);
+        if (modal && modal.getAttribute('aria-hidden') === 'false') {
+          closeModal(modalId);
+        }
+      });
+    }
+  });
+}
+
+/**
+ * 關閉模態框
+ */
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.setAttribute('aria-hidden', 'true');
+  }
 }
 
 // ES6 模組匯出 (現代化最佳實踐)

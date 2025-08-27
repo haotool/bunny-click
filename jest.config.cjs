@@ -75,9 +75,17 @@ const config = {
   // 測試超時
   testTimeout: 10000,
 
-  // 快取設定
+  // 快取設定 - 根據 Context7 Jest 最佳實踐
   cache: true,
   cacheDirectory: '<rootDir>/.jest-cache',
+
+  // 監控模式忽略路徑 - 防止快取檔案觸發重新執行
+  watchPathIgnorePatterns: [
+    '<rootDir>/\\.jest-cache/',
+    '<rootDir>/node_modules/',
+    '<rootDir>/coverage/',
+    '<rootDir>/dist/',
+  ],
 
   // 並行執行
   maxWorkers: '50%',

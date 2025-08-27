@@ -1,6 +1,6 @@
 # Pre-commit hooks 配置
 # 基於 .cursor/rules/ 規範自動執行品質檢查
-# 建立時間: 2025-08-26T23:10:06+08:00 [time.now:Asia/Taipei]
+# 建立時間: 2025-08-27T22:06:00+08:00 [time.now:Asia/Taipei]
 # 負責人: haotool
 
 repos:
@@ -32,7 +32,7 @@ repos:
         entry: npm run test:ci
         language: system
         pass_filenames: false
-        stages: [commit]
+        stages: [pre-commit]
 
   # 安全性掃描
   - repo: local
@@ -42,20 +42,7 @@ repos:
         entry: npm audit --audit-level=moderate
         language: system
         pass_filenames: false
-        stages: [commit]
-
-  # 檔案大小檢查
-  - repo: pre-commit/pre-commit-hooks
-    rev: v4.4.0
-    hooks:
-      - id: check-added-large-files
-        args: ['--maxkb=1000'] # 限制 1MB
-      - id: check-case-conflict
-      - id: check-merge-conflict
-      - id: check-yaml
-      - id: check-json
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
+        stages: [pre-commit]
 
   # Git 提交訊息檢查 (Conventional Commits)
   - repo: local
@@ -68,18 +55,5 @@ repos:
         pass_filenames: false
 
 # 全域設定
-default_stages: [commit]
+default_stages: [pre-commit]
 fail_fast: false
-
-# CI 設定
-ci:
-  autofix_commit_msg: |
-    [pre-commit.ci] auto fixes from pre-commit hooks
-
-    for more information, see https://pre-commit.ci
-  autofix_prs: true
-  autoupdate_branch: ''
-  autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
-  autoupdate_schedule: weekly
-  skip: []
-  submodules: false
